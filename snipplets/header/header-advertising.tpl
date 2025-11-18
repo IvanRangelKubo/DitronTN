@@ -1,4 +1,4 @@
-{# Detectar si hay anuncios configurados #}
+
 {% set has_advertising_bar = false %}
 {% set num_messages = 0 %}
 
@@ -11,26 +11,53 @@
 {% endfor %}
 
 {% if settings.ad_bar and has_advertising_bar %}
-    <div class="container-topbanner">
-      <div data-delay="3000" data-animation="slide" class="topbannerslider w-slider" data-autoplay="true" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="500" data-infinite="true">
+<div class="container-topbanner">
+    <div 
+        data-delay="3000" 
+        data-animation="slide" 
+        class="topbannerslider w-slider" 
+        data-autoplay="true" 
+        data-easing="ease" 
+        data-hide-arrows="false" 
+        data-disable-swipe="false" 
+        data-autoplay-limit="0" 
+        data-nav-spacing="3" 
+        data-duration="500" 
+        data-infinite="true"
+    >
         <div class="w-slider-mask">
-          <div class="topslide w-slide">
-            <a href="#" class="msg-topslide">60 DÍAS PARA CAMBIOS O DEVOLUCIONES</a>
-          </div>
-          <div class="topslide w-slide">
-            <a href="#" class="msg-topslide">3 Y 6 MESES SIN INTERESES*</a>
-          </div>
-          <div class="topslide w-slide">
-            <a href="#" class="msg-topslide">ENVÍOS GRATIS - COMPRAS MAYORES A $1500 MXN</a>
-          </div>
+
+            {% for adbar in ['ad_bar_01', 'ad_bar_02', 'ad_bar_03'] %}
+                {% set advertising_text = attribute(settings, "#{adbar}_text") %}
+                {% set advertising_url = attribute(settings, "#{adbar}_url") %}
+
+                {% if advertising_text %}
+                <div class="topslide w-slide">
+                    {% if advertising_url %}
+                        <a href="{{ advertising_url }}" class="msg-topslide">
+                            {{ advertising_text }}
+                        </a>
+                    {% else %}
+                        <a class="msg-topslide">
+                            {{ advertising_text }}
+                        </a>
+                    {% endif %}
+                </div>
+                {% endif %}
+            {% endfor %}
+
         </div>
+
+        {% if num_messages > 1 %}
         <div class="topbannerarrow w-slider-arrow-left">
-          <div class="w-icon-slider-left"></div>
+            <div class="w-icon-slider-left"></div>
         </div>
         <div class="topbannerarrow w-slider-arrow-right">
-          <div class="w-icon-slider-right"></div>
+            <div class="w-icon-slider-right"></div>
         </div>
+        {% endif %}
+
         <div class="topslidenav w-slider-nav w-round"></div>
-      </div>
     </div>
+</div>
 {% endif %}
