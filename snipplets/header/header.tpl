@@ -29,7 +29,7 @@
 
         {% snipplet "header/header-logo.tpl" %}
 
-        {% snipplet "navigation/navigation.tpl" %}
+        {% snipplet "navigation/navigation-nav-list.tpl" %}
 
         <div class="cont-cartcontact">
 
@@ -48,6 +48,12 @@
     
   </div>
 </header>
+
+<style>
+    .w-dropdown-link.w--current {
+        color: inherit;
+    }
+</style>
 
 {# Show cookie validation message #}
 

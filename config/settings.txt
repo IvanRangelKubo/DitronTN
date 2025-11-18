@@ -291,6 +291,25 @@ Encabezado
 		description = Texto alternativo (Alt)
 
 	title
+		title = Menu de navegacion
+	menu
+		name = main_menu
+		description = Selecciona el menu de navegacion
+	checkbox
+		name = show_off_link
+		description = Mostrar link de ofertas
+	i18n_input
+		name = off_url
+		description = Url del link de ofertas
+	checkbox
+		name = show_contact_link
+		description = Mostrar link de contacto
+	i18n_input
+		name = contact_url
+		description = Url de contacto
+	
+
+	title
 		title = Barra de anuncios 
 	collapse
 		title = Configuración
