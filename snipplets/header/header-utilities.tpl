@@ -1,14 +1,12 @@
 {% if use_menu %}
-	<span class="utilities-container d-inline-block">
-		<a href="#" class="js-modal-open utilities-item btn btn-utility pl-0" data-toggle="#nav-hamburger" aria-label="{{ 'Menú' | translate }}" data-component="menu-button">
-			<svg class="icon-inline utilities-icon align-bottom"><use xlink:href="#bars"/></svg>
-		</a>
-	</span>
+	<div class="burgermenu w-nav-button">
+			<div class="w-icon-nav-menu"></div>
+	</div>
 {% elseif use_account %}
 	<span class="utilities-container {% if header_desktop %}d-none d-md-inline-block mr-4{% endif %}">
 		{% if icon_only %}
-			<a href="{% if not customer %}{{ store.customer_login_url }}{% else %}{{ store.customer_home_url }}{% endif %}" class="btn btn-utility">
-				<svg class="icon-inline utilities-icon"><use xlink:href="#user"/></svg>
+			<a href="{% if not customer %}{{ store.customer_login_url }}{% else %}{{ store.customer_home_url }}{% endif %}" class="linkicons-nav mobile w-inline-block">
+				<img loading="eager" src="{{ "images/icon_usuario.svg" | static_url }}" alt="Cuenta de usuario" class="icononav">
 			</a>
 		{% else %}
 			<div class="row no-gutters align-items-center font-small">
@@ -46,21 +44,25 @@
 		</a>
 	</span>
 {% else %}
-	<span class="utilities-container d-inline-block">
-		<div id="ajax-cart" class="cart-summary" data-component='cart-button'>
-			<a 
-				{% if settings.ajax_cart and template != 'cart' %}
-					href="#"
-					data-toggle="#modal-cart" 
-					data-modal-url="modal-fullscreen-cart"
-				{% else %}
-					href="{{ store.cart_url }}" 
-				{% endif %}
-				class="{% if settings.ajax_cart and template != 'cart' %}js-modal-open js-fullscreen-modal-open{% endif %} btn btn-utility position-relative pr-0"
-				>
-				<svg class="icon-inline utilities-icon cart-icon"><use xlink:href="#bag"/></svg>
-				<span class="js-cart-widget-amount badge">{{ "{1}" | translate(cart.items_count ) }}</span>
-			</a>	
-		</div>
-	</span>
+
+	<div class="linkicons-nav">
+		<a 
+			{% if settings.ajax_cart and template != 'cart' %}
+				href="#"
+				data-toggle="#modal-cart" 
+				data-modal-url="modal-fullscreen-cart"
+			{% else %}
+				href="{{ store.cart_url }}"
+			{% endif %}
+			class="{% if settings.ajax_cart and template != 'cart' %}js-modal-open js-fullscreen-modal-open{% endif %}"
+		>
+			<img src="{{ "images/cart_icon.svg" | static_url }}" alt="Carrito" class="icononav">
+
+			{# Contador dinámico de carrito #}
+			<div class="qtynumber js-cart-widget-amount">
+				{{ cart.items_count }}
+			</div>
+		</a>
+	</div>
+
 {% endif %}

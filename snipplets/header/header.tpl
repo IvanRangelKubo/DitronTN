@@ -23,9 +23,7 @@
 
     <div class="customcontainer navbar">
 
-        <div class="burgermenu w-nav-button">
-            <div class="w-icon-nav-menu"></div>
-        </div>
+        {% include "snipplets/header/header-utilities.tpl" with {use_menu: true} %}
 
         {% snipplet "header/header-logo.tpl" %}
 
