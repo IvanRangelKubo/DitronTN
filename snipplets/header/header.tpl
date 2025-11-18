@@ -32,7 +32,12 @@
         <div class="cont-cartcontact">
 
             
-            {% include "snipplets/header/header-utilities.tpl" with {use_search: true} %}
+            <div class="js-utility-col js-search-utility transition-soft">
+                {% include "snipplets/header/header-utilities.tpl" with {use_search: true} %}              
+                <span class="searchcont w-form">
+                    {% include "snipplets/header/header-search.tpl" with{ not_padding: true } %}
+                </span>      
+            </div>
 
             {% include "snipplets/header/header-utilities.tpl" with {use_account: true, icon_only: true} %}
 

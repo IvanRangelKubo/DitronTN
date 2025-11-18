@@ -38,11 +38,9 @@
 		</div>
 	</span>
 {% elseif use_search %}
-	<span class="utilities-container {% if settings.search_type_mobile == 'search_big' %}d-none{% endif %} {% if settings.search_big_desktop %}d-md-none{% else %}d-md-inline-block{% endif %}">
-		<a href="#" class="js-search-button js-modal-open js-fullscreen-modal-open btn btn-utility utilities-item {% if settings.logo_position_desktop == 'center' %}pl-md-0{% endif %}" data-modal-url="modal-fullscreen-search" data-toggle="#nav-search" aria-label="{{ 'Buscador' | translate }}">
-			<svg class="icon-inline align-bottom utilities-icon"><use xlink:href="#search"/></svg>
-		</a>
-	</span>
+		<div class="js-search-button js-modal-open js-fullscreen-modal-open linkicons-nav buscadormobile" data-modal-url="modal-fullscreen-search" data-toggle="#nav-search" aria-label="{{ 'Buscador' | translate }}">
+			<img data-w-id="19bfc965-78d2-2790-076e-c7279723f40d" loading="eager" alt="" src="{{ "images/search_icon_1.svg" | static_url }}" class="icononav">
+		</div>
 {% else %}
 
 	<div class="linkicons-nav">
@@ -58,10 +56,10 @@
 		>
 			<img src="{{ "images/cart_icon.svg" | static_url }}" alt="Carrito" class="icononav">
 
-			{# Contador dinámico de carrito #}
-			<div class="qtynumber js-cart-widget-amount">
-				{{ cart.items_count }}
-			</div>
+		{% if cart.items_count > 0 %}
+			<div class="qtynumber js-cart-widget-amount">{{ cart.items_count }}</div>
+		{% endif %}
+
 		</a>
 	</div>
 

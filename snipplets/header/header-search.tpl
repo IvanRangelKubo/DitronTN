@@ -8,11 +8,47 @@
     </a>
 {% endif %}
 
-{{ component('search/search-form', {form_classes: { 
-	form: form_container_classes, 
-	input_group: 'm-0', 
-	input: form_input_class, 
-	submit: form_submit_class, 
-	search_suggestions_container: form_suggests_container_class}, 
-	placeholder_text: 'Buscar' | translate}) 
-}}
+<div class="searchForm" >
+	<div data-w-id="19bfc965-78d2-2790-076e-c7279723f410" class="close-buscador">X</div>
+	{{ component('search/search-form', {
+		form_classes: { 
+		form: 'busqueda-formcot', 
+		input_group: 'inputGroup', 
+		input: 'input-buscador w-input', 
+		submit: 'buscarbtn w-button', 
+		search_suggestions_container: 'contsearchpredictive'}, 
+		placeholder_text: '¿Qué estás buscando?' 
+			}
+		) 
+	}}
+</div>
+
+<style>
+	.searchForm {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+	}
+
+	form.js-search-form.search-form.busqueda-formcot.expanded {
+			margin-left: 0;
+			margin-right: 0;
+	}
+
+	.form-group.inputGroup {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: 0px;
+	}
+
+	button.js-search-input-submit.search-btn.search-submit-btn.buscarbtn.w-button {
+			top: 9px;
+	}
+
+	.buscarbtn.w-button:focus {
+    opacity: inherit;
+	}
+</style>
