@@ -29,7 +29,22 @@
 
         {% snipplet "header/header-logo.tpl" %}
 
+        {% snipplet "navigation/navigation.tpl" %}
+
+        <div class="cont-cartcontact">
+
+            
+            {% include "snipplets/header/header-utilities.tpl" with {use_search: true} %}
+
+            {% include "snipplets/header/header-utilities.tpl" with {use_account: true, icon_only: true} %}
+
+            {% include "snipplets/header/header-utilities.tpl" %}
+
+        </div>
+
     </div>
+
+    {% include "snipplets/notification.tpl" with {order_notification: true} %}
     
   </div>
 </header>
