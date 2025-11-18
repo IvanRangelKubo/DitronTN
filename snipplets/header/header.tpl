@@ -10,8 +10,6 @@
 {% set header_logo_mobile_classes = settings.logo_position_mobile == 'below' ? 'head-logo-below' : settings.logo_position_mobile == 'center' ? 'head-logo-center' : 'head-logo-inline' %}
 {% set header_logo_desktop_classes = settings.logo_position_desktop == 'center' ? 'head-logo-md-center' : settings.logo_position_desktop == 'left' ? 'head-logo-md-left' %}
 
-{% set has_languages = languages | length > 1 and settings.languages_header %}
-
 {# Logo mobile dynamic classes #}
 
 {% if settings.logo_position_mobile == 'below' %}
@@ -46,8 +44,6 @@
 {% set head_transparent_with_media = head_transparent and is_video_or_slider_above_the_fold %}
 
 {% set header_transparent_classes = head_transparent_type_always ? 'js-head-mutator head-transparent' : head_transparent_type_on_section ? 'js-head-mutator head-transparent-on-section' %}
-{% set head_transparent_color_class = head_transparent and settings.head_transparent_contrast_options ? 'head-transparent-contrast' %}
-{% set head_transparent_logo_class = head_transparent and settings.head_transparent_contrast_options and "logo-transparent.jpg" | has_custom_image ? 'head-transparent-logo' %}
 
 {# Header position type #}
 
@@ -76,12 +72,12 @@
 
 {# Utilities conditions #}
 
-<header class="js-head-main head-main {{ header_transparent_classes }} {{ head_transparent_color_class }} {{ head_transparent_logo_class }} {{ header_logo_mobile_classes }} {{ header_logo_desktop_classes }} {{ head_position_mobile }} {{ head_position_desktop }} {{ header_search_desktop_classes }} transition-soft" data-store="head">
+<header class="js-head-main head-main {{ header_transparent_classes }} {{ header_logo_mobile_classes }} {{ header_logo_desktop_classes }} {{ head_position_mobile }} {{ head_position_desktop }} {{ header_search_desktop_classes }} transition-soft" data-store="head">
     {# Adversiting bar #}
     {% if settings.ad_bar %}
         {% snipplet "header/header-advertising.tpl" %}
     {% endif %}
-    <div class="js-head-logo-row head-logo-row position-relative container transition-soft{% if has_languages and settings.search_type_mobile == 'search_icon' %} head-logo-languages{% endif %}">
+    <div class="js-head-logo-row head-logo-row position-relative container transition-soft">
         <div class="{% if not settings.head_fix_desktop %}js-nav-logo-bar{% endif %} row no-gutters align-items-center{% if header_left_with_big_search %} justify-md-content-end{% endif %}">
 
             {# Menu icon #}
@@ -103,9 +99,6 @@
                 {% set logo_img_size = settings.logo_position_desktop == 'left' ? 'large' : 'huge' %}
                 {{ component('logos/logo', {logo_size: logo_img_size, logo_img_classes: 'transition-soft ' ~ logo_size_class, logo_text_classes: 'h3 m-0'}) }}
 
-                {% if template == 'home' and settings.head_transparent and settings.head_transparent_contrast_options and "logo-transparent.jpg" | has_custom_image %}
-                    {{ component('logos/logo-transparent-header', {logo_size: logo_img_size, logo_img_name: 'logo-transparent.jpg', logo_img_classes: 'transition-soft '  ~ logo_size_class}) }}
-                {% endif %}
             </div>
 
             {# Desktop navigation next to logo #}
@@ -148,12 +141,6 @@
             </div>
 
             <div class="js-utility-col transition-soft {{ utilities_desktop_classes }} d-flex {% if logo_mobile_centered_without_offset %}col-2 justify-content-end col-md-auto{% else %}col-auto{% endif %} col-utility {% if settings.logo_position_desktop == 'center' %}justify-content-md-end{% endif %}">
-
-                {# Languages #}
-
-                {% if has_languages %}
-                    {% include "snipplets/header/header-utilities.tpl" with {use_languages: true} %}
-                {% endif %}
 
                 {# Account desktop icon #}
 

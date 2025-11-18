@@ -123,3 +123,6 @@ news_show = 1
 footer_menu = navigation
 footer_menu_show = 1
 footer_contact_show = 1
+
+head_transparent_contrast_options = 0
+head_transparent = 0

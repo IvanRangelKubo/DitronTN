@@ -126,7 +126,7 @@ Clothing
 	adbar_colors = 1
 	adbar_background_color = #7A1313
 	adbar_foreground_color = #FFFFFF
-	header_colors = 1
+	header_colors = 0
 	header_background_color = #FCF6F6
 	header_foreground_color = #7A1313
 	footer_colors = 1
