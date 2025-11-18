@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/" lang="{% for language in languages %}{% if language.active %}{{ language.lang }}{% endif %}{% endfor %}">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/" lang="{% for language in languages %}{% if language.active %}{{ language.lang }}{% endif %}{% endfor %}" data-wf-page="68f67e0dee84f80c4ac40bd1" data-wf-site="68f67e0cee84f80c4ac40b86">
     <head>
         <link rel="preconnect" href="{{ store_resource_hints }}" />
         <link rel="dns-prefetch" href="{{ store_resource_hints }}" />
@@ -94,6 +94,12 @@
             }
             #barritascroll::-webkit-scrollbar-corner {
             background: transparent;
+            }
+        </style>
+
+        <style>
+            iframe#store_bar_iframe {
+                visibility: hidden;
             }
         </style>
 

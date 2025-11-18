@@ -126,3 +126,5 @@ footer_contact_show = 1
 
 head_transparent_contrast_options = 0
 head_transparent = 0
+adbar_colors = 0
+ad_bar_animate = 0

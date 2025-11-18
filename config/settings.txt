@@ -294,20 +294,8 @@ Encabezado
 	checkbox
 		name = ad_bar
 		description = Mostrar barra de anuncio
-	checkbox
-		name = adbar_colors
-		description = Usar estos colores para la barra de anuncio
-	color
-		name = adbar_background_color
-		description = Color de fondo
-	color
-		name = adbar_foreground_color
-		description = Color de texto
 	title
 		title = Mensajes
-	checkbox
-		name = ad_bar_animate
-		description = Animar texto de derecha a izquierda
 	subtitle
 		subtitle = Mensaje 1
 	i18n_input
