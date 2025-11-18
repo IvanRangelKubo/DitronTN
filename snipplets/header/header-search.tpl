@@ -51,4 +51,13 @@
 	.buscarbtn.w-button:focus {
     opacity: inherit;
 	}
+
+	.search-btn:before {
+    display: none;
+	}
+
+	.buscarbtn::after {
+		content: "Buscar";
+	}
+
 </style>
