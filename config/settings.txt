@@ -286,6 +286,9 @@ Encabezado
 	image
 		original = logo-header.jpg
 		title = Logo de la tienda.
+	i18n_input
+		name = header_logo_alt
+		description = Texto alternativo (Alt)
 
 	title
 		title = Barra de anuncios 

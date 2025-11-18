@@ -17,10 +17,19 @@
 <header class="js-head-main" data-store="head">
   <div data-w-id="19bfc965-78d2-2790-076e-c7279723f3c1" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="customnavbar w-nav">
 
-    {# Adversiting bar #}
     {% if settings.ad_bar %}
         {% snipplet "header/header-advertising.tpl" %}
     {% endif %}
+
+    <div class="customcontainer navbar">
+
+        <div class="burgermenu w-nav-button">
+            <div class="w-icon-nav-menu"></div>
+        </div>
+
+        {% snipplet "header/header-logo.tpl" %}
+
+    </div>
     
   </div>
 </header>
