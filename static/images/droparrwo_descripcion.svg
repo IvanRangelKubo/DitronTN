@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="12px" viewBox="0 0 20 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>angle-right copy</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="PRODUCT-DETAIL" transform="translate(-1522, -776)" fill="#0099D4">
+            <g id="PRODUCTO" transform="translate(47, 194)">
+                <g id="Descripcción-producto" transform="translate(867, 551)" fill-rule="nonzero">
+                    <g id="Descripción" transform="translate(9, 21)">
+                        <g id="angle-right-copy" transform="translate(609, 16) scale(-1, 1) rotate(90) translate(-609, -16)translate(603, 6)">
+                            <path d="M11.4978799,8.82337629 C12.1673734,9.47416374 12.1673734,10.5310426 11.4978799,11.18183 L2.9283642,19.5119094 C2.25887079,20.1626969 1.17161348,20.1626969 0.502120062,19.5119094 C-0.167373354,18.861122 -0.167373354,17.8042431 0.502120062,17.1534557 L7.8611917,10 L0.50747601,2.84654432 C-0.162017407,2.19575687 -0.162017407,1.13887804 0.50747601,0.48809059 C1.17696943,-0.162696863 2.26422674,-0.162696863 2.93372015,0.48809059 L11.5032359,8.81816999 L11.4978799,8.82337629 Z" id="Path"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
