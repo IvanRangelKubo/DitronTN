@@ -56,6 +56,12 @@
     .w-dropdown-link.w--current {
         color: inherit;
     }
+
+    header.js-head-main {
+        position: sticky;
+        top: 0;
+        z-index: 9999;
+    }
 </style>
 
 {# Show cookie validation message #}
