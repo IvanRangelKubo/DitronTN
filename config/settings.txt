@@ -578,21 +578,18 @@ Página de inicio
 	collapse
 		title = Mensaje de bienvenida
 		backto = home_order_position
-	i18n_input
-		name = welcome_message
-		description = Subtítulo
-	i18n_input
+	image
+		original = welcome_image.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
+	textarea
 		name = welcome_text
-		description = Título
-	checkbox
-		name = welcome_italic
-		description = Usar texto en cursiva para el título.
+		description = Texto de bienvenida
+	i18n_input
+		name = welcome_button_label
+		description = Texto del boton	
 	i18n_input
 		name = welcome_link
 		description = Link
-	i18n_input
-		name = welcome_button
-		description = Texto del botón
 
 	collapse
 		title = Banner Secundario
