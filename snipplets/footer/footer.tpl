@@ -1,151 +1,210 @@
-{% set has_social_network = store.facebook or store.twitter or store.pinterest or store.instagram or store.tiktok or store.youtube %}
-{% set has_footer_contact_info = (store.whatsapp or store.phone or store.email or store.address or store.blog) and settings.footer_contact_show %}          
+  <div class="customfooter">
 
-{% set has_footer_logo = "footer_logo.jpg" | has_custom_image %}
-{% set has_footer_menu = settings.footer_menu and settings.footer_menu_show %}
-{% set has_payment_logos = settings.payments %}
-{% set has_shipping_logos = settings.shipping %}
-{% set has_shipping_payment_logos = has_payment_logos or has_shipping_logos %}
-{% set has_languages = languages | length > 1 and settings.languages_footer %}
+    <div class="customcontainer">
+      <div id="w-node-_4e8f93f5-21ff-c475-b9c3-976ddd6d2c2d-dd6d2c2b" class="w-layout-layout footerstack wf-layout-layout">
 
-{% set has_seal_logos = store.afip or ebit or settings.custom_seal_code or ("seal_img.jpg" | has_custom_image) %}
-{% set show_help = not has_products and not has_social_network %}
-<footer class="js-footer js-hide-footer-while-scrolling display-when-content-ready overflow-none {% if settings.footer_colors %}footer-colors{% endif %}" data-store="footer">
-	<div class="container text-center">
-		{% if has_footer_logo and template != 'password' %}
-			<div class="mb-4 pb-2">
-				<img src="{{ 'images/empty-placeholder.png' | static_url }}" data-src="{{ 'footer_logo.jpg' | static_url('large') }}" alt="{{ store.name }}" title="{{ store.name }}" class="footer-logo-img lazyload">
-			</div>
-		{% endif %}
-		{% if has_social_network %}
-			<div class="mb-4">
-				{% include "snipplets/social/social-links.tpl" %}
-			</div>
-		{% endif %}
+        <div id="w-node-_4e8f93f5-21ff-c475-b9c3-976ddd6d2c2e-dd6d2c2b" class="w-layout-cell footercell">
+          <a href="{{ store.url }}" class="linkfooterlogo w-inline-block">
+						<img src="{{ "footer_logo.jpg" | static_url }}"  alt="{{ settings.footer_logo_alt }}" class="logofooter">
+					</a>
+        </div>
 
-		{% if template != 'password' %}
+        <div class="w-layout-cell footercell">
+          <div data-w-id="4e8f93f5-21ff-c475-b9c3-976ddd6d2c32" class="contitlecust">
+            <h5 class="footertitle icondown">{{ settings.footer_menu_title }}</h5>
+            <div class="linetitle small"></div>
+          </div>
 
-			{# Foot Nav #}
-			{% if has_footer_menu %}
-				<div class="mb-3">
-					{% include "snipplets/navigation/navigation-foot.tpl" %}
-				</div>
-			{% endif %}
+          <div class="cont-items-footer">
+						{% for item in menus[settings.footer_menu] %}
+							<div class="itemfooter">
+								<a href="{{ item.url }}" {% if item.url | is_external %} target="_blank" {% endif %} class="footerlink">{{ item.name }}</a>
+							</div>
+						{% endfor %}
+          </div>
 
-			{% if settings.news_show %}
-				<div class="mb-4">
-					{% include 'snipplets/newsletter.tpl' %}
-				</div>
-			{% endif %}
-		{% endif %}
+        </div>
 
-		{# Contact info #}
-		{% if has_footer_contact_info %}
-			<div class="mb-3">
-				{% include "snipplets/contact-links.tpl" with {footer: true} %}
-			</div>
-		{% endif %}
+        <div class="w-layout-cell footercell">
 
-		{% if template != 'password' %}
+					{% if settings.contact_phone is not empty or settings.contact_email is not empty %}
 
-			{# Logos Payments and Shipping #}
-			{% if has_shipping_payment_logos or has_languages %}
-				<div class="mb-4">
-
-					{% if has_payment_logos %}
-						<div class="footer-payments-shipping-logos d-inline-block align-middle">
-							{{ component('payment-shipping-logos', {'type' : 'payments'}) }}
+						<div class="contitlecust">
+							<h5 data-w-id="4e8f93f5-21ff-c475-b9c3-976ddd6d2c51" class="footertitle">CONTACTO</h5>
+							<div class="linetitle small"></div>
 						</div>
+
+						<div class="cont-items-footer regular">
+
+							{% if settings.contact_phone is not empty %}
+								<div class="itemfooter">
+									<img src="{{ "images/phone_icon.svg" | static_url }}" alt="" class="iconfootercust">
+									<a href="tel:{{ settings.contact_phone }}" class="footerlink">{{ settings.contact_phone }}</a>
+								</div>
+							{% endif %}
+
+							{% if settings.contact_email is not empty %}
+								<div class="itemfooter">
+									<img src="{{ "images/mail_icon.svg" | static_url }}" alt="" class="iconfootercust">
+									<a href="mailto:{{ settings.contact_email }}" class="footerlink">{{ settings.contact_email }}</a>
+								</div>
+							{% endif %}
+
+						</div>
+
 					{% endif %}
 
-					{% if has_shipping_logos %}
-						<div class="footer-payments-shipping-logos d-inline-block align-middle">
-							{{ component('payment-shipping-logos', {'type' : 'shipping'}) }}
+
+					{% if settings.facebook_link is not empty 
+						or settings.instagram_link is not empty 
+						or settings.yt_link is not empty %}
+
+						<div class="contitlecust">
+							<h6 class="footertitle">SÍGUENOS EN</h6>
+							<div class="linetitle small"></div>
 						</div>
+
+						<div class="cont-items-footer regular">
+							<div class="itemfooter">
+
+								{% if settings.facebook_link is not empty %}
+									<a href="{{ settings.facebook_link }}" class="sociallinkf w-inline-block" target="_blank" rel="noopener">
+										<img src="{{ "images/fb_icon.svg" | static_url }}" alt="" class="iconfootercust">
+									</a>
+								{% endif %}
+
+								{% if settings.instagram_link is not empty %}
+									<a href="{{ settings.instagram_link }}" class="sociallinkf w-inline-block" target="_blank" rel="noopener">
+										<img src="{{ "images/ig_icon.svg" | static_url }}" alt="" class="iconfootercust">
+									</a>
+								{% endif %}
+
+								{% if settings.yt_link is not empty %}
+									<a href="{{ settings.yt_link }}" class="sociallinkf w-inline-block" target="_blank" rel="noopener">
+										<img src="{{ "images/yt_icon.svg" | static_url }}" alt="" class="iconfootercust">
+									</a>
+								{% endif %}
+
+							</div>
+						</div>
+
 					{% endif %}
 
-				</div>
-			{% endif %}
 
-			{# Language selector #}
-			{% if has_languages %}
-				<a href="#" data-toggle="#languages" class="js-modal-open btn-link font-small">{{ "Idiomas y monedas" | translate }}</a>
-				{% embed "snipplets/modal.tpl" with{modal_id: 'languages', modal_class: 'bottom modal-centered-small', modal_position: 'center', modal_transition: 'slide', modal_header_title: true, modal_footer: false, modal_width: 'centered', modal_zindex_top: true} %}
-					{% block modal_head %}
-						{{ 'Idiomas y monedas' | translate }}
-					{% endblock %}
-					{% block modal_body %}
-						{% include "snipplets/navigation/navigation-lang.tpl" %}
-					{% endblock %}
-				{% endembed %}
-			{% endif %}
+        </div>
 
-			{# AFIP - EBIT - Custom Seal #}
-			{% if has_seal_logos %}
-				<div class="row text-center">
-					<div class="col p-3">
-						{% if store.afip or ebit %}
-							{% if store.afip %}
-								<div class="footer-logo afip seal-afip">
-									{{ store.afip | raw }}
-								</div>
-							{% endif %}
-							{% if ebit %}
-								<div class="footer-logo ebit seal-ebit">
-									{{ ebit }}
-								</div>
-							{% endif %}
-						{% endif %}
-						{% if "seal_img.jpg" | has_custom_image or settings.custom_seal_code %}
-							{% if "seal_img.jpg" | has_custom_image %}
-								<div class="footer-logo custom-seal">
-									{% if settings.seal_url != '' %}
-										<a href="{{ settings.seal_url | setting_url }}" target="_blank">
-									{% endif %}
-										<img src="{{ 'images/empty-placeholder.png' | static_url }}" data-src="{{ "seal_img.jpg" | static_url }}" class="custom-seal-img lazyload" alt="{{ 'Sello de' | translate }} {{ store.name }}"/>
-									{% if settings.seal_url != '' %}
-										</a>
-									{% endif %}
-								</div>
-							{% endif %}
-							{% if settings.custom_seal_code %}
-								<div class="custom-seal custom-seal-code">
-									{{ settings.custom_seal_code | raw }}
-								</div>
-							{% endif %}
-						{% endif %}
+				{% include "snipplets/newsletter.tpl" %}
+
+      </div>
+    </div>
+
+    <div class="customcontainer">
+      <div id="w-node-_4e8f93f5-21ff-c475-b9c3-976ddd6d2c7d-dd6d2c2b" class="w-layout-layout stackcopyr wf-layout-layout">
+
+        <div id="w-node-_4e8f93f5-21ff-c475-b9c3-976ddd6d2c7e-dd6d2c2b" class="w-layout-cell cell">
+          <div class="copytxt" id="copy">© DITRON Home and Living<br>Todos los derechos reservados - Designed and Developed by <a href="https://www.kubodigital.mx" target="_blank" class="kdlink">Kubo Digital</a></div>
+					<div style=" display: flex; flex-direction: row; justify-content: center; color: white;">{{ new_powered_by_link }}</div>
+        </div>
+
+				<div class="w-layout-cell">
+					<div class="contlogospagos">
+
+						<img 
+							src="{{ "pago_1.jpg" | static_url }}" 
+							alt="{{ settings.pago_1_alt }}" 
+							class="mediopago"
+						>
+
+						<img 
+							src="{{ "pago_2.jpg" | static_url }}" 
+							alt="{{ settings.pago_2_alt }}" 
+							class="mediopago"
+						>
+
+						<img 
+							src="{{ "pago_3.jpg" | static_url }}" 
+							alt="{{ settings.pago_3_alt }}" 
+							class="mediopago"
+						>
+
+						<img 
+							src="{{ "pago_4.jpg" | static_url }}" 
+							alt="{{ settings.pago_4_alt }}" 
+							class="mediopago"
+						>
+
+						<img 
+							src="{{ "pago_5.jpg" | static_url }}" 
+							alt="{{ settings.pago_5_alt }}" 
+							class="mediopago"
+						>
+
+						<img 
+							src="{{ "pago_6.jpg" | static_url }}" 
+							alt="{{ settings.pago_6_alt }}" 
+							class="mediopago"
+						>
+
+						<img 
+							src="{{ "pago_7.jpg" | static_url }}" 
+							alt="{{ settings.pago_7_alt }}" 
+							class="mediopago"
+						>
+
 					</div>
 				</div>
-			{% endif %}
-		{% endif %}
 
-		<div class="my-2">
-			{#
-			La leyenda que aparece debajo de esta linea de código debe mantenerse
-			con las mismas palabras y con su apropiado link a Tienda Nube;
-			como especifican nuestros términos de uso: http://www.tiendanube.com/terminos-de-uso .
-			Si quieres puedes modificar el estilo y posición de la leyenda para que se adapte a
-			tu sitio. Pero debe mantenerse visible para los visitantes y con el link funcional.
-			Os créditos que aparece debaixo da linha de código deverá ser mantida com as mesmas
-			palavras e com seu link para Nuvem Shop; como especificam nossos Termos de Uso:
-			http://www.nuvemshop.com.br/termos-de-uso. Se você quiser poderá alterar o estilo
-			e a posição dos créditos para que ele se adque ao seu site. Porém você precisa
-			manter visivél e com um link funcionando.
-			#}
-			{{ new_powered_by_link }}
-		</div>
-		<div class="d-inline-block mr-md-2 font-smallest">
-			{{ "Copyright {1} - {2}. Todos los derechos reservados." | translate( (store.business_name ? store.business_name : store.name) ~ (store.business_id ? ' - ' ~ store.business_id : ''), "now" | date('Y') ) }}
-		</div>
-		{{ component('claim-info', {
-				container_classes: "d-md-inline-block mt-md-0 mt-3 font-smallest",
-				divider_classes: "mx-1 d-none d-md-inline-block",
-				text_classes: {text_consumer_defense: 'd-inline-block mb-2'},
-				link_classes: {
-					link_consumer_defense: "btn-link font-smallest",
-					link_order_cancellation: "btn-link font-smallest d-md-inline-block d-block mb-2 w-100 w-md-auto",
-				},
-			}) 
-		}}
-	</div>
-</footer>
+
+      </div>
+    </div>
+
+  </div>
+
+
+<script>
+	window.addEventListener('load', () => {
+		const copy = document.getElementById('copy');
+		const copyIndex = copy.innerHTML.indexOf('©');
+		const date = new Date();
+		const year = date.getFullYear();
+
+		if (copyIndex !== -1) {
+		const content = ` ${year}`
+		copy.innerHTML = copy.innerHTML.replace('©', '©' + content);
+		}
+	})
+</script>
+
+<style>
+
+  svg#svg_brand {
+      fill: white;
+  }
+
+	.alert,
+	.w-form-done,
+	.w-form-fail {
+			border-radius: 12px;
+			padding: 14px 18px;
+			margin-top: 12px;
+			font-size: 14px;
+			line-height: 1.35;
+			font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+	}
+
+	.alert-success,
+	.w-form-done {
+			background: #e8f8ee;
+			color: #217a3c;
+			border: 1px solid #b6e8c7;
+	}
+
+	.alert-danger,
+	.w-form-fail {
+			background: #fdecec;
+			color: #b73838;
+			border: 1px solid #f3b4b4;
+	}
+
+
+</style>

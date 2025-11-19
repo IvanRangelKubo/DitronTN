@@ -131,3 +131,6 @@ ad_bar_animate = 0
 
 slider_animation = 0
 slider_full = 1
+
+footer_colors = 0
+languages_footer = 0

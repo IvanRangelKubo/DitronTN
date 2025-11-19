@@ -386,8 +386,9 @@ Página de inicio
 		gallery_link = [Opcional] Página web a la que quieres que te lleve la imagen al hacer click
 		gallery_width = 170
 		gallery_height = 80
+
 	collapse
-		title = Información de envíos, pagos y compra
+		title = Garantias
 		backto = home_order_position
 	checkbox
 		name = banner_services_colors
@@ -513,6 +514,7 @@ Página de inicio
 	i18n_input
 		name = banner_services_04_url
 		description = Link
+
 	collapse
 		title = Mensaje de bienvenida
 		backto = home_order_position
@@ -1014,7 +1016,7 @@ Página de inicio
 			products = Productos destacados
 			new = Productos nuevos
 			sale = Productos en oferta
-			informatives = Información de envíos, pagos y compra
+			informatives = Garantias
 			welcome = Mensaje de bienvenida
 			institutional = Mensaje institucional
 			categories = Banners de categorías
@@ -1226,78 +1228,102 @@ Pie de página
 	meta
 		icon = arrow-down
 		advanced = true
-	title
-		title = Colores
-	checkbox
-		name = footer_colors
-		description = Usar estos colores para el pie de página
-	color
-		name = footer_background_color
-		description = Color de fondo
-	color
-		name = footer_foreground_color
-		description = Color de textos e íconos
+
 	title
 		title = Logo
 	description
-		description = Elegí un logo para el pie de página (opcional)
+		description = Elegí un logo para el pie de página.
 	image
 		original = footer_logo.jpg
 		title = Imagen del logo
 		width = 60
 		height = 40
+	i18n_input
+		name = footer_logo_alt
+		description = Texto alternativo (Alt)
+	
 	title
-		title = Idiomas y monedas
-	checkbox
-		name = languages_footer
-		description = Mostrar idiomas y monedas en el pie de página
-	title
-		title = Menúes
-	subtitle
-		subtitle = Elegí el menú para el final de la página (footer). Si aún no configuraste ninguno, podés hacerlo <a target='_blank' href='/admin/navigation/?ref=submenu'>desde acá</a>
-	checkbox
-		name = footer_menu_show
-		description = Mostrar menú
+		title = Menu
 	menu
 		name = footer_menu
 		description = ¿Qué menú vas a mostrar al final de la página?
-	subtitle
-		subtitle = <a target='_blank' href='https://ayuda.tiendanube.com/es_AR/123259-menues/como-cambiar-el-menu-inferior-de-mi-tienda'>¿Cómo cambio el menú inferior de mi tienda?</a>
+	i18n_input
+		name = footer_menu_title
+		description = Titulo del menu.
+
+	title
+		title = Datos de contacto
+	i18n_input
+		name = contact_phone
+		description = Telefono de contacto
+	i18n_input
+		name = contact_email
+		description = Correo de contacto
+
+	title
+		title = Redes sociales
+	i18n_input
+		name = facebook_link
+		description = Telefono de contacto
+	i18n_input
+		name = instagram_link
+		description = Telefono de contacto
+	i18n_input
+		name = yt_link
+		description = Telefono de contacto
+
 	title
 		title = Newsletter
 	checkbox
 		name = news_show
 		description = Permitir que tus clientes se registren para recibir novedades
-	title
-		title = Datos de contacto
-	checkbox
-		name = footer_contact_show
-		description = Mostrar datos de contacto
-	title
-		title = Medios de envío
-	checkbox_global
-		name = shipping_show
-		description = Mostrar medios de envío en tu tienda
+
+
 	title
 		title = Medios de pago
-	checkbox_global
-		name = payments_show
-		description = Mostrar medios de pago en tu tienda
-	title
-		title = Sellos personalizados en el footer
-	description
-		description = Podés agregar sellos de dos formas: subiendo una imagen o pegando el código Javascript o HTML
 	image
-		title = Imagen del sello
-		original = seal_img.jpg
-		width = 24
-		height = 24
-		url = seal_url
-		url_description = [Opcional] Página web externa a la que llevará la imagen del sello al hacer clic
-	subtitle
-		subtitle = Código Javascript o HTML del sello
-	textarea
-		name = custom_seal_code
+		original = pago_1.jpg
+		title = Metodo de pago 1
+	i18n_input
+		name = pago_1_alt
+		description = Texto alternativo para método de pago 1
+	image
+		original = pago_2.jpg
+		title = Metodo de pago 2
+	i18n_input
+		name = pago_2_alt
+		description = Texto alternativo para método de pago 2
+	image
+		original = pago_3.jpg
+		title = Metodo de pago 3
+	i18n_input
+		name = pago_3_alt
+		description = Texto alternativo para método de pago 3
+	image
+		original = pago_4.jpg
+		title = Metodo de pago 4
+	i18n_input
+		name = pago_4_alt
+		description = Texto alternativo para método de pago 4
+	image
+		original = pago_5.jpg
+		title = Metodo de pago 5
+	i18n_input
+		name = pago_5_alt
+		description = Texto alternativo para método de pago 5
+	image
+		original = pago_6.jpg
+		title = Metodo de pago 6
+	i18n_input
+		name = pago_6_alt
+		description = Texto alternativo para método de pago 6
+	image
+		original = pago_7.jpg
+		title = Metodo de pago 7
+	i18n_input
+		name = pago_7_alt
+		description = Texto alternativo para método de pago 7
+
 
 Edición avanzada de CSS
 	meta
