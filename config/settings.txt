@@ -403,8 +403,6 @@ Página de inicio
 	image
 		original = banner_services_02.jpg
 		title = Cargar imagen (JPG, GIF, PNG)
-		width = 120
-		height = 120
 	textarea
 		name = banner_services_02_description
 		description = Descripción
@@ -413,8 +411,6 @@ Página de inicio
 	image
 		original = banner_services_03.jpg
 		title = Cargar imagen (JPG, GIF, PNG)
-		width = 120
-		height = 120
 	textarea
 		name = banner_services_03_description
 		description = Descripción
@@ -437,24 +433,26 @@ Página de inicio
 	i18n_input
 		name = welcome_button
 		description = Texto del botón
+
 	collapse
 		title = Banner Secundario
 		backto = home_order_position
 	i18n_input
-		name = institutional_message
-		description = Subtítulo
+		name = secondary_banner_link
+		description = Url del banner
+	image
+		original = secondary_banner_desktop.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
 	i18n_input
-		name = institutional_text
-		description = Título
-	checkbox
-		name = institutional_italic
-		description = Usar texto en cursiva para el título.
+		name = secondary_banner_desktop_alt
+		description = Texto alternativo (Alt)
+	image
+		original = secondary_banner_mobile.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
 	i18n_input
-		name = institutional_link
-		description = Link
-	i18n_input
-		name = institutional_button
-		description = Texto del botón
+		name = secondary_banner_mobile_alt
+		description = Texto alternativo (Alt)
+
 
 	collapse
 		title = Productos destacados
