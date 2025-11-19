@@ -7,7 +7,7 @@
 
 {% if template == 'home' %}
     {% set has_main_slider = settings.slider and settings.slider is not empty %}
-    {% set has_mobile_slider = settings.toggle_slider_mobile and settings.slider_mobile and settings.slider_mobile is not empty %}
+    {% set has_mobile_slider = false and settings.slider_mobile and settings.slider_mobile is not empty %}
     {% set has_slider = has_main_slider or has_mobile_slider %}
     {% set has_slider_above_the_fold = settings.home_order_position_1 == 'slider' and has_slider %}
     {% set has_video_above_the_fold = settings.home_order_position_1 == 'video' and settings.video_embed %}

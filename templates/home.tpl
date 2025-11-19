@@ -1,7 +1,7 @@
 {# Detect presence of features that remove empty placeholders #}
 
 {% set has_main_slider = settings.slider and settings.slider is not empty %}
-{% set has_mobile_slider = settings.toggle_slider_mobile and settings.slider_mobile and settings.slider_mobile is not empty %}
+{% set has_mobile_slider = false and settings.slider_mobile and settings.slider_mobile is not empty %}
 {% set has_video = settings.video_embed %}
 {% set has_main_categories = settings.main_categories and settings.slider_categories and settings.slider_categories is not empty %}
 {% set has_banners = settings.banner and settings.banner is not empty %}

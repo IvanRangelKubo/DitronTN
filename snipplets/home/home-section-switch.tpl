@@ -1,7 +1,7 @@
 {% if section_select == 'slider' %}
 	{#  **** Home slider ****  #}
 
-	{% set has_mobile_slider = settings.toggle_slider_mobile and settings.slider_mobile and settings.slider_mobile is not empty %}
+	{% set has_mobile_slider = false and settings.slider_mobile and settings.slider_mobile is not empty %}
 	{% set head_transparent_section = (has_main_slider or has_mobile_slider) and settings.head_transparent %}
 
 	<section class="js-home-slider-section{% if not settings.slider_full and not settings.head_transparent %} mt-4{% endif %}" data-store="home-slider" {% if head_transparent_section %}data-header-type="transparent-on-section"{% endif %}>

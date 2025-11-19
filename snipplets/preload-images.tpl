@@ -3,7 +3,7 @@
     {# Preload home LCP image of first section #}
 
     {% set has_main_slider = settings.slider and settings.slider is not empty %}
-    {% set has_mobile_slider = settings.toggle_slider_mobile and settings.slider_mobile and settings.slider_mobile is not empty %}
+    {% set has_mobile_slider = false and settings.slider_mobile and settings.slider_mobile is not empty %}
 
     {% if has_mobile_slider %}
         {% set slider = settings.slider_mobile %}
