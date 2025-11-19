@@ -374,18 +374,178 @@ Página de inicio
 	collapse
 		title = Categorías principales
 		backto = home_order_position
-	checkbox
-		name = main_categories
-		description = Mostrar categorías en la página principal
 	i18n_input
 		name = main_categories_title
 		description = Título
-	gallery
-		name = slider_categories
-		gallery_image = Agregar imagen
-		gallery_link = [Opcional] Página web a la que quieres que te lleve la imagen al hacer click
-		gallery_width = 170
-		gallery_height = 80
+
+	title
+		title = Categoria 1
+	image
+		original = category_1.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
+	i18n_input
+		name = cat_1_title
+		description = Nombre de la categoria
+	i18n_input
+		name = cat_1_url
+		description = Url de la categoria
+
+	title
+		title = Categoria 2
+	image
+		original = category_2.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
+	i18n_input
+		name = cat_2_title
+		description = Nombre de la categoria
+	i18n_input
+		name = cat_2_url
+		description = Url de la categoria
+
+	title
+		title = Categoria 3
+	image
+		original = category_3.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
+	i18n_input
+		name = cat_3_title
+		description = Nombre de la categoria
+	i18n_input
+		name = cat_3_url
+		description = Url de la categoria
+
+	title
+		title = Categoria 4
+	image
+		original = category_4.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
+	i18n_input
+		name = cat_4_title
+		description = Nombre de la categoria
+	i18n_input
+		name = cat_4_url
+		description = Url de la categoria
+
+	title
+		title = Categoria 5
+	image
+		original = category_5.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
+	i18n_input
+		name = cat_5_title
+		description = Nombre de la categoria
+	i18n_input
+		name = cat_5_url
+		description = Url de la categoria
+
+	title
+		title = Categoria 6
+	image
+		original = category_6.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
+	i18n_input
+		name = cat_6_title
+		description = Nombre de la categoria
+	i18n_input
+		name = cat_6_url
+		description = Url de la categoria
+
+	title
+		title = Categoria 7
+	image
+		original = category_7.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
+	i18n_input
+		name = cat_7_title
+		description = Nombre de la categoria
+	i18n_input
+		name = cat_7_url
+		description = Url de la categoria
+
+	title
+		title = Categoria 8
+	image
+		original = category_8.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
+	i18n_input
+		name = cat_8_title
+		description = Nombre de la categoria
+	i18n_input
+		name = cat_8_url
+		description = Url de la categoria
+
+	title
+		title = Categoria 9
+	image
+		original = category_9.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
+	i18n_input
+		name = cat_9_title
+		description = Nombre de la categoria
+	i18n_input
+		name = cat_9_url
+		description = Url de la categoria
+
+	title
+		title = Categoria 10
+	image
+		original = category_10.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
+	i18n_input
+		name = cat_10_title
+		description = Nombre de la categoria
+	i18n_input
+		name = cat_10_url
+		description = Url de la categoria
+
+	title
+		title = Categoria 11
+	image
+		original = category_11.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
+	i18n_input
+		name = cat_11_title
+		description = Nombre de la categoria
+	i18n_input
+		name = cat_11_url
+		description = Url de la categoria
+
+	title
+		title = Categoria 12
+	image
+		original = category_12.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
+	i18n_input
+		name = cat_12_title
+		description = Nombre de la categoria
+	i18n_input
+		name = cat_12_url
+		description = Url de la categoria
+
+	title
+		title = Categoria 13
+	image
+		original = category_13.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
+	i18n_input
+		name = cat_13_title
+		description = Nombre de la categoria
+	i18n_input
+		name = cat_13_url
+		description = Url de la categoria
+
+	title
+		title = Categoria 14
+	image
+		original = category_14.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
+	i18n_input
+		name = cat_14_title
+		description = Nombre de la categoria
+	i18n_input
+		name = cat_14_url
+		description = Url de la categoria
+
 
 	collapse
 		title = Garantias
