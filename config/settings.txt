@@ -438,7 +438,7 @@ Página de inicio
 		name = welcome_button
 		description = Texto del botón
 	collapse
-		title = Mensaje institucional
+		title = Banner Secundario
 		backto = home_order_position
 	i18n_input
 		name = institutional_message
@@ -455,33 +455,16 @@ Página de inicio
 	i18n_input
 		name = institutional_button
 		description = Texto del botón
+
 	collapse
 		title = Productos destacados
 		backto = home_order_position
 	i18n_input
 		name = featured_products_title
 		description = Título
-	dropdown
-		name = featured_products_format
-		description = Mostrar los productos como:
-		values
-			grid = Grilla
-			slider = Carrusel
-	dropdown
-		name = featured_products_mobile
-		description = Cantidad de productos por fila en celulares
-		values
-			1 = 1 producto
-			2 = 2 productos
-	dropdown
-		name = featured_products_desktop
-		description = Cantidad de productos por fila en computadoras
-		values
-			2 = 2 productos
-			3 = 3 productos
-			4 = 4 productos
 	subtitle
 		subtitle = <a target='_blank' href='/admin/themes/settings/product_order/'>Elegí cuáles vas a destacar</a>
+
 	collapse
 		title = Productos nuevos
 		backto = home_order_position
@@ -922,7 +905,7 @@ Página de inicio
 			sale = Productos en oferta
 			informatives = Garantias
 			welcome = Mensaje de bienvenida
-			institutional = Mensaje institucional
+			institutional = Banner Secundario
 			categories = Banners de categorías
 			promotional = Banners promocionales
 			news_banners = Banners de novedades
