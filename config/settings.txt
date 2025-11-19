@@ -690,61 +690,17 @@ Página de inicio
 			random = En forma aleatoria
 	subtitle
 		subtitle = <a target='_blank' href='/admin/themes/settings/product_order/'>Elegí cuál vas a destacar</a>
+
+
 	collapse
 		title = Banners de categorías
 		backto = home_order_position
-	description
-		description = Podés cargar los banners que necesites, sin límite de cantidad.
-	i18n_input
-		name = banner_title
-		description = Título para los banners de categorías
-	checkbox
-		name = banner_text_outside
-		description = Mostrar texto fuera de la imagen
-	checkbox
-		name = banner_slider
-		description = Mostrar banners dentro de un carrusel
-	checkbox
-		name = banner_same_size
-		description = Usar el mismo alto para todos los banners
-	checkbox
-		name = banner_without_margins
-		description = Quitar espacios entre los banners
-	dropdown
-		name = banner_align
-		description = Alineación del texto
-		values
-			left = Izquierda
-			center = Centrado
-	subtitle
-		subtitle = Imágenes para computadoras
-	dropdown
-		name = banner_columns_desktop
-		description = Disposición:
-		values
-			1 = 1 banner por fila
-			2 = 2 banners por fila
-			3 = 3 banners por fila
-			4 = 4 banners por fila
 	gallery
 		name = banner
 		gallery_image = Agregar imagen
 		gallery_link = [Opcional] Página web a la que quieres que te lleve la imagen al hacer click
-		gallery_width = 1920
-		gallery_height = 900
 		gallery_more_info = true
-	subtitle
-		subtitle = Imágenes para celulares
-	checkbox
-		name = toggle_banner_mobile
-		description = Cargar otras imágenes para celulares
-	gallery
-		name = banner_mobile
-		gallery_image = Agregar imagen
-		gallery_link = [Opcional] Página web a la que quieres que te lleve la imagen al hacer click
-		gallery_width = 820
-		gallery_height = 1000
-		gallery_more_info = true
+
 	collapse
 		title = Banners promocionales
 		backto = home_order_position
