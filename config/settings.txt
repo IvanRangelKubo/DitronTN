@@ -390,46 +390,14 @@ Página de inicio
 	collapse
 		title = Garantias
 		backto = home_order_position
-	checkbox
-		name = banner_services_colors
-		description = Usar estos colores para la sección
-	color
-		name = banner_services_background_color
-		description = Color de fondo
-	color
-		name = banner_services_foreground_color
-		description = Color de texto
-	checkbox
-		name = banner_services
-		description = Mostrar los banners en la página principal
 	subtitle
 		subtitle = BANNER 1
 	image
 		original = banner_services_01.jpg
 		title = Cargar imagen (JPG, GIF, PNG)
-		width = 120
-		height = 120
-	dropdown
-		name = banner_services_01_icon
-		description = Ícono
-		values
-			image = Imagen propia
-			shipping = Envíos
-			card = Tarjetas de crédito
-			security = Seguridad
-			returns = Cambios y devoluciones
-			whatsapp = WhatsApp
-			promotions = Promociones
-			cash = Pago en efectivo
-	i18n_input
-		name = banner_services_01_title
-		description = Título
-	i18n_input
+	textarea
 		name = banner_services_01_description
 		description = Descripción
-	i18n_input
-		name = banner_services_01_url
-		description = Link
 	subtitle
 		subtitle = BANNER 2
 	image
@@ -437,27 +405,9 @@ Página de inicio
 		title = Cargar imagen (JPG, GIF, PNG)
 		width = 120
 		height = 120
-	dropdown
-		name = banner_services_02_icon
-		description = Ícono
-		values
-			image = Imagen propia
-			shipping = Envíos
-			card = Tarjetas de crédito
-			security = Seguridad
-			returns = Cambios y devoluciones
-			whatsapp = WhatsApp
-			promotions = Promociones
-			cash = Pago en efectivo
-	i18n_input
-		name = banner_services_02_title
-		description = Título
-	i18n_input
+	textarea
 		name = banner_services_02_description
 		description = Descripción
-	i18n_input
-		name = banner_services_02_url
-		description = Link
 	subtitle
 		subtitle = BANNER 3
 	image
@@ -465,55 +415,9 @@ Página de inicio
 		title = Cargar imagen (JPG, GIF, PNG)
 		width = 120
 		height = 120
-	dropdown
-		name = banner_services_03_icon
-		description = Ícono
-		values
-			image = Imagen propia
-			shipping = Envíos
-			card = Tarjetas de crédito
-			security = Seguridad
-			returns = Cambios y devoluciones
-			whatsapp = WhatsApp
-			promotions = Promociones
-			cash = Pago en efectivo
-	i18n_input
-		name = banner_services_03_title
-		description = Título
-	i18n_input
+	textarea
 		name = banner_services_03_description
 		description = Descripción
-	i18n_input
-		name = banner_services_03_url
-		description = Link
-	subtitle
-		subtitle = BANNER 4
-	image
-		original = banner_services_04.jpg
-		title = Cargar imagen (JPG, GIF, PNG)
-		width = 120
-		height = 120
-	dropdown
-		name = banner_services_04_icon
-		description = Ícono
-		values
-			image = Imagen propia
-			shipping = Envíos
-			card = Tarjetas de crédito
-			security = Seguridad
-			returns = Cambios y devoluciones
-			whatsapp = WhatsApp
-			promotions = Promociones
-			cash = Pago en efectivo
-	i18n_input
-		name = banner_services_04_title
-		description = Título
-	i18n_input
-		name = banner_services_04_description
-		description = Descripción
-	i18n_input
-		name = banner_services_04_url
-		description = Link
 
 	collapse
 		title = Mensaje de bienvenida
