@@ -35,3 +35,10 @@
 
   </div>
 </div>
+
+
+<style>
+.elementcate:hover {
+    color: var(--ditron-blue) !important;
+}
+</style>
