@@ -674,19 +674,33 @@ Página de inicio
 			4 = 4 productos
 	subtitle
 		subtitle = <a target='_blank' href='/admin/themes/settings/product_order/'>Elegí cuáles vas a destacar</a>
+
+
 	collapse
-		title = Producto principal
+		title = Banner Informativo
 		backto = home_order_position
-	description
-		description = Se va a mostrar un solo producto de la sección 'Principal'.
-	dropdown
-		name = main_product_type
-		description = Mostrar:
-		values
-			first = El primero de la lista
-			random = En forma aleatoria
-	subtitle
-		subtitle = <a target='_blank' href='/admin/themes/settings/product_order/'>Elegí cuál vas a destacar</a>
+	i18n_input
+		name = informative_banner_link
+		description = Url del banner
+	title
+		title = Imagen para escritorio
+	image
+		original = informative_banner.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
+	i18n_input
+		name = informative_banner_desktop_alt
+		description = Texto alternativo (Alt)
+	title
+		title = Imagen para dispositivos moviles
+	image
+		original = informative_banner_mobile.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
+	i18n_input
+		name = informative_banner_mobile_alt
+		description = Texto alternativo (Alt)
+
+	
+
 
 
 	collapse
@@ -847,6 +861,7 @@ Página de inicio
 		gallery_link = [Opcional] Página web a la que quieres que te lleve la imagen al hacer click
 		gallery_width = 200
 		gallery_height = 200
+
 	collapse
 		title = Video
 		backto = home_order_position
@@ -1024,7 +1039,7 @@ Página de inicio
 			brands = Marcas
 			video = Video
 			newsletter = Newsletter
-			main_product = Producto principal
+			main_product = Banner Informativo
 			instafeed = Publicaciones de Instagram
 			testimonials = Testimonios
 	link
