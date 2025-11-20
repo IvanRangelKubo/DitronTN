@@ -62,38 +62,46 @@
         </style>
 
         <style type="text/css">
-            #barritascroll::-webkit-scrollbar {
-            width: 8px;
-            height: 6px;
+            ul.search-suggestions-list::-webkit-scrollbar {
+                width: 8px;
+                height: 6px;
             }
-            #barritascroll::-webkit-scrollbar-button {
-            width: 0px;
-            height: 0px;
+
+            ul.search-suggestions-list::-webkit-scrollbar-button {
+                width: 0px;
+                height: 0px;
             }
-            #barritascroll::-webkit-scrollbar-thumb {
-            background: #000;
-            border: 0px none #C6C6C6;
-            border-radius: 0px;
+
+            ul.search-suggestions-list::-webkit-scrollbar-thumb {
+                background: #000;
+                border: 0px none #C6C6C6;
+                border-radius: 0px;
             }
-            #barritascroll::-webkit-scrollbar-thumb:hover {
-            background: #000;
+
+            ul.search-suggestions-list::-webkit-scrollbar-thumb:hover {
+                background: #000;
             }
-            #barritascroll::-webkit-scrollbar-thumb:active {
-            background: #000;
+
+            ul.search-suggestions-list::-webkit-scrollbar-thumb:active {
+                background: #000;
             }
-            #barritascroll::-webkit-scrollbar-track {
-            background: #F8FAFD;
-            border: 0px solid #F8FAFD;
-            border-radius: 0px;
+
+            ul.search-suggestions-list::-webkit-scrollbar-track {
+                background: #F8FAFD;
+                border: 0px solid #F8FAFD;
+                border-radius: 0px;
             }
-            #barritascroll::-webkit-scrollbar-track:hover {
-            background: #F8FAFD;
+
+            ul.search-suggestions-list::-webkit-scrollbar-track:hover {
+                background: #F8FAFD;
             }
-            #barritascroll::-webkit-scrollbar-track:active {
-            background: #F8FAFD;
+
+            ul.search-suggestions-list::-webkit-scrollbar-track:active {
+                background: #F8FAFD;
             }
-            #barritascroll::-webkit-scrollbar-corner {
-            background: transparent;
+
+            ul.search-suggestions-list::-webkit-scrollbar-corner {
+                background: transparent;
             }
         </style>
 

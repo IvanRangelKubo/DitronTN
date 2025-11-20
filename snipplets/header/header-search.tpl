@@ -60,4 +60,63 @@
 		content: "Buscar";
 	}
 
+	.js-search-form-suggestions.search-suggestions.contsearchpredictive {
+    width: 70%;
+    margin: auto;
+    inset: 64% 0% auto;
+    max-width: 800px;
+	}
+
+	li.search-suggestions-item {
+			color: #454545;
+			text-align: left !important;
+			width: 100%;
+			font-family: Montserrat, sans-serif;
+			font-size: 12px;
+			font-weight: 500;
+			line-height: 15px;
+			text-decoration: none;
+			max-width: 100%;
+			display: inline-block;
+			margin: 0 !important;
+	}
+
+	a.search-suggestions-link {
+			grid-template-rows: auto;
+			grid-template-columns: .25fr 1fr;
+			padding: 5px;
+			grid-row-gap: 20px;
+			grid-column-gap: 20px;
+			grid-auto-columns: 1fr;
+			justify-content: center;
+			display: grid !important;
+	}
+
+	.search-suggestions-image-container {
+			flex-direction: column;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: auto;
+			height: 65px !important;
+	}
+
+	img.search-suggest-image {
+			max-height: 65px;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 0 !important;
+	}
+
+	.search-suggestions-text {
+			flex-direction: column;
+			display: flex !important;
+			justify-content: center;
+			align-items: flex-start;
+			text-align: left;
+			font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+			font-size: 15px !important;
+			line-height: 17px !important;
+	}
+
 </style>
