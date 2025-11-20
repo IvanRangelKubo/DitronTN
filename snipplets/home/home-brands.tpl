@@ -11,9 +11,7 @@
 
         {% if sections.carrousel.products %}
           {% for product in sections.carrousel.products %}
-            <div class="container-producto">
               {% include 'snipplets/grid/item.tpl' with { 'product': product } %}
-            </div>
           {% endfor %}
         {% endif %}
 

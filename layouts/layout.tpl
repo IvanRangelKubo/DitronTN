@@ -109,6 +109,26 @@
             iframe#store_bar_iframe {
                 visibility: hidden;
             }
+
+            .imgfront:hover {
+                opacity: 1 !important;
+            }
+
+            .hoverOn:hover {
+                opacity: 0 !important;
+            }
+
+            .imgfront {
+                background-size: contain !important;
+            }
+
+            a.js-item-name.nombre-producto {
+                height: auto !important;
+            }
+
+            a.js-item-name.nombre-producto:hover {
+                color: black;
+            }
         </style>
 
         {# Critical CSS #}

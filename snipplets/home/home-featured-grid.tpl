@@ -11,11 +11,7 @@
       <div class="owl-carousel productosowl owl-theme" id="sync2">
  
           {% for product in sections.primary.products %}
-            
-            <div class="container-producto">
               {% include 'snipplets/grid/item.tpl' %}
-            </div>
-
           {% endfor %}
 
       </div>

@@ -34,7 +34,7 @@
 </div>
 
 <style>
-a:hover, a:focus {
+a.verblogbtn.w-button:hover {
     color: white !important;
 }
 </style>
