@@ -918,54 +918,100 @@ Página de inicio
 	i18n_input
 		name = home_news_text
 		description = Descripción
+
 	collapse
-		title = Testimonios
+		title = Blog
 		backto = home_order_position
+	title
+		title = Imagen de la seccion
+	image
+		original = blog_image.jpg
+		title = Cargar imagen (JPG, GIF, PNG)
+	i18n_input
+		name = blog_image_alt
+		description = Texto alternativo (Alt)
+	textarea
+		name = blog_description
+		description = Descripcion de la seccion
+	i18n_input
+		name = blog_label
+		description = Texto del boton
+	i18n_input
+		name = blog_url
+		description = Url del boton
+
+	title
+		title = Articulo 1
 	checkbox
-		name = testimonials_italic
-		description = Usar texto en cursiva para las descripciones.
-	i18n_input
-		name = testimonials_title
-		description = Título
-	subtitle
-		subtitle = Testimonio 1
+		name = show_article_1
+		description = Mostrar Articulo
 	image
-		original = testimonial_01.jpg
-		title = Cargar imagen (JPG, GIF, PNG)
-		width = 250
-		height = 250
+		original = article_image_1.jpg
+		title = Cargar imagen de Articulo (JPG, GIF, PNG)
+	textarea
+		name = article_1_title
+		description = Titulo del Articulo
+	textarea
+		name = article_1_description
+		description = Resumen del Articulo
 	i18n_input
-		name = testimonial_01_name
-		description = Nombre
-	i18n_input
-		name = testimonial_01_description
-		description = Descripción
-	subtitle
-		subtitle = Testimonio 2
+		name = article_1_url
+		description = Url del Articulo
+
+	title
+		title = Articulo 2
+	checkbox
+		name = show_article_2
+		description = Mostrar Articulo
 	image
-		original = testimonial_02.jpg
-		title = Cargar imagen (JPG, GIF, PNG)
-		width = 250
-		height = 250
+		original = article_image_2.jpg
+		title = Cargar imagen de Articulo (JPG, GIF, PNG)
+	textarea
+		name = article_2_title
+		description = Titulo del Articulo
+	textarea
+		name = article_2_description
+		description = Resumen del Articulo
 	i18n_input
-		name = testimonial_02_name
-		description = Nombre
-	i18n_input
-		name = testimonial_02_description
-		description = Descripción
-	subtitle
-		subtitle = Testimonio 3
+		name = article_2_url
+		description = Url del Articulo
+
+	title
+		title = Articulo 3
+	checkbox
+		name = show_article_3
+		description = Mostrar Articulo
 	image
-		original = testimonial_03.jpg
-		title = Cargar imagen (JPG, GIF, PNG)
-		width = 250
-		height = 250
+		original = article_image_3.jpg
+		title = Cargar imagen de Articulo (JPG, GIF, PNG)
+	textarea
+		name = article_3_title
+		description = Titulo del Articulo
+	textarea
+		name = article_3_description
+		description = Resumen del Articulo
 	i18n_input
-		name = testimonial_03_name
-		description = Nombre
+		name = article_3_url
+		description = Url del Articulo
+
+	title
+		title = Articulo 4
+	checkbox
+		name = show_article_4
+		description = Mostrar Articulo
+	image
+		original = article_image_4.jpg
+		title = Cargar imagen de Articulo (JPG, GIF, PNG)
+	textarea
+		name = article_4_title
+		description = Titulo del Articulo
+	textarea
+		name = article_4_description
+		description = Resumen del Articulo
 	i18n_input
-		name = testimonial_03_description
-		description = Descripción
+		name = article_4_url
+		description = Url del Articulo
+
 	collapse
 		title = Publicaciones de Instagram
 		backto = home_order_position
@@ -1028,7 +1074,7 @@ Página de inicio
 			newsletter = Newsletter
 			main_product = Banner Informativo
 			instafeed = Publicaciones de Instagram
-			testimonials = Testimonios
+			testimonials = Blog
 	link
 		text = Pop-up promocional
 		linkto = home_promotional_popup

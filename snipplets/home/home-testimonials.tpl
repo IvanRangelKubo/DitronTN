@@ -1,66 +1,123 @@
-{% set has_home_testimonials = false %}
-{% set num_testimonials = 0 %}
-{% for testimonial in ['testimonial_01', 'testimonial_02', 'testimonial_03'] %}
-	{% set testimonial_image = "#{testimonial}.jpg" | has_custom_image %}
-	{% set testimonial_name = attribute(settings,"#{testimonial}_name") %}
-	{% set testimonial_description = attribute(settings,"#{testimonial}_description") %}
-	{% set has_testimonial = testimonial_name or testimonial_description or testimonial_image %}
-	{% if has_testimonial %}
-		{% set has_home_testimonials = true %}
-		{% set num_testimonials = num_testimonials + 1 %}
-	{% endif %}
-{% endfor %}
+  <div class="seccbloghome">
+    <div class="customcontainer">
+      <div id="w-node-cace86b5-746a-78d0-393d-7d51659a36cb-4ac40bd1" class="w-layout-layout stack2col wf-layout-layout">
 
-{% if has_home_testimonials %}
-	<section class="section-testimonials-home overflow-none{% if not settings.testimonials_title %} pt-4{% endif %}" data-store="home-testimonials">
-		<div class="container">
-			{% if settings.testimonials_title %}
-				<h2 class="h3 mt-3 mb-4 text-center">{{ settings.testimonials_title }}</h2>
-			{% endif %}
-			<div class="row justify-content-center">
-				<div class="col-md-6">
-					<div class="js-swiper-testimonials swiper-testimonials swiper-container">
-						<div class="swiper-wrapper">
-							{% for testimonial in ['testimonial_01', 'testimonial_02', 'testimonial_03'] %}
-								{% set testimonial_image = "#{testimonial}.jpg" | has_custom_image %}
-								{% set testimonial_name = attribute(settings,"#{testimonial}_name") %}
-								{% set testimonial_description = attribute(settings,"#{testimonial}_description") %}
-								{% set has_testimonial = testimonial_name or testimonial_description or testimonial_image %}
-								{% if has_testimonial %}
-									<div class="swiper-slide">
-										<div class="py-3 px-5 p-md-3 text-center">
-											<div class="testimonials-image mb-3{% if not testimonial_image %} line{% endif %}">
-												{% if testimonial_image %}
-													<img class="testimonials-image-background lazyload" src="{{ 'images/empty-placeholder.png' | static_url }}" data-src='{{ "#{testimonial}.jpg" | static_url | settings_image_url("small") }}' {% if testimonial_name %}alt="{{ testimonial_name }}"{% else %}alt="{{ 'Testimonio de' | translate }} {{ store.name }}"{% endif %} />
-														<div class="placeholder-fade"></div>
-												{% else %}
-													<svg class="icon-inline icon-lg"><use xlink:href="#quote"/></svg>
-												{% endif %}
-											</div>
-											{% if testimonial_description %}
-												<p class="mb-3 {% if settings.testimonials_italic %} font-italic{% endif %}">{{ testimonial_description }}</p>
-											{% endif %}
-											{% if testimonial_name %}
-												<h3 class="h6 font-weight-bold {% if num_testimonials > 1 %}mb-0{% else %}mb-3{% endif %}">{{ testimonial_name }}</h3>
-											{% endif %}
+        <div class="w-layout-cell cellintroblog">
+					<img src="{{ "blog_image.jpg" | static_url }}"  alt="{{ settings.blog_image_alt }}" class="imgtitleblog">
+          <p class="homesecctext white">{{ settings.blog_description }}</p>
+          <a href="{{ settings.blog_url }}" class="verblogbtn w-button">{{ settings.blog_label }}</a>
+        </div>
+
+        <div class="w-layout-cell">
+          <div data-delay="4000" data-animation="slide" class="blogslder w-slider" data-autoplay="false" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="500" data-infinite="true">
+
+            <div class="blogmask w-slider-mask">
+
+							{% if settings.show_article_1 %}
+								<div class="blogslide w-slide">
+									<div id="w-node-fcf3f54d-df55-ff02-2384-2f1e562388a7-4ac40bd1" class="w-layout-layout miniblog wf-layout-layout">
+
+										<div class="w-layout-cell">
+											<div class="imgcontslider" style="background-image: url({{ "article_image_1.jpg" | static_url }})" ></div>
 										</div>
+
+										<div class="w-layout-cell">
+											<div class="infobloghome">
+												<div class="contitlecust">
+													<h6 class="homeblogtitle">{{ settings.article_1_title }}</h6>
+													<div class="linetitle"></div>
+												</div>
+												<p class="excerptblog">{{ settings.article_1_description }}</p>
+												<a href="{{ settings.article_1_url}}" class="readmore">Leer más</a>
+											</div>
+										</div>
+
 									</div>
-								{% endif %}
-							{% endfor %}
-						</div>
-					</div>
-					{% if num_testimonials > 1 %}
-						<div class="text-center mb-2">
-							<div class="js-swiper-testimonials-prev swiper-button-prev svg-icon-text">
-								<svg class="icon-inline icon-lg icon-flip-horizontal"><use xlink:href="#arrow-long"/></svg>
-							</div>
-							<div class="js-swiper-testimonials-next swiper-button-next svg-icon-text">
-								<svg class="icon-inline icon-lg"><use xlink:href="#arrow-long"/></svg>
-							</div>
-						</div>
-					{% endif %}
-				</div>
-			</div>
-		</div>
-	</section>
-{% endif %}
+								</div>
+							{% endif %}
+
+							{% if settings.show_article_2 %}
+								<div class="blogslide w-slide">
+									<div id="w-node-fcf3f54d-df55-ff02-2384-2f1e562388a7-4ac40bd1" class="w-layout-layout miniblog wf-layout-layout">
+
+										<div class="w-layout-cell">
+											<div class="imgcontslider" style="background-image: url({{ "article_image_2.jpg" | static_url }})" ></div>
+										</div>
+
+										<div class="w-layout-cell">
+											<div class="infobloghome">
+												<div class="contitlecust">
+													<h6 class="homeblogtitle">{{ settings.article_2_title }}</h6>
+													<div class="linetitle"></div>
+												</div>
+												<p class="excerptblog">{{ settings.article_2_description }}</p>
+												<a href="{{ settings.article_2_url}}" class="readmore">Leer más</a>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							{% endif %}
+
+							{% if settings.show_article_3 %}
+								<div class="blogslide w-slide">
+									<div id="w-node-fcf3f54d-df55-ff02-2384-2f1e562388a7-4ac40bd1" class="w-layout-layout miniblog wf-layout-layout">
+
+										<div class="w-layout-cell">
+											<div class="imgcontslider" style="background-image: url({{ "article_image_3.jpg" | static_url }})" ></div>
+										</div>
+
+										<div class="w-layout-cell">
+											<div class="infobloghome">
+												<div class="contitlecust">
+													<h6 class="homeblogtitle">{{ settings.article_3_title }}</h6>
+													<div class="linetitle"></div>
+												</div>
+												<p class="excerptblog">{{ settings.article_3_description }}</p>
+												<a href="{{ settings.article_3_url}}" class="readmore">Leer más</a>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							{% endif %}
+
+							{% if settings.show_article_4 %}
+								<div class="blogslide w-slide">
+									<div id="w-node-fcf3f54d-df55-ff02-2384-2f1e562388a7-4ac40bd1" class="w-layout-layout miniblog wf-layout-layout">
+
+										<div class="w-layout-cell">
+											<div class="imgcontslider" style="background-image: url({{ "article_image_4.jpg" | static_url }})" ></div>
+										</div>
+
+										<div class="w-layout-cell">
+											<div class="infobloghome">
+												<div class="contitlecust">
+													<h6 class="homeblogtitle">{{ settings.article_4_title }}</h6>
+													<div class="linetitle"></div>
+												</div>
+												<p class="excerptblog">{{ settings.article_4_description }}</p>
+												<a href="{{ settings.article_4_url}}" class="readmore">Leer más</a>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							{% endif %}
+
+            </div>
+
+            <div class="sliderarrow white w-slider-arrow-left">
+              <div class="w-icon-slider-left"></div>
+            </div>
+            <div class="sliderarrow white w-slider-arrow-right">
+              <div class="w-icon-slider-right"></div>
+            </div>
+            <div class="hiddenslidenav blog w-slider-nav w-round"></div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
