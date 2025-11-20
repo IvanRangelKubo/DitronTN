@@ -150,12 +150,12 @@
                 <a href="{{ product_url_with_selected_variant }}" class="js-item-name nombre-producto" data-store="product-item-name-{{ product.id }}">{{ product.name }}</a>
 
                 {% if product.display_price %}
-                    <div class="item-price-container" data-store="product-item-price-{{ product.id }}">
-                        <span class="js-price-display item-price" data-product-price="{{ product.price }}">
+                    <div class="precios-container" data-store="product-item-price-{{ product.id }}">
+                        <span class="js-price-display precio-regular" data-product-price="{{ product.price }}">
                             {{ product.price | money }}
                         </span>
                         {% if not reduced_item %}
-                            <span class="js-compare-price-display price-compare" {% if not product.compare_at_price or not product.display_price %}style="display:none;"{% else %}style="display:inline-block;"{% endif %}>
+                            <span class="js-compare-price-display precio-oferta" {% if not product.compare_at_price or not product.display_price %}style="display:none;"{% else %}style="display:inline-block;"{% endif %}>
                                 {{ product.compare_at_price | money }}
                             </span>
                         {% endif %}
@@ -163,21 +163,10 @@
                         {{ component('payment-discount-price', {
                                 visibility_condition: settings.payment_discount_price and not reduced_item,
                                 location: 'product',
-                                container_classes: "font-smallest mt-1",
+                                container_classes: "precio-regular",
                             }) 
                         }}
 
-                        {% if settings.product_installments and not reduced_item %}
-                            {{ component('installments', {'location' : 'product_item', container_classes: { installment: "item-installments mt-2"}}) }}
-                        {% endif %}
-
-                        {% if not reduced_item %}
-                            {{ component('subscriptions/subscription-message', {
-                                subscription_classes: {
-                                    container: 'font-smallest mt-1',
-                                },
-                            }) }}
-                        {% endif %}
 
                     </div>
 
@@ -201,17 +190,13 @@
 
                             <span class="{{ quickshop_button_classes }}" title="{{ 'Compra rápida de' | translate }} {{ product.name }}" aria-label="{{ 'Compra rápida de' | translate }} {{ product.name }}">
                                 <span>{{ texts[state] | translate }}</span>
-                                <svg class="icon-inline ml-1"><use xlink:href="#bag-small"/></svg>
                             </span>
 
                         {% else %}
                             {% if product.variations %}
-
                                 {# Open quickshop popup if has variants #}
-
                                 <span data-toggle="#quickshop-modal" data-modal-url="modal-fullscreen-quickshop" class="js-quickshop-modal-open js-fullscreen-modal-open js-modal-open btn-link" title="{{ 'Compra rápida de' | translate }} {{ product.name }}" aria-label="{{ 'Compra rápida de' | translate }} {{ product.name }}" data-component="product-list-item.add-to-cart" data-component-value="{{product.id}}">
                                     <span class="js-open-quickshop-wording">{{ 'Comprar' | translate }}</span>
-                                    <svg class="js-open-quickshop-icon icon-inline ml-1"><use xlink:href="#bag-small"/></svg>
                                 </span>
                             {% else %}
                                 {# If not variants add directly to cart #}
@@ -220,7 +205,6 @@
 
                                     <div class="js-item-submit-container item-submit-container position-relative">
                                         <input type="submit" class="js-addtocart js-prod-submit-form btn-link btn-small-quickshop {{ state }}" value="{{ texts[state] | translate }}" alt="{{ texts[state] | translate }}" {% if state == 'nostock' %}disabled{% endif %} data-component="product-list-item.add-to-cart" data-component-value="{{ product.id }}"/>
-                                        <svg class="js-quickshop-bag icon-inline item-quickshop-icon"><use xlink:href="#bag-small"/></svg>
                                     </div>
 
                                     {# Fake add to cart CTA visible during add to cart event #}
