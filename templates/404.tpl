@@ -13,7 +13,8 @@
 
       <div class="not-found-div">
         <img src="{{ "images/search_icon_1.svg" | static_url }}" alt="Not found icon" class="imgsearch">
-        <h4 class="no-reults-txt">LO SENTIMOS<br>Tu búsqueda no produjo ningún resultado intenta nuevamente con otra palabra.</h4>
+        <h4 class="no-reults-txt">LO SENTIMOS<br>Parece que la pagina que buscas, no existe.</h4>
+				<a href="{{ store.products_url }}" class="btnagregar w-button" style="width: fit-content;">Seguir comprando</a>
       </div>
 
 		</div>
