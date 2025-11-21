@@ -119,4 +119,11 @@
 			line-height: 17px !important;
 	}
 
+	.js-search-suggestions-all-link.search-suggestions-all-link {
+			font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+			font-size: 17px;
+			text-decoration: none;
+			font-weight: 600;
+	}
+
 </style>
