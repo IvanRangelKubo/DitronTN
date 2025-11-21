@@ -6,20 +6,23 @@
 
 #Title
 
-#Breadcrumbs
+#Breadcrumbs 
 
 #}
 
-{% set padding = padding ?? true %}
-{% set container = container ?? true %}
+{% if template == 'category' or template == 'search' %}
+  <div class="headerlisting" >
+    <div class="customcontainer">
+			<div class="infoheaderlisting">
 
-{% if container %}
-	<div class="container">
-{% endif %}
-		<section class="page-header {% if padding %}py-4{% endif %} text-center {{ page_header_class }}" data-store="page-title">
-			{% include 'snipplets/breadcrumbs.tpl' %}
-			<h1 class="{% if template == 'product' %}h2{% else %}h4{% endif %} {{ page_header_title_class }}" {% if template == "product" %}data-store="product-name-{{ product.id }}"{% endif %}>{% block page_header_text %}{% endblock %}</h1>
-		</section>
-{% if container %}
-	</div>
+      	{% include "snipplets/breadcrumbs.tpl" %}
+				
+				<div class="contitlecust">
+          <h1 class="secctilte listing">{% block page_header_text %}{% endblock %}</h1>
+          <div class="linetitle"></div>
+        </div>
+
+			</div>
+    </div>
+  </div>
 {% endif %}

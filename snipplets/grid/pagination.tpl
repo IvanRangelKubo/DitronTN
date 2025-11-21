@@ -1,41 +1,66 @@
 {% if infinite_scroll %}
-	{% if pages.current == 1 and not pages.is_last %}
-		<div class="js-load-more text-center my-4">
-			<a class="btn btn-default d-inline-block">
-				{{ 'Mostrar más productos' | t }}
-				<span class="js-load-more-spinner ml-2 mr-2 pl-1" style="display:none;">
-					<svg class="icon-inline icon-spin icon-w-2em"><use xlink:href="#spinner-third"/></svg>
-				</span>
-			</a>
-		</div>
-		<div id="js-infinite-scroll-spinner" class="my-4 text-center w-100" style="display:none">
-			<svg class="icon-inline icon-lg icon-spin icon-w-2em svg-icon-text"><use xlink:href="#spinner-third"/></svg>
-		</div>
-	{% endif %}
+
+  {% if pages.current == 1 and not pages.is_last %}
+    <div class="paginador">
+      <a class="js-load-more pagelink">
+        <span class="js-load-more-spinner" style="display:none;">
+          {% include "snipplets/svg/sync-alt.tpl" with {svg_custom_class: "icon-inline icon-spin"} %}
+        </span>
+        {{ 'Mostrar más productos' | t }}
+      </a>
+    </div>
+    <div id="js-infinite-scroll-spinner" class="paginador" style="display:none">
+      {% include "snipplets/svg/sync-alt.tpl" with {svg_custom_class: "icon-inline icon-3x svg-icon-text icon-spin"} %}
+    </div>
+  {% endif %}
+
+
 {% else %}
-	<div class="row justify-content-center align-items-center mt-4">
-		{% if pages.numbers %}
-			<div class="col-auto p-0">
-				<a {% if pages.previous %}href="{{ pages.previous }}"{% endif %} class="{% if not pages.previous %}opacity-30 disabled{% endif %} p-2">
-					<svg class="icon-inline icon-lg svg-icon-text icon-flip-horizontal"><use xlink:href="#arrow-long"/></svg>
-				</a>
-			</div>
-			<div class="col-auto px-2">
-				<div class="text-center">
-					{% for page in pages.numbers %}
-						{% if page.selected %}
-							<span>{{ page.number }}</span>
-						{% endif %}
-					{% endfor %}
-					<span>/</span>
-					<span>{{ pages.amount }}</span>
-				</div>
-			</div>
-			<div class="col-auto p-0">
-				<a {% if pages.next %}href="{{ pages.next }}"{% endif %} class="{% if not pages.next %}opacity-30 disabled{% endif %} p-2">
-					<svg class="icon-inline icon-lg svg-icon-text"><use xlink:href="#arrow-long"/></svg>
-				</a>
-			</div>
-		{% endif %}
-	</div>
+
+{% if pages.numbers %}
+  <div class="paginador">
+    {# Flecha izquierda #}
+    {% if pages.previous %}
+      <a href="{{ pages.previous }}" class="pagelink">&lt;</a>
+    {% endif %}
+
+    {% set total_pages = pages.numbers|length %}
+    {% set current = pages.current %}
+    {% set window_size = 4 %} {# número de páginas a mostrar en la ventana #}
+
+    {% set start_page = current %}
+    {% set end_page = current + window_size - 1 %}
+
+    {# Ajustar si el final se pasa del total #}
+    {% if end_page > total_pages %}
+      {% set end_page = total_pages %}
+    {% endif %}
+
+    {# Mostrar ventana de páginas #}
+    {% for page in pages.numbers %}
+      {% if page.number >= start_page and page.number <= end_page %}
+        <a href="{{ page.url }}" class="pagelink {% if page.selected %}active{% endif %}">
+          {{ page.number }}
+        </a>
+      {% endif %}
+    {% endfor %}
+
+    {# Mostrar puntos suspensivos y última página si hace falta #}
+    {% if end_page < total_pages %}
+      <span class="pagelink">...</span>
+      <a href="{{ pages.numbers[total_pages - 1].url }}" class="pagelink {% if pages.numbers[total_pages - 1].selected %}active{% endif %}">
+        {{ total_pages }}
+      </a>
+    {% endif %}
+
+    {# Flecha derecha #}
+    {% if pages.next %}
+      <a href="{{ pages.next }}" class="pagelink">&gt;</a>
+    {% endif %}
+  </div>
+{% endif %}
+
+
+
+
 {% endif %}

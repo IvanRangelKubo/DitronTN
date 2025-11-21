@@ -8,32 +8,60 @@
 #}
 
 {% if breadcrumbs %}
-    <div class="breadcrumbs {{ breadcrumbs_custom_class }}">
-        <a class="crumb" href="{{ store.url }}" title="{{ store.name }}">{{ "Inicio" | translate }}</a>
-        <span class="separator">.</span>
+    <ul role="list" class="arbol-navegacion">
+
+        {# Inicio siempre #}
+        <li class="list-item-arbol">
+        <a href="{{ store.url }}" class="categoria-arbol">Inicio &gt;</a>
+        </li>
+
+        {# Casos especiales según el template #}
         {% if template == 'page' %}
-            <span class="crumb active">{{ page.name }}</span>
+            <li class="list-item-arbol">
+            <span class="categoria-arbol active">{{ page.name }}</span>
+            </li>
+
         {% elseif template == 'cart' %}
-            <span class="crumb active">{{ "Carrito de compras" | translate }}</span>
+            <li class="list-item-arbol">
+            <span class="categoria-arbol active">{{ "Carrito de compras" | translate }}</span>
+            </li>
+
         {% elseif template == 'search' %}
-            <span class="crumb active">{{ "Resultados de búsqueda" | translate }}</span>
+            <li class="list-item-arbol">
+            <span class="categoria-arbol active">{{ "Resultados de búsqueda" | translate }}</span>
+            </li>
+
         {% elseif template == 'account.order' %}
-             <span class="crumb active">{{ 'Orden {1}' | translate(order.number) }}</span>
+            <li class="list-item-arbol">
+            <span class="categoria-arbol active">{{ 'Orden {1}' | translate(order.number) }}</span>
+            </li>
+
         {% elseif template == 'blog' %}
-            <span class="crumb active">{{ 'Blog' | translate }}</span>
+            <li class="list-item-arbol">
+            <span class="categoria-arbol active">{{ 'Blog' | translate }}</span>
+            </li>
+
         {% elseif template == 'blog-post' %}
-            <a class="crumb" href={{ store.blog_url }} title="{{ 'Blog' | translate }}">{{ 'Blog' | translate }}</a>
-            <span class="separator">.</span>
-            <span class="crumb active">{{ post.title }}</span>
+            <li class="list-item-arbol">
+            <a href="{{ store.blog_url }}" class="categoria-arbol">Blog &gt;</a>
+            </li>
+            <li class="list-item-arbol">
+            <span class="categoria-arbol active">{{ post.title }}</span>
+            </li>
+
         {% else %}
+            {# Iteración normal #}
             {% for crumb in breadcrumbs %}
-                {% if crumb.last %}
-                    <span class="crumb active">{{ crumb.name }}</span>
-                {% else %}
-                    <a class="crumb" href="{{ crumb.url }}" title="{{ crumb.name }}">{{ crumb.name }}</a>
-    	            <span class="separator">.</span>
-                {% endif %}
+                <li class="list-item-arbol">
+                    {% if crumb.last %}
+                    <span class="categoria-arbol active">{{ crumb.name }}</span>
+                    {% else %}
+                    <a href="{{ crumb.url }}" class="categoria-arbol">{{ crumb.name }} &gt;</a>
+                    {% endif %}
+                </li>
             {% endfor %}
         {% endif %}
-    </div>
+
+    </ul>
 {% endif %}
+

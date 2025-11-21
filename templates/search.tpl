@@ -1,29 +1,34 @@
-{% if settings.pagination == 'infinite' %}
-	{% paginate by 12 %}
-{% else %}
-	{% paginate by 24 %}
-{% endif %}
+{% paginate by 1 %}
 
-{% embed "snipplets/page-header.tpl" with { breadcrumbs: false, container: true } %}
-	{% block page_header_text %}
-		{% if products %}
-			{{ 'Resultados de búsqueda' | translate }}
-		{% else %}
-			{{ "No encontramos nada para" | translate }}<span class="ml-2">"{{ query }}"</span>
-		{% endif %}
-	{% endblock page_header_text %}
+{% embed "snipplets/page-header.tpl" with { breadcrumbs: false, products_count: products_count, query: query } %}
+  {% block page_header_text %}
+    {% if query %}
+      Se han encontrado {{ products_count }} resultado{{ products_count == 1 ? '' : 's' }} para "{{ query }}"
+    {% else %}
+      Resultados de búsqueda
+    {% endif %}
+  {% endblock page_header_text %}
 {% endembed %}
-{% if products %}
-	<h2 class="h5 pb-2 font-weight-normal text-center {% if not search_filter %}mb-4{% endif %}">
-		{{ "Mostrando los resultados para" | translate }}<span class="ml-2 font-weight-bold">"{{ query }}"</span>
-	</h2>		
-{% endif %}
 
-{% include 'snipplets/grid/filters-modals.tpl' %}
-<section class="js-category-controls-prev category-controls-sticky-detector"></section>
+<section class="container-listing">
 
-<section class="category-body overflow-none">
-	<div class="container {% if search_filter and products %}mt-4{% endif %} mb-5">
-		{% include 'snipplets/grid/product-list.tpl' %}
+	<div class="contitemslisting">
+
+			{% if products %}
+				<div class="itemlisting">
+					{% include 'snipplets/product_grid.tpl' %}
+				</div>
+			{% else %}
+				<div class="customcontainer">
+					<div class="not-found-div">
+						<img loading="lazy" src="{{ "images/search_icon_1.svg" | static_url }}" alt="Not found icon" class="imgsearch">
+						<h4 class="no-reults-txt">LO SENTIMOS<br>Tu búsqueda no produjo ningún resultado intenta nuevamente con otra palabra.</h4>
+					</div>
+				</div>
+			{% endif %}
+		
 	</div>
+
+	{% include 'snipplets/grid/pagination.tpl' with { infinite_scroll: false } %}
+
 </section>
