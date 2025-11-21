@@ -53,6 +53,7 @@
         {# Load async styling not mandatory for first meaningfull paint #}
 
         <link rel="stylesheet" href="{{ 'css/style-async.scss' | static_url }}" media="print" onload="this.media='all'">
+        <link rel="stylesheet" href="{{ 'css/ditronStyles.css' | static_url }}">
 
         {# Loads custom CSS added from Advanced Settings on the admin´s theme customization screen #}
 
@@ -93,48 +94,118 @@
 
         {# Theme icons #}
 
-        {% include "snipplets/svg/icons.tpl" %}
 
         {# Page content #}
 
-        <header class="head-main">
-            <div class="container">
-                <div class="row justify-content-md-center">
-                    <div class="col-md-8 text-center">
-                        <div class="my-3">
-                            {{ component('logos/logo', {logo_size: 'large', logo_img_classes: 'transition-soft', logo_text_classes: 'h3 m-0'}) }}
-                        </div>
-                    </div>
+
+        <div class="mttocont">
+        <div class="w-layout-layout stackmtto wf-layout-layout">
+            
+            <div class="w-layout-cell celllogo"></div>
+
+            <div class="w-layout-cell">
+
+            {# LOGO #}
+            <img 
+                src="{{ 'images/logo_micuenta.png' | static_url }}"
+                alt="Ditron Mexico"
+                loading="lazy"
+                class="logomtto"
+            >
+
+            <h1 class="titlemtto">Estamos preparando algo increíble para ti</h1>
+            <p class="txtmtto">Por favor, inténtalo nuevamente en unos minutos para descubrir todas las novedades.</p>
+
+            {# ICONO PARA MOSTRAR FORM (si manejas animación en Webflow) #}
+            <div id="Lock">
+                <img 
+                loading="lazy" 
+                src="{{ 'images/password_icon.svg' | static_url }}"
+                alt="Icono de mantenimiento"
+                class="iconformmtto"
+                >
+            </div>
+
+            <div class="div-block" id="Pass">
+                <div class="formloginstore w-form">
+
+                {# FORMULARIO NATIVO DE TIENDANUBE #}
+                {% embed "snipplets/forms/form.tpl" 
+                    with{
+                    form_id: 'password-form',
+                    submit_text: 'Login' | translate,
+                    form_custom_class: 'contlogform',
+                    submit_custom_class: 'logiintienda w-button'
+                    } 
+                %}
+                    {% block form_body %}
+
+                    {# INPUT DE CONTRASEÑA #}
+                    {% embed "snipplets/forms/form-input.tpl"
+                        with{
+                        input_for: 'password',
+                        type_password: true,
+                        input_name: 'password',
+                        input_custom_class: 'passtienda w-input'
+                        }
+                    %}
+                        {% block input_form_alert %}
+                        {% if invalid_password == true %}
+                            <div class="msgform">Password incorrecto</div>
+                        {% endif %}
+                        {% endblock input_form_alert %}
+                    {% endembed %}
+
+                    {% endblock %}
+                {% endembed %}
+
                 </div>
             </div>
-        </header>
-        <div class="flex-grow-1 h-100 d-flex align-items-center">
-            <div class="container py-4">
-                <div class="row justify-content-center">
-                    <div class="col-md-6">
-                        <h2 class="mb-4 text-center">{{ message }}</h2>
-                        {% embed "snipplets/forms/form.tpl" with{form_id: 'password-form', submit_text: 'Desbloquear' | translate, submit_custom_class: 'btn-block btn-big', form_custom_class: 'w-100' } %}
-                            {% block form_body %}
 
-                                {% embed "snipplets/forms/form-input.tpl" with{input_for: 'password', type_password: true, input_name: 'password', input_label_text: 'Contraseña de acceso' | translate, input_placeholder: 'ej.: tucontraseña' | translate } %}
-                                {% endembed %}
-
-                            {% endblock %}
-                            {% block form_alerts %}
-                                {% if invalid_password == true %}
-                                    <div class="alert alert-danger mt-3">{{ 'La contraseña es incorrecta.' | translate }}</div>
-                                {% endif %}
-                            {% endblock %}
-                        {% endembed %}
-                    </div>
-                </div>
             </div>
         </div>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const lock = document.getElementById("Lock");
+                const pass = document.getElementById("Pass");
+                pass.style.display = "none";
+
+                lock.addEventListener("click", function () {
+                pass.style.display = pass.style.display === "none" ? "block" : "none";
+                });
+            });
+        </script>
+
+        <style>
+            .mt-4.text-center {
+                display: none;
+            }
+
+            a.js-password-view.btn.form-toggle-eye {
+                display: none;
+            }
+
+            .form-group {
+                margin: 0;
+            }
+
+            input.btn.btn-primary.logiintienda.w-button {
+                text-transform: none;
+                letter-spacing: 0;
+            }
+
+            .formloginstore {
+                display: block;
+            }
+
+            .mttocont {
+                background-position: inherit;
+            }
+        </style>
 
 
-        {# Footer #}
-
-        {% snipplet "footer/footer.tpl" %}
 
         {# Javascript needed to footer logos lazyload #}
 

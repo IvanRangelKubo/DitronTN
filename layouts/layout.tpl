@@ -118,16 +118,24 @@
                 opacity: 0 !important;
             }
 
-            .imgfront {
+            .imgfront, .imgback {
                 background-size: contain !important;
             }
 
             a.js-item-name.nombre-producto {
-                height: auto !important;
+                height: 55px;
             }
 
             a.js-item-name.nombre-producto:hover {
                 color: black;
+            }
+
+            .item-actions .alert {
+                z-index: 15;
+            }
+
+            .d-inline-block.btnagregar.w-button {
+                height: 40px;
             }
         </style>
 

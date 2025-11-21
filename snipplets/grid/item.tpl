@@ -151,14 +151,14 @@
 
                 {% if product.display_price %}
                     <div class="precios-container" data-store="product-item-price-{{ product.id }}">
-                        <span class="js-price-display precio-regular" data-product-price="{{ product.price }}">
-                            {{ product.price | money }}
-                        </span>
                         {% if not reduced_item %}
-                            <span class="js-compare-price-display precio-oferta" {% if not product.compare_at_price or not product.display_price %}style="display:none;"{% else %}style="display:inline-block;"{% endif %}>
+                            <span class="js-compare-price-display precio-regular" {% if not product.compare_at_price or not product.display_price %}style="display:none;"{% else %}style="display:inline-block; text-decoration: line-through; "{% endif %}>
                                 {{ product.compare_at_price | money }}
                             </span>
                         {% endif %}
+                        <span class="js-price-display {% if not product.compare_at_price or not product.display_price %} precio-regular {% else %} precio-oferta {% endif %}" data-product-price="{{ product.price }}">
+                            {{ product.price | money }}
+                        </span>
 
                         {{ component('payment-discount-price', {
                                 visibility_condition: settings.payment_discount_price and not reduced_item,
@@ -166,10 +166,7 @@
                                 container_classes: "precio-regular",
                             }) 
                         }}
-
-
                     </div>
-
                 {% endif %}
                 
             </div>
@@ -195,7 +192,7 @@
                         {% else %}
                             {% if product.variations %}
                                 {# Open quickshop popup if has variants #}
-                                <span data-toggle="#quickshop-modal" data-modal-url="modal-fullscreen-quickshop" class="js-quickshop-modal-open js-fullscreen-modal-open js-modal-open btn-link" title="{{ 'Compra rápida de' | translate }} {{ product.name }}" aria-label="{{ 'Compra rápida de' | translate }} {{ product.name }}" data-component="product-list-item.add-to-cart" data-component-value="{{product.id}}">
+                                <span data-toggle="#quickshop-modal" data-modal-url="modal-fullscreen-quickshop" class="js-quickshop-modal-open js-fullscreen-modal-open js-modal-open btnagregar w-button" title="{{ 'Compra rápida de' | translate }} {{ product.name }}" aria-label="{{ 'Compra rápida de' | translate }} {{ product.name }}" data-component="product-list-item.add-to-cart" data-component-value="{{product.id}}">
                                     <span class="js-open-quickshop-wording">{{ 'Comprar' | translate }}</span>
                                 </span>
                             {% else %}
@@ -204,7 +201,7 @@
                                     <input type="hidden" name="add_to_cart" value="{{product.id}}" />
 
                                     <div class="js-item-submit-container item-submit-container position-relative">
-                                        <input type="submit" class="js-addtocart js-prod-submit-form btn-link btn-small-quickshop {{ state }}" value="{{ texts[state] | translate }}" alt="{{ texts[state] | translate }}" {% if state == 'nostock' %}disabled{% endif %} data-component="product-list-item.add-to-cart" data-component-value="{{ product.id }}"/>
+                                        <input type="submit" class="js-addtocart js-prod-submit-form btnagregar w-button {{ state }}" value="{{ texts[state] | translate }}" alt="{{ texts[state] | translate }}" {% if state == 'nostock' %}disabled{% endif %} data-component="product-list-item.add-to-cart" data-component-value="{{ product.id }}"/>
                                     </div>
 
                                     {# Fake add to cart CTA visible during add to cart event #}
