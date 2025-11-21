@@ -62,7 +62,6 @@
 
 
 {% if alternative_products %}
-    <div class="seccproductos">
         <div class="customcontainer">
 
             <div class="contitlecust">
@@ -83,7 +82,6 @@
             </div>
 
         </div>
-    </div>
 {% endif %}
 
 {# Complementary products #}
@@ -91,7 +89,7 @@
 {% set complementary_section_id = 'complementary-products' %}
 
 {% if complementary_products %}
-    <div class="seccproductos">
+
     <div class="customcontainer">
 
         <div class="contitlecust">
@@ -111,7 +109,6 @@
         </div>
         </div>
 
-    </div>
     </div>
 {% endif %}
 
