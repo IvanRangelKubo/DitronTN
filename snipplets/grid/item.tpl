@@ -72,6 +72,9 @@
             {% endif %}
 
             <div class="contimgproducto">
+                {% if 'nuevo' in product.tags and product.has_stock %}
+                    <div class="etiquetas-prod nuevo">NUEVO</div>
+                {% endif %}
                 {% if not product.has_stock %}
                     <div class="etiquetas-prod">Agotado</div>
                 {% endif %}
