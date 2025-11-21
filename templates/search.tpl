@@ -1,4 +1,4 @@
-{% paginate by 1 %}
+{% paginate by settings.category_quantity_products %}
 
 {% embed "snipplets/page-header.tpl" with { breadcrumbs: false, products_count: products_count, query: query } %}
   {% block page_header_text %}

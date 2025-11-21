@@ -1084,64 +1084,25 @@ Listado de productos
 		icon = th-large
 		advanced = true
 	title
-		title = Imagen para las categorías
-	image
-		title = Cargar imagen (JPG, GIF, PNG)
-		original = banner-products.jpg
-		width = 930
-		height = 465
-	subtitle
-		subtitle = Podés subir una imagen diferente para cada categoría <a target='_blank' href='/admin/categories/'>desde acá</a>
-	title
 		title = Filtros
 	subtitle
 		subtitle = <span class='js-description-html'><strong>Configurá los filtros</strong> de tu tienda desde <a target='_blank' href='/admin/v2/filters' class='font-bold'>el administrador</a></span>
 	title
 		title = Productos en el listado
 	dropdown
-		name = grid_columns_mobile
-		description = Cantidad de productos por fila en celulares
+		name = category_quantity_products
+		description = Cantidad de productos por página
 		values
-			1 = 1 producto
-			2 = 2 productos
-	dropdown
-		name = grid_columns_desktop
-		description = Cantidad de productos por fila en computadoras
-		values
-			2 = 2 productos
-			3 = 3 productos
-			4 = 4 productos
-	dropdown
-		name = pagination
-		description = Mostrar los productos usando:
-		values
-			classic = Navegación entre páginas
-			infinite = Carga infinita
+			4 = 4
+			12 = 12
+			16 = 16
+			20 = 20
+			24 = 24
 	title
 		title = Compra rápida
 	checkbox
 		name = quick_shop
 		description = Permitir que tus clientes puedan agregar productos a su carrito rápidamente desde el listado de productos
-	title
-		title = Variantes de color
-	checkbox
-		name = product_color_variants
-		description = Mostrar variantes de color en listado de productos
-	title
-		title = Fotos del producto
-	checkbox
-		name = product_hover
-		description = Mostrar la segunda foto al posar el mouse
-	checkbox
-		name = product_item_slider
-		description = Mostrar las fotos en un carrusel para cada producto
-	subtitle
-		subtitle = <span class='js-description-html legend d-block p-top-half'>El carrusel aplica sólo a listados de categorías y resultados de búsqueda</span>
-	title
-		title = Información de cuotas
-	checkbox
-		name = product_installments
-		description = Mostrar cuotas en listado de productos
 
 Detalle de producto
 	meta

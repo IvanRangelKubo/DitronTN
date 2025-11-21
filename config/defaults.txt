@@ -134,3 +134,9 @@ slider_full = 1
 
 footer_colors = 0
 languages_footer = 0
+
+product_installments = 0
+product_item_slider = 0
+product_hover = 1
+product_color_variants = 0
+pagination = classic
