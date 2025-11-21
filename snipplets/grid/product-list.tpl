@@ -1,22 +1,20 @@
  {% set noFilterResult = "No tenemos resultados para tu búsqueda. Por favor, intentá con otros filtros." %}
 
  {% if products %}
-    <div class="js-product-table row row-grid">
+
+    <div class="js-product-table contitemslisting">
         {% include 'snipplets/product_grid.tpl' %}
     </div>
-    {% if settings.pagination == 'infinite' %}
-        {% set pagination_type_val = true %}
-    {% else %}
-        {% set pagination_type_val = false %}
-    {% endif %}
 
-    {% include "snipplets/grid/pagination.tpl" with {infinite_scroll: pagination_type_val} %}
+    {% include "snipplets/grid/pagination.tpl" with {infinite_scroll: false} %}
+
 {% else %}    
-    <h5 class="mb-4 font-weight-normal text-center" data-component="filter.message">
-         {% if template == 'category' %}
-            {{(has_filters_enabled ? noFilterResult : "Próximamente") | translate}}
-        {% elseif template == 'search' %}    
-            {{ ((has_applied_filters and query) or has_applied_filters ?  noFilterResult : "Escribilo de otra forma y volvé a intentar.") | translate }}
-        {% endif %}
-    </h5>
+    <div class="container-listing">
+        <div class="customcontainer">
+            <div class="not-found-div">
+                <img loading="lazy" src="{{ "images/search_icon_1.svg" | static_url }}" alt="Not found icon" class="imgsearch">
+                <h4 class="no-reults-txt">LO SENTIMOS<br>Tu búsqueda no produjo ningún resultado intenta nuevamente con otra palabra.</h4>
+            </div>
+        </div>
+    </div>
 {% endif %} 
