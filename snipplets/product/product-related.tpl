@@ -60,34 +60,30 @@
 
 {% set alternative_data_component = source_alternative == 'default' ? 'related-products' : 'alternative-products' %}
 
+
 {% if alternative_products %}
-    {{ component(
-        'products-section',{
-            title: settings.products_related_title,
-            id: 'related-products',
-            data_component: alternative_data_component,
-            products_amount: related_products | length,
-            products_array: related_products,
-            product_template_path: 'snipplets/grid/item.tpl',
-            product_template_params: {'slide_item': true},
-            slider_controls_position: 'bottom',
-            slider_controls_container: true,
-            section_classes: {
-                section: 'js-related-products ' ~ section_class ~ alternative_section_class,
-                container: container_class,
-                title: title_class,
-                slider_container: 'js-swiper-related ' ~ slider_container_class,
-                slider_wrapper: swiper_wrapper_class,
-                slider_controls_container: slider_controls_container_class,
-                slider_control: slider_control_class,
-                slider_control_prev_container: 'js-swiper-related-prev ' ~ slider_control_prev_class,
-                slider_control_prev: 'icon-flip-horizontal',
-                slider_control_next_container: 'js-swiper-related-next ' ~ slider_control_next_class,
-            },
-            control_next_svg_id: control_next_svg_id,
-            control_prev_svg_id: control_prev_svg_id,
-        }) 
-    }}
+    <div class="seccproductos">
+        <div class="customcontainer">
+
+            <div class="contitlecust">
+                <h2 class="secctilte">
+                    {{ settings.products_related_title }}
+                </h2>
+                <div class="linetitle"></div>
+            </div>
+
+            <div class="customhtml w-embed">
+                <div class="owl-carousel productosowl owl-theme" id="related-owl">
+
+                    {% for product in related_products %}
+                    {% include "snipplets/grid/item.tpl" with { product: product } %}
+                    {% endfor %}
+
+                </div>
+            </div>
+
+        </div>
+    </div>
 {% endif %}
 
 {# Complementary products #}
@@ -95,31 +91,27 @@
 {% set complementary_section_id = 'complementary-products' %}
 
 {% if complementary_products %}
-    {{ component(
-        'products-section',{
-            title: settings.products_complementary_title,
-            id: complementary_section_id,
-            data_component: complementary_section_id,
-            products_amount: complementary_product_list | length,
-            products_array: complementary_product_list,
-            product_template_path: 'snipplets/grid/item.tpl',
-            product_template_params: {'slide_item': true},
-            slider_controls_position: 'bottom',
-            slider_controls_container: true,
-            section_classes: {
-                section: 'js-complementary-products ' ~ section_class,
-                container: container_class,
-                title: title_class,
-                slider_container: 'js-swiper-complementary ' ~ slider_container_class,
-                slider_wrapper: swiper_wrapper_class,
-                slider_controls_container: slider_controls_container_class,
-                slider_control: slider_control_class,
-                slider_control_prev_container: 'js-swiper-complementary-prev ' ~ slider_control_prev_class,
-                slider_control_prev: 'icon-flip-horizontal',
-                slider_control_next_container: 'js-swiper-complementary-next ' ~ slider_control_next_class,
-            },
-            control_next_svg_id: control_next_svg_id,
-            control_prev_svg_id: control_prev_svg_id,
-        }) 
-    }}
+    <div class="seccproductos">
+    <div class="customcontainer">
+
+        <div class="contitlecust">
+        <h2 class="secctilte">
+            {{ settings.products_complementary_title }}
+        </h2>
+        <div class="linetitle"></div>
+        </div>
+
+        <div class="customhtml w-embed">
+        <div class="owl-carousel productosowl owl-theme" id="complementary-owl">
+
+            {% for product in complementary_product_list %}
+            {% include "snipplets/grid/item.tpl" with { product: product } %}
+            {% endfor %}
+
+        </div>
+        </div>
+
+    </div>
+    </div>
 {% endif %}
+
