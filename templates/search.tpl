@@ -13,20 +13,16 @@
 <section class="container-listing">
 
 	<div class="contitemslisting">
-
-			{% if products %}
-				<div class="itemlisting">
-					{% include 'snipplets/product_grid.tpl' %}
-				</div>
-			{% else %}
+		{% if products %}
+				{% include 'snipplets/product_grid.tpl' %}
+		{% else %}
 				<div class="customcontainer">
 					<div class="not-found-div">
 						<img loading="lazy" src="{{ "images/search_icon_1.svg" | static_url }}" alt="Not found icon" class="imgsearch">
 						<h4 class="no-reults-txt">LO SENTIMOS<br>Tu búsqueda no produjo ningún resultado intenta nuevamente con otra palabra.</h4>
 					</div>
 				</div>
-			{% endif %}
-		
+		{% endif %}		
 	</div>
 
 	{% include 'snipplets/grid/pagination.tpl' with { infinite_scroll: false } %}
