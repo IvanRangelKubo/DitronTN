@@ -65,3 +65,9 @@
     </ul>
 {% endif %}
 
+<style>
+    ul.arbol-navegacion {
+        display: flex;
+        gap: 5px;
+    }
+</style>

@@ -13,17 +13,17 @@
 
 {% set category_banner = (category.images is not empty) or ("banner-products.jpg" | has_custom_image) %}
 
-<div class="container">
-	{% embed "snipplets/page-header.tpl" with {container: false} %}
+
+	{% if not category_banner %}
+		{% embed "snipplets/page-header.tpl" with {container: false} %}
 	    {% block page_header_text %}{{ category.name }}{% endblock page_header_text %}
-	{% endembed %}
+		{% endembed %}
+	{% endif %}
+
 	{% if category_banner %}
 	    {% include 'snipplets/category-banner.tpl' %}
 	{% endif %}
-	{% if category.description %}
-		<p class="mt-2 mb-4 text-center">{{ category.description }}</p>
-	{% endif %}
-</div>
+
 
 {% include 'snipplets/grid/filters-modals.tpl' %}
 <section class="js-category-controls-prev category-controls-sticky-detector"></section>

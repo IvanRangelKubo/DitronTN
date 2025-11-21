@@ -8,12 +8,21 @@
         {% set category_images = category_images|merge({(size):(category.images | first | category_image_url(size))}) %}
     {% else %}
         {# Define images for general banner #}
-        {% set category_images = category_images|merge({(size):('banner-products.jpg' | static_url | settings_image_url(size))}) %}
+        {% set category_images = category_images|merge({(size):('banner_listing.jpg' | static_url | settings_image_url(size))}) %}
     {% endif %}
 {% endfor %}
 
-{% set category_image_url = 'banner-products.jpg' | static_url %}
+{% set category_image_url = 'banner_listing.jpg' | static_url %}
 
-<section class="category-banner position-relative mb-3" data-store="category-banner">
-    <img class="category-banner-image w-100" fetchpriority="high" src="{{ category_images['large'] }}" srcset="{{ category_images['large'] }} 480w, {{ category_images['huge'] }} 640w, {{ category_images['original'] }} 1024w, {{ category_images['1080p'] }} 1920w" alt="{{ 'Banner de la categoría' | translate }} {{ category.name }}" />
-</section>
+  <div class="headerlisting" style="background-image:url({{ category_images['1080p'] }})" >
+    <div class="customcontainer">
+        <div class="infoheaderlisting">
+            {% include "snipplets/breadcrumbs.tpl" %}
+
+            <div class="contitlecust">
+                <h1 class="secctilte listing">{{ category.name }}</h1>
+                <div class="linetitle"></div>
+            </div>
+        </div>
+    </div>
+  </div>
