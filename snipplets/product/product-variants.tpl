@@ -64,6 +64,7 @@
 			{% endif %}
 		</div>
 	{% endfor %}
+	
 	{% if show_size_guide and settings.size_guide_url and has_size_variations %}
 		{% set has_size_guide_page_finded = false %}
 		{% set size_guide_url_handle = settings.size_guide_url | trim('/') | split('/') | last %}
@@ -166,5 +167,5 @@
 	a.js-insta-variant.btn.btn-variant.btn-variant-no-stock {
     opacity: 0.5;
 	}
-	
+
 </style>

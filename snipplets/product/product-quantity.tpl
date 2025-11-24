@@ -2,7 +2,7 @@
 
 {% set label_text = product.isSubscribable() ? 'Cantidad' | translate %}
 
-<div class="js-product-quantity-container col-4 pr-0 pr-md-3">
+<div class="js-product-quantity-container">
     {% embed "snipplets/forms/form-input.tpl" with{
     type_number: true, input_value: '1',
     input_name: 'quantity' ~ item.id, 
@@ -19,12 +19,12 @@
         {% block input_prepend_content %}
         <div class="form-quantity form-quantity-product d-flex form-row m-0 align-items-center" data-component="product.quantity">
             <span class="js-quantity-down form-quantity-icon btn icon-35px font-small" data-component="product.quantity.minus">
-                <svg class="icon-inline"><use xlink:href="#minus"/></svg>
+                -
             </span>
         {% endblock input_prepend_content %}
         {% block input_append_content %}
             <span class="js-quantity-up form-quantity-icon btn icon-35px font-small" data-component="product.quantity.plus">
-                <svg class="icon-inline"><use xlink:href="#plus"/></svg>
+                +
             </span>
         </div>
         {% endblock input_append_content %}
