@@ -1,4 +1,4 @@
-<div class="pt-md-3 {% if home_main_product %}mt-2 mt-md-0{% endif %}">
+<div class="pt-md-3">
 
     {# Product name and breadcrumbs for product page #}
 
@@ -273,8 +273,3 @@
         {% endif %}
      </form>
 </div>
-
-{% if not home_main_product %}
-   {# Product payments details #}
-    {% include 'snipplets/product/product-payment-details.tpl' %}
-{% endif %}

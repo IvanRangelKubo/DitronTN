@@ -1,25 +1,20 @@
-<div id="single-product" class="containervip js-has-new-shipping js-product-detail js-product-container js-shipping-calculator-container " data-variants="{{product.variants_object | json_encode }}" data-store="product-detail">
-    {% set description_content = product.description is not empty or settings.show_product_fb_comment_box %}
+<div id="single-product" class="containervip js-has-new-shipping js-product-detail js-product-container js-shipping-calculator-container" data-variants="{{product.variants_object | json_encode }}" data-store="product-detail">
 
     <div class="customcontainer">
 
         {% include "snipplets/breadcrumbs.tpl" %}
 
-        <div id="w-node-_4928596a-9fbc-925c-b50a-bad836de26a2-54e89ff7" class="w-layout-layout stackvip wf-layout-layout" >
+        <div id="w-node-_4928596a-9fbc-925c-b50a-bad836de26a2-54e89ff7" class="w-layout-layout stackvip wf-layout-layout">
 
-            <div class="w-layout-cell">
+            <div class="col-md-7 pb-3 pr-md-2">
                 {% include 'snipplets/product/product-image.tpl' %}
             </div>
 
             <div class="w-layout-cell" data-store="product-info-{{ product.id }}">
                 {% include 'snipplets/product/product-form.tpl' %}
+                {% include 'snipplets/product/product-description.tpl' %}
             </div>
 
-        </div>
-
-        {# Product share #}
-        <div class="text-center d-md-none">
-            {% include 'snipplets/social/social-share.tpl' %}
         </div>
 
     </div>
@@ -35,4 +30,3 @@
     </div>
 
 </div>
-
