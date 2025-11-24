@@ -12,7 +12,6 @@
 
             <div class="w-layout-cell" data-store="product-info-{{ product.id }}">
                 {% include 'snipplets/product/product-form.tpl' %}
-                {% include 'snipplets/product/product-description.tpl' %}
             </div>
 
         </div>
