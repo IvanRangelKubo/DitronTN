@@ -38,8 +38,10 @@
 			{% if is_button_variant %}
 				<label class="form-label text-center text-md-left">{{ variation.name }}: <span class="js-insta-variation-label">{{ product.default_options[variation.id] }}</span></label>
 				{% for option in variation.options %}
-					<a data-option="{{ option.id }}" class="js-insta-variant btn btn-variant{% if product.default_options[variation.id] is same as(option.id) %} selected{% endif %}{% if variation.name in ['Color', 'Cor'] %} {% if option.custom_data or settings.image_color_variants %}btn-variant-color{% endif %} p-0{% endif %}" title="{{ option.name }}" data-option="{{ option.id }}" data-variation-id="{{ variation.id }}">
-						<span class="btn-variant-content{% if settings.image_color_variants and variation.name in ['Color', 'Cor'] %} btn-variant-content-square{% endif %}"{% if option.custom_data and variation.name in ['Color', 'Cor'] and (settings.bullet_variants and not settings.image_color_variants) %} style="background: {{ option.custom_data }}; border: 1px solid #eee"{% endif %} data-name="{{ option.name }}">
+
+					<a data-option="{{ option.id }}" class="js-insta-variant btn btn-variant{% if product.default_options[variation.id] is same as(option.id) %} selected{% endif %}{% if variation.name in ['Color', 'Cor'] %} {% if option.custom_data or settings.image_color_variants %}btn-variant-color varImage{% endif %} p-0{% endif %}" title="{{ option.name }}" data-option="{{ option.id }}" data-variation-id="{{ variation.id }}">
+					
+						<span class="btn-variant-content{% if settings.image_color_variants and variation.name in ['Color', 'Cor'] %} btn-variant-content-square varImage{% endif %}"{% if option.custom_data and variation.name in ['Color', 'Cor'] and (settings.bullet_variants and not settings.image_color_variants) %} style="background: {{ option.custom_data }}; border: 1px solid #eee"{% endif %} data-name="{{ option.name }}">
 							{% if settings.image_color_variants and variation.name in ['Color', 'Cor'] %}
 								{% if product.default_options[variation.id] is same as(option.id) %}
 									<img src="{{ 'images/empty-placeholder.png' | static_url }}" data-src="{{ product.featured_variant_image | product_image_url('thumb')}}" data-sizes="auto" class="lazyload absolute-centered-vertically" {% if image.alt %}alt="{{image.alt}}"{% endif %} />
@@ -54,8 +56,10 @@
 							{% if not(variation.name in ['Color', 'Cor']) or ((variation.name in ['Color', 'Cor']) and not option.custom_data and not settings.image_color_variants) %}
 								{{ option.name }}
 							{% endif %}
+
 						</span>
 					</a>
+
 				{% endfor %}
 			{% endif %}
 		</div>
@@ -84,3 +88,83 @@
 		{% endfor %}
 	{% endif %}
 </div>
+
+<style>
+	img.absolute-centered-vertically.lazyautosizes.ls-is-cached.lazyloaded {
+			width: auto;
+			max-height: 42px;
+			margin-left: auto;
+			margin-right: auto;
+			display: block;
+	}
+
+	span.btn-variant-content.btn-variant-content-square.varImage {
+			max-width: 100%;
+			display: inline-block;
+			cursor: pointer;
+			border-radius: 0;
+			flex: none;
+			margin-left: 4px;
+			margin-right: 4px;
+			padding: 2px;
+			transition: all .35s;
+			overflow: auto;
+	}
+
+	a.js-insta-variant.btn.btn-variant.btn-variant-color.p-0.varImage.selected {
+    border-width: 2px;
+    border-color: var(--ditron-blue);
+	}
+
+	a.js-insta-variant.btn.btn-variant.btn-variant-color.p-0.varImage {
+			border: 1px solid #454545;
+			width: 50px;
+			height: 48px;
+	}
+
+	a.js-insta-variant.btn.btn-variant.selected {color: #fff;background-color: #454545;border-width: 1px;border-color: #245346;text-decoration: none;}
+
+	a.js-insta-variant.btn.btn-variant.selected.varImage {
+			background-color: transparent;
+	}
+
+	a.js-insta-variant.btn.btn-variant {
+			color: #454545;
+			text-align: center;
+			cursor: pointer;
+			border: 1px solid #454545;
+			justify-content: center;
+			align-items: center;
+			width: auto;
+			height: 30px;
+			margin-top: 2px;
+			margin-bottom: 2px;
+			margin-right: 5px;
+			padding: 2px 10px;
+			font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+			font-size: 14px;
+			font-weight: 600;
+			line-height: 14px;
+			text-decoration: none;
+			display: inline-block;
+			overflow: hidden;
+	}
+
+	a.js-insta-variant.btn.btn-variant:hover {
+			background-color: black;
+			color: white;
+	}
+
+	a.js-insta-variant.btn.btn-variant.btn-variant-color.varImage.p-0:hover {
+			background: transparent;
+	}
+
+	.js-product-variants-group.form-group.col-12.text-center.text-md-left.mb-4 {
+			margin: 0px 0px 12px 0px !important;
+	}
+
+	a.js-insta-variant.btn.btn-variant.btn-variant-no-stock {
+    opacity: 0.5;
+	}
+	
+</style>

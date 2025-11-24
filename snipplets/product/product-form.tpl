@@ -21,7 +21,8 @@
     </div>
 
     {# Product form, includes: Variants, CTA and Shipping calculator #}
-     <form id="product_form" class="js-product-form mt-4" method="post" action="{{ store.cart_url }}" data-store="product-form-{{ product.id }}">
+    <div class="formvip w-form">
+     <form id="product_form" class="js-product-form vip-variacinqty-selection" method="post" action="{{ store.cart_url }}" data-store="product-form-{{ product.id }}">
 
         <input type="hidden" name="add_to_cart" value="{{product.id}}" />
 
@@ -109,6 +110,7 @@
             {% endif %}
         {% endif %}
      </form>
+    </div>
 
     <div class="promovip">
         <img loading="lazy" src="{{ "images/envios_icon.svg" | static_url }}" alt="free_shiping_icon" class="iconvip">
@@ -141,6 +143,12 @@
     {% endif %}
 
 </div>
+
+<style>
+    label.form-label.text-center.text-md-left {
+        display: none;
+    }
+</style>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
