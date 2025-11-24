@@ -141,3 +141,11 @@ product_hover = 1
 product_color_variants = 0
 pagination = classic
 category_quantity_products = 4
+
+shipping_calculator_product_page = 0
+product_detail_installments = 0
+payment_discount_price = 0
+product_stock = 0
+last_product = 0
+full_width_description = 0
+show_product_fb_comment_box = 0

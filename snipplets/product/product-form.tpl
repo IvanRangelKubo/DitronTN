@@ -22,70 +22,16 @@
 
     {# Product form, includes: Variants, CTA and Shipping calculator #}
      <form id="product_form" class="js-product-form mt-4" method="post" action="{{ store.cart_url }}" data-store="product-form-{{ product.id }}">
+
         <input type="hidden" name="add_to_cart" value="{{product.id}}" />
-        {% if template == "product" %}
-            {% set show_size_guide = true %}
-        {% endif %}
+
         {% if product.variations %}
             {% include "snipplets/product/product-variants.tpl" with {show_size_guide: show_size_guide} %}
         {% endif %}
 
-        {% if settings.last_product and show_product_quantity %}
-            <div class="{% if product.variations %}js-last-product{% endif %} text-center text-md-left text-accent mb-3"{% if product.selected_or_first_available_variant.stock != 1 %} style="display: none;"{% endif %}>
-                {{ settings.last_product_text }}
-            </div>
-        {% endif %}
-
         <div class="row {% if settings.product_stock %}mb-3{% else %}mb-4{% endif %}">
-            {% if show_product_quantity %}
-                {% include "snipplets/product/product-quantity.tpl" %}
-            {% endif %}
-
-            {{ component('subscriptions/subscription-selector', {
-                subscription_classes: {
-                    container: 'radio-button-container col-12 mt-2 mb-2',
-
-                    radio_button: 'radio-button-item card p-3 mb-2 overflow-visible',
-                    radio_button_label: 'ml-1',
-                    radio_button_text: 'row',
-                    radio_button_icon: 'radio-button-icons',
-
-                    purchase_option_info_container: 'col-auto font-small pr-0',
-                    purchase_option_price: 'col text-right',
-                    purchase_option_single_frequency: 'mt-2 pt-1 font-small opacity-80',
-                    purchase_option_discount: 'label label-accent ml-2 py-1',
-
-                    dropdown_container: 'form-group mt-3 mb-0',
-                    dropdown_button: 'form-select p-2',
-                    dropdown_icon: 'form-select-icon icon-inline icon-w-14 icon-rotate-90',
-                    dropdown_options: 'form-select-options',
-                    dropdown_option: 'form-select-option row no-gutters',
-                    dropdown_option_info: 'col pr-4',
-                    dropdown_option_price: 'col-auto',
-                    dropdown_option_discount: 'text-accent mt-1',
-
-                    cart_alert: 'font-small text-center mt-2',
-                    shipping_message: 'font-small mb-3',
-                    shipping_message_title: 'form-label mb-2 pb-1',
-                    shipping_message_text: 'box',
-                    
-                    legal_message: 'font-smallest text-center w-100 mb-2 px-3',
-                    legal_link: 'font-smallest btn-link btn-link-primary p-0',
-                    legal_modal: 'bottom modal-centered-small modal-centered transition-soft',
-                    legal_modal_header: 'modal-header row no-gutters',
-                    legal_modal_title: 'col offset-2',
-                    legal_modal_close_button: 'col-2 pr-3 pr-md-0 text-right',
-                    legal_modal_close_icon: 'icon-inline svg-icon-text',
-                    legal_modal_body: 'mb-4',
-                    legal_modal_details_title: 'mb-3',
-                    legal_modal_details_paragraph: 'font-small pb-4 mb-0',
-                    legal_modal_details_link: 'font-small btn-link btn-link-primary p-0'
-                },
-                dropdown_icon: true,
-                dropdown_icon_svg_id: 'chevron',
-
-                legal_modal_close_icon_id: 'times',
-            }) }}
+            
+            {% include "snipplets/product/product-quantity.tpl" %}
             
             {% set state = store.is_catalog ? 'catalog' : (product.available ? product.display_price ? 'cart' : 'contact' : 'nostock') %}
             {% set texts = {'cart': "Agregar al carrito", 'contact': "Consultar precio", 'nostock': "Sin stock", 'catalog': "Consultar"} %}
@@ -170,13 +116,13 @@
     </div>
 
     <div class="promovip">
-        <img src="" alt="" class="mediopago vip">
-        <img src="" alt="" class="mediopago vip">
-        <img src="" alt="" class="mediopago vip">
-        <img src="" alt="" class="mediopago vip">
-        <img src="" alt="" class="mediopago vip">
-        <img src="" alt="" class="mediopago vip">
-        <img src="" alt="" class="mediopago vip">
+        <img src="{{ "payment_1.jpg" | static_url }}" alt="{{ settings.payment_1_alt }}" class="mediopago vip">
+        <img src="{{ "payment_2.jpg" | static_url }}" alt="{{ settings.payment_2_alt }}" class="mediopago vip">
+        <img src="{{ "payment_3.jpg" | static_url }}" alt="{{ settings.payment_3_alt }}" class="mediopago vip">
+        <img src="{{ "payment_4.jpg" | static_url }}" alt="{{ settings.payment_4_alt }}" class="mediopago vip">
+        <img src="{{ "payment_5.jpg" | static_url }}" alt="{{ settings.payment_5_alt }}" class="mediopago vip">
+        <img src="{{ "payment_6.jpg" | static_url }}" alt="{{ settings.payment_6_alt }}" class="mediopago vip">
+        <img src="{{ "payment_7.jpg" | static_url }}" alt="{{ settings.payment_7_alt }}" class="mediopago vip">
     </div>
 
     {% if product.description is not empty %}

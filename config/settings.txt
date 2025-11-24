@@ -1109,25 +1109,6 @@ Detalle de producto
 		icon = cube
 		advanced = true
 	collapse
-		title = Formas de entrega
-	checkbox_global
-		name = shipping_calculator_product_page
-		description = Mostrar el calculador de costos de envío y locales físicos en la página de producto
-	subtitle
-		subtitle = <a target='_blank' href='/admin/shipping/'>Agregar medios de envío o locales físicos</a>
-	collapse
-		title = Información de cuotas
-	checkbox
-		name = product_detail_installments
-		description = Mostrar cuotas en la página de producto
-	collapse
-		title = Descuento por medio de pago
-	checkbox
-		name = payment_discount_price
-		description = Mostrar el precio con mayor descuento en los listados, el detalle de producto y el carrito de compras
-	subtitle
-		subtitle = <a target='_blank' href='/admin/payments/'>Configurá descuentos para tus medios de pago.</a>
-	collapse
 		title = Variantes del producto
 	checkbox
 		name = bullet_variants
@@ -1138,50 +1119,6 @@ Detalle de producto
 		name = image_color_variants
 		description = Mostrar la foto de la variante del color como botón
 	collapse
-		title = Guía de talles
-	subtitle
-		subtitle = Cuando un producto tenga variantes de 'Talle', podés mostrar un pop-up con las medidas. Solo necesitás <a target='_blank' href='/admin/pages/'>crear una página</a> e incluir su link debajo.
-	i18n_input
-		name = size_guide_url
-		description = Link de la página
-	description
-		description = Ej: https://tudominio.com/guia-de-talles/
-	collapse
-		title = SKU
-	checkbox
-		name = product_sku
-		description = Mostrar código SKU
-	collapse
-		title = Stock
-	checkbox
-		name = product_stock
-		description = Mostrar stock disponible
-	subtitle
-		subtitle = Último producto en stock
-	checkbox
-		name = last_product
-		description = Mostrar un mensaje para incentivar la compra cuando quede la última unidad de un producto
-	i18n_input
-		description = Mensaje
-		name = last_product_text
-	collapse
-		title = Descripción del producto
-	checkbox
-		name = full_width_description
-		description = Mostrar la descripción ocupando todo el ancho de la pantalla (solo en computadoras)
-	collapse
-		title = Facebook
-	subtitle
-		subtitle = Comentarios en el producto
-	checkbox
-		name = show_product_fb_comment_box
-		description = Permitir que tus clientes te dejen comentarios con su usuario de Facebook en la página de producto
-	text
-		name = fb_admins
-		description = ID de tu perfil de Facebook
-	subtitle
-		subtitle = Es necesario si querés moderar los comentarios. Podés obtenerlo <a target='_blank' href='https://findmyfbid.in/'>acá</a>
-	collapse
 		title = Productos relacionados
 	i18n_input
 		description = Título para los productos alternativos
@@ -1189,6 +1126,64 @@ Detalle de producto
 	i18n_input
 		description = Título para los productos complementarios
 		name = products_complementary_title
+	collapse
+		title = Metodos de pago
+	title
+		title = Metodo de pago 1
+	image
+		original = payment_1.jpg
+		title = Metodo de pago 1
+	i18n_input
+		name = payment_1_alt
+		description = Texto alternativo (Alt)
+	title
+		title = Metodo de pago 2
+	image
+		original = payment_2.jpg
+		title = Metodo de pago 2
+	i18n_input
+		name = payment_2_alt
+		description = Texto alternativo (Alt)
+	title
+		title = Metodo de pago 3
+	image
+		original = payment_3.jpg
+		title = Metodo de pago 3
+	i18n_input
+		name = payment_3_alt
+		description = Texto alternativo (Alt)
+	title
+		title = Metodo de pago 4
+	image
+		original = payment_4.jpg
+		title = Metodo de pago 4
+	i18n_input
+		name = payment_4_alt
+		description = Texto alternativo (Alt)
+	title
+		title = Metodo de pago 5
+	image
+		original = payment_5.jpg
+		title = Metodo de pago 5
+	i18n_input
+		name = payment_5_alt
+		description = Texto alternativo (Alt)
+	title
+		title = Metodo de pago 6
+	image
+		original = payment_6.jpg
+		title = Metodo de pago 6
+	i18n_input
+		name = payment_6_alt
+		description = Texto alternativo (Alt)
+	title
+		title = Metodo de pago 7
+	image
+		original = payment_7.jpg
+		title = Metodo de pago 7
+	i18n_input
+		name = payment_7_alt
+		description = Texto alternativo (Alt)
 
 Carrito de compras
 	meta
