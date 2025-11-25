@@ -74,8 +74,8 @@
             <div class="customhtml w-embed">
                 <div class="owl-carousel productosowl owl-theme" id="related-owl">
 
-                    {% for product in related_products %}
-                    {% include "snipplets/grid/item.tpl" with { product: product } %}
+                    {% for relatedProduct in related_products %}
+                    {% include "snipplets/grid/item.tpl" with { product: relatedProduct } %}
                     {% endfor %}
 
                 </div>
@@ -102,8 +102,8 @@
         <div class="customhtml w-embed">
         <div class="owl-carousel productosowl owl-theme" id="complementary-owl">
 
-            {% for product in complementary_product_list %}
-            {% include "snipplets/grid/item.tpl" with { product: product } %}
+            {% for complementary in complementary_product_list %}
+            {% include "snipplets/grid/item.tpl" with { product: complementary  } %}
             {% endfor %}
 
         </div>

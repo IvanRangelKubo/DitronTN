@@ -195,9 +195,7 @@
                         {% else %}
                             {% if product.variations %}
                                 {# Open quickshop popup if has variants #}
-                                <span data-toggle="#quickshop-modal" data-modal-url="modal-fullscreen-quickshop" class="js-quickshop-modal-open js-fullscreen-modal-open js-modal-open btnagregar w-button" title="{{ 'Compra rápida de' | translate }} {{ product.name }}" aria-label="{{ 'Compra rápida de' | translate }} {{ product.name }}" data-component="product-list-item.add-to-cart" data-component-value="{{product.id}}">
-                                    <span class="js-open-quickshop-wording">{{ 'Comprar' | translate }}</span>
-                                </span>
+                                <a href="{{ product.url }}" class="btnagregar w-button">Comprar</a>
                             {% else %}
                                 {# If not variants add directly to cart #}
                                 <form class="js-product-form" method="post" action="{{ store.cart_url }}">
