@@ -446,6 +446,10 @@
                 font-size: large;
             }
 
+            .js-cart-item.js-cart-item-shippable.cart-item.row.no-gutters.mb-3 {
+                font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+            }
+
         </style>
 
     </body>

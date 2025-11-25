@@ -1,9 +1,9 @@
-<div id="shoppingCartPage" data-minimum="{{ settings.cart_minimum_value }}" data-store="cart-page">
+<div id="shoppingCartPage" class="seccmayoristaform" data-minimum="{{ settings.cart_minimum_value }}" data-store="cart-page">
     {% embed "snipplets/page-header.tpl" with {'breadcrumbs': true} %}
         {% block page_header_text %}{{ "Carrito de compras" | translate }}{% endblock page_header_text %}
     {% endembed %}
     
-    <form action="{{ store.cart_url }}" method="post" class="visible-when-content-ready container mb-5" data-store="cart-form" data-component="cart">
+    <form action="{{ store.cart_url }}" method="post" class="visible-when-content-ready customcontainer" data-store="cart-form" data-component="cart">
 
         {# Cart alerts #}
 
@@ -79,3 +79,43 @@
     <div id="store-curr" class="hidden">{{ cart.currency }}</div>
 </div>
 
+<style>
+
+.col-7.offset-5.p-0.text-right > .row {
+    font-size: large;
+    color: #0099d4;
+}
+
+.cart-row.font-small.mb-3.d-none.d-md-block > .row.no-gutters {
+    padding-bottom: 10px;
+    border-bottom: 1px solid gainsboro;
+}
+
+.form-group.float-md-none.m-md-auto.form-quantity.cart-item-quantity.small.p-0.m-md-auto {
+    border: 1px solid black;
+    border-radius: 9px;
+}
+
+span.js-cart-quantity-btn.form-quantity-icon.icon-35px.font-small {
+    font-size: 20px !important;
+}
+
+.js-cart-item.js-cart-item-shippable.cart-item.row.no-gutters.mb-3.align-items-md-center {
+    font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+}
+
+.font-small.mb-1.font-md-body > a {
+    font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+}
+
+span.js-ajax-cart-total.js-cart-subtotal.col.text-right.pr-md-0, span.col-auto.pl-md-0 {
+    font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+    font-size: large;
+}
+
+span.js-cart-products-heading-singular, span.js-cart-products-heading-plural {
+    font-size: large;
+    color: #0099d4;
+}
+
+</style>

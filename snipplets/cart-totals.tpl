@@ -209,7 +209,7 @@
         {# Cart page CTA and minimum alert: Needs to be present or absence on DOM to work correctly with minimum price feature #}
 
         {% if cart.checkout_enabled %}
-          <input id="go-to-checkout" class="btn btn-primary btn-big btn-block mb-2" type="submit" name="go_to_checkout" value="{{ 'Pagar pedido' | translate }}"/>
+          <input id="go-to-checkout" class="btnagregar w-button" type="submit" name="go_to_checkout" value="{{ 'Pagar pedido' | translate }}"/>
         {% else %}
 
           {# Cart minium alert #}
