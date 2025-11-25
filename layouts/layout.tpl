@@ -373,5 +373,80 @@
             });  
         </script>
 
+        <style>
+            form.js-ajax-cart-panel {
+                padding: 5px 10px;
+            }
+
+            .js-modal-close.js-fullscreen-modal-close.modal-header {
+                padding: 10px 0px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: transparent;
+            }
+
+            .row.no-gutters.align-items-center {
+                width: 100%;
+            }
+
+            .col.pr-3.pl-5 {
+                padding: 0px !important;
+                text-align: start;
+                font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+                font-size: 20px;
+                font-weight: 600;
+                color: var(--ditron-blue);
+            }
+
+            svg.icon-inline.svg-icon-text {
+                width: 1.2em !important;
+                height: 1.2em !important;
+            }
+
+            .js-ajax-cart-submit.mb-2 > input.btnagregar.w-button {
+                margin: 0;
+                width: 100%;
+            }
+
+            .modal-body.h-100 {
+                padding: 5px 10px;
+            }
+
+            form.js-ajax-cart-panel > .modal-body.h-100 >  .cart-row.mt-4 {
+                border-top: 1px solid gainsboro !important;
+                padding-top: 15px !important;
+            }
+
+            form.js-ajax-cart-panel > .modal-body.h-100 >  .cart-row.mt-4 {
+                border-top: 1px solid gainsboro !important;
+                padding-top: 15px !important;
+                font-family: Elmssans Variablefont Wght, Verdana, sans-serif !important;
+            }
+
+            .cart-row.mt-4 > * {
+                font-family: Elmssans Variablefont Wght, Verdana, sans-serif !important;
+                font-size: large !important;
+            }
+
+            .js-cart-total-container.js-visible-on-cart-filled > .h2.row.font-huge.mb-2 > *
+            {
+                font-family: Elmssans Variablefont Wght, Verdana, sans-serif !important;
+            }
+
+            .js-visible-on-cart-filled.h5.font-big.row.mb-2 > span.col-7 {
+                font-size: 20px !important;
+            }
+
+            .js-cart-total-container > .h2.row.font-huge.mb-2 > span.col-auto {
+            font-size: 20px !important;
+            }
+
+            span.js-cart-total.col.text-right {
+                font-size: large;
+            }
+
+        </style>
+
     </body>
 </html>

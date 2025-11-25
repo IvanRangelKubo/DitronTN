@@ -69,7 +69,7 @@
                 {% block input_prepend_content %}
                 <div class="form-row m-0 align-items-center">
                   <span class="js-cart-quantity-btn form-quantity-icon icon-35px font-small" onclick="LS.minusQuantity({{ item.id }}{% if not cart_page %}, true{% endif %})" data-component="quantity.minus">
-                    <svg class="icon-inline"><use xlink:href="#minus"/></svg>
+                    -
                   </span>
                 {% endblock input_prepend_content %}
                 {% block input_append_content %}
@@ -81,7 +81,7 @@
                   </span>
 
                   <span class="js-cart-quantity-btn form-quantity-icon icon-35px font-small" onclick="LS.plusQuantity({{ item.id }}{% if not cart_page %}, true{% endif %})" data-component="quantity.plus">
-                    <svg class="icon-inline"><use xlink:href="#plus"/></svg>
+                    +
                   </span>
                 </div>
                 {% endblock input_append_content %}

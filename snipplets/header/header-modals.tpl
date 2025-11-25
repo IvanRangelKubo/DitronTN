@@ -45,7 +45,7 @@
 		modal_transition: 'slide', 
 		modal_width: 'docked-md', 
 		modal_form_action: store.cart_url, 
-		modal_form_class: 'js-ajax-cart-panel h-100', 
+		modal_form_class: 'js-ajax-cart-panel', 
 		modal_body_class: 'h-100', 
 		modal_mobile_full_screen: true,
 		modal_url: 'modal-fullscreen-cart',
@@ -56,7 +56,7 @@
 		desktop_overlay_only: modal_with_desktop_only_overlay_val 
 	} %}
 		{% block modal_head %}
-			{% block page_header_text %}{{ "Carrito de compras" | translate }}{% endblock page_header_text %}
+			{% block page_header_text %}{{ "Mi carrito" | translate }}{% endblock page_header_text %}
 		{% endblock %}
 		{% block modal_body %}
 			{% snipplet "cart-panel.tpl" %}

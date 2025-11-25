@@ -209,7 +209,7 @@
         {# Cart page CTA and minimum alert: Needs to be present or absence on DOM to work correctly with minimum price feature #}
 
         {% if cart.checkout_enabled %}
-          <input id="go-to-checkout" class="btn btn-primary btn-big btn-block mb-2" type="submit" name="go_to_checkout" value="{{ 'Iniciar Compra' | translate }}"/>
+          <input id="go-to-checkout" class="btn btn-primary btn-big btn-block mb-2" type="submit" name="go_to_checkout" value="{{ 'Pagar pedido' | translate }}"/>
         {% else %}
 
           {# Cart minium alert #}
@@ -223,7 +223,7 @@
         {# Cart popup CTA and minimum alert #}
 
         <div class="js-ajax-cart-submit mb-2" {{ not cart.checkout_enabled ? 'style="display:none"' }} id="ajax-cart-submit-div" >
-          <input class="btn btn-primary btn-big btn-block" type="submit" name="go_to_checkout" value="{{ 'Iniciar Compra' | translate }}" data-component="cart.checkout-button"/>
+          <input class="btnagregar w-button" type="submit" name="go_to_checkout" value="{{ 'Pagar pedido' | translate }}" data-component="cart.checkout-button"/>
         </div>
         <div class="js-ajax-cart-minimum alert alert-warning mb-2 text-center" {{ cart.checkout_enabled ? 'style="display:none"' }} id="ajax-cart-minumum-div">
           {{ "El monto mínimo de compra es de {1} sin incluir el costo de envío" | t(cart_total | money) }}
