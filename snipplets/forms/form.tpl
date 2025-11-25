@@ -22,6 +22,13 @@
             <svg class="icon-inline icon-spin icon-w-2em ml-3"><use xlink:href="#spinner-third"/></svg>
         </span>
     </button>
+
+    {% if template == 'account.login' %}
+        <div class="loginLinks">
+            <p class="txtlogin">¿No tienes cuenta? <a href="/account/register" class="destacadoblue">Crear cuenta aquí</a></p>
+            <a href="/account/reset" class="txtlogin">Olvidé mi contraseña</a>
+        </div>
+    {% endif %}
     {% block form_help %}
     {% endblock %}
     {% block form_alerts %}

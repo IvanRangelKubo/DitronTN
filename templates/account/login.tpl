@@ -1,40 +1,53 @@
-{% embed "snipplets/page-header.tpl" %}
-	{% block page_header_text %}{{ 'Iniciar sesión' | translate }}{% endblock page_header_text %}
-{% endembed %}
+  <div class="seccmicuenta">
+    <div class="customcontainer">
+      <div id="w-node-_1972abc9-70be-a0e1-cacb-5136464458f1-558b58e0" class="w-layout-layout stackcuenta wf-layout-layout">
+        <div class="w-layout-cell centermiddlecell"><img src="{{ "images/logo_micuenta.png" | static_url }}" class="logologin"></div>
+        <div class="w-layout-cell centermiddlecell">
+          <div class="loginform w-form">
 
-{# Login Form #}
+						{% embed "snipplets/forms/form.tpl" with{form_id: 'login-form', form_custom_class: 'contenidoformlog' , submit_custom_class: 'btn-vip w-button', submit_text: 'INICIAR SESION' | translate, data_store: 'account-login' } %}
+								{% block form_body %}
+										<div class="contitlecust">
+											<h1 class="secctilte">INICAR SESIÓN</h1>
+											<div class="linetitle"></div>
+										</div>
+										<div class="loginlabel">Correo electrónico*</div>
+										{% embed "snipplets/forms/form-input.tpl" with{input_for: 'email',input_placeholder: '', input_custom_class: 'loginreg-field w-input' , type_email: true, input_name: 'email', input_required: true } %}
+										{% endembed %}
+										<div class="loginlabel">Contraseña*</div>
+										{% embed "snipplets/forms/form-input.tpl" with{input_for: 'password',input_placeholder: '', input_custom_class: 'loginreg-field w-input', type_password: true, input_name: 'password', input_required: true } %}
+										{% endembed %}
 
-<section class="account-page mb-4">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-md-6">
+										<p class="txtlogin">*Campos requeridos</p>
 
-				{{ component('forms/account/login' , {
-					validation_classes: {
-						link: 'btn-link font-small ml-1',
-						text_align: 'text-center',
-						text_size: 'font-small',
-					},
-					spacing_classes: {
-						top_2x: 'mt-2',
-						bottom_2x: 'mb-2',
-						bottom_3x: 'mb-3',
-						bottom_4x: 'mb-4',
-					},
-					form_classes: {
-						facebook_login: 'btn btn-secondary d-block mb-4',
-						password_toggle: 'btn',
-						input_help_align: 'text-right',
-						input_help_link: 'btn-link btn-link font-small mb-2 mr-1',
-						help_align: 'text-center',
-						help_text_size: 'font-small',
-						help_link: 'btn-link btn-link font-small mb-2 ml-1',
-						submit: 'btn btn-primary btn-big btn-block',
-						submit_spinner: 'icon-inline icon-spin ml-2'
-					}})
-				}}
+										{% if result.invalid %}
+												<div class="alert alert-danger">{{ 'Estos datos no son correctos. ¿Chequeaste que estén bien escritos?' | translate }}</div>
+										{% endif %}
+										
+								{% endblock %}
+								
+						{% endembed %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-			</div>
-		</div>
-	</div>
-</section>
+
+
+<style>
+   .form-group {
+        margin-bottom: 0;
+    } 
+
+		a.js-password-view.btn.password-toggle {
+				position: absolute;
+				top: 94%;
+				display: none;
+		}
+
+		.alert.alert-danger {
+			margin-bottom: 15px;
+		}
+
+</style>
