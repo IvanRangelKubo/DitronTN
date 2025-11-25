@@ -1,8 +1,52 @@
-  <div class="seccmicuenta">
-    <div class="customcontainer">
-      <div id="w-node-_1972abc9-70be-a0e1-cacb-5136464458f1-990be0eb" class="w-layout-layout stackcuenta wf-layout-layout">
+{# Account validation #}
+{% if account_validation == 'pending' %}
+
+	<section class="seccmicuenta">
+		<div class="customcontainer">
+
+			<div id="w-node-_1972abc9-70be-a0e1-cacb-5136464458f1-990be0eb" class="w-layout-layout stackcuenta wf-layout-layout">
+
         <div class="w-layout-cell centermiddlecell">
-					<img src="{{ "images/logo_micuenta.png" | static_url}}" class="logologin"></div>
+					<img src="{{ "images/logo_micuenta.png" | static_url}}" class="logologin">
+				</div>
+
+				<div class="w-layout-cell centermiddlecell">
+
+					<div class="contitlecust">
+						<h1 class="secctilte">CREAR CUENTA</h1>
+						<div class="linetitle"></div>
+					</div>
+					
+					<p class="txtlogin">{{ "Te enviamos un link a <strong>{1}</strong> para que valides tu email." | t(customer_email) }} </p>
+
+					<div class="font-small mb-4">
+						<p class="txtlogin center" >{{ "¿Todavía no lo recibiste?" | translate }} <span class="js-resend-validation-link destacadoblue">{{ "Enviar link de nuevo" | translate }}</span></p>
+					</div>
+					<div class="js-resend-validation-success alert alert-success" style="display:none">
+						<p class="txtlogin center">{{ "¡El link fue enviado correctamente!" | translate }}</p>
+					</div>
+					<div class="js-resend-validation-error alert alert-danger" style="display:none">
+						<p class="txtlogin center">{{ "No pudimos enviar el email, intentalo de nuevo en unos minutos." | translate }}</p>
+					</div>
+
+				</div>
+
+
+			</div>
+
+		</div>
+	</section>
+
+{% else %}
+	<div class="seccmicuenta">
+    <div class="customcontainer">
+
+      <div id="w-node-_1972abc9-70be-a0e1-cacb-5136464458f1-990be0eb" class="w-layout-layout stackcuenta wf-layout-layout">
+
+        <div class="w-layout-cell centermiddlecell">
+					<img src="{{ "images/logo_micuenta.png" | static_url}}" class="logologin">
+				</div>
+
         <div class="w-layout-cell centermiddlecell">
           <div class="loginform w-form">
 
@@ -74,8 +118,10 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
+{% endif %}
 
 	<style>
    .form-group {
