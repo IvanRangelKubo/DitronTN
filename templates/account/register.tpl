@@ -1,38 +1,112 @@
-{% embed "snipplets/page-header.tpl" %}
-	{% block page_header_text %}{{ 'Crear cuenta' | translate }}{% endblock page_header_text %}
-{% endembed %}
+  <div class="seccmicuenta">
+    <div class="customcontainer">
+      <div id="w-node-_1972abc9-70be-a0e1-cacb-5136464458f1-990be0eb" class="w-layout-layout stackcuenta wf-layout-layout">
+        <div class="w-layout-cell centermiddlecell">
+					<img src="{{ "images/logo_micuenta.png" | static_url}}" class="logologin"></div>
+        <div class="w-layout-cell centermiddlecell">
+          <div class="loginform w-form">
 
-<section class="account-page mb-4">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-md-6">
-				<h2 class="h6 font-body font-weight-normal mb-4 text-center">{{ 'Comprá más rápido y llevá el control de tus pedidos, ¡en un solo lugar!'| translate }}</h2>
+							{% embed "snipplets/forms/form.tpl" with{form_id: 'login-form', form_custom_class: 'contenidoformlog', submit_custom_class: 'js-recaptcha-button btn-vip w-button', submit_prop: 'disabled', submit_text: 'Crear cuenta' | translate, data_store: 'account-register' } %}
+								{% block form_body %}
 
-				{{ component('forms/account/register' , {
-					validation_classes: {
-						link: 'btn-link font-small ml-1',
-						text_align: 'text-center',
-						text_size: 'font-small',
-					},
-					spacing_classes: {
-						top_2x: 'mt-2',
-						bottom_2x: 'mb-2',
-						bottom_3x: 'mb-3',
-					},
-					form_classes: {
-						facebook_login: 'btn btn-secondary d-block mb-4',
-						password_toggle: 'btn',
-						input_help_align: 'text-right',
-						input_help_link: 'btn-link btn-link font-small mb-2 mr-1',
-						help_align: 'text-center',
-						help_text_size: 'font-small',
-						help_link: 'btn-link btn-link font-small mb-2 ml-1',
-						submit: 'btn btn-primary btn-big btn-block',
-						submit_spinner: 'icon-inline icon-spin ml-2',
-						input_error: 'notification-left',
-					}})
-				}}
-			</div>
-		</div>
-	</div>
-</section>
+									<div class="contitlecust">
+										<h1 class="secctilte">CREAR CUENTA</h1>
+										<div class="linetitle"></div>
+									</div>
+
+              		<p class="txtlogin">Regístrate en Ditron México, compra más fácil y disfruta de diferentes beneficios.</p>
+
+									{# Name input #}
+									<div class="loginlabel">Nombre Completo*</div>
+									{% embed "snipplets/forms/form-input.tpl" with{type_text: true,input_custom_class: 'loginreg-field w-input', input_for: 'name', input_value: result.name, input_name: 'name', input_id: 'name', input_placeholder: '', input_required: true} %}
+										{% block input_form_alert %}
+											{% if result.errors.name %}
+																<div class="alert alert-danger">{{ 'Usamos tu nombre para identificar tus pedidos.' | translate }}</div>
+														{% endif %}
+										{% endblock input_form_alert %}
+									{% endembed %}
+
+									{# Email input #}
+									<div class="loginlabel">Correo electrónico*</div>
+									{% embed "snipplets/forms/form-input.tpl" with{type_email: true, input_custom_class: 'loginreg-field w-input', input_for: 'email', input_value: result.email, input_name: 'email', input_id: 'email', input_placeholder: '', input_required: true} %}
+										{% block input_form_alert %}
+											{% if result.errors.email == 'exists' %}
+																<div class="alert alert-danger">{{ 'Encontramos otra cuenta que ya usa este email. Intentá usando otro o iniciá sesión.' | translate }}</div>
+														{% elseif result.errors.email %}
+																<div class="alert alert-danger">{{ 'Necesitamos un email válido para crear tu cuenta.' | translate }}</div>
+														{% endif %}
+										{% endblock input_form_alert %}
+									{% endembed %}
+
+									{# Password input #}
+									<div class="loginlabel">Contraseña*</div>
+									{% embed "snipplets/forms/form-input.tpl" with{type_password: true, input_custom_class: 'loginreg-field pass w-input', input_for: 'password', input_name: 'password', input_id: 'password',input_placeholder: '', input_required: true} %}
+										{% block input_form_alert %}
+											{% if result.errors.password == 'required' %}
+																<div class="alert alert-danger">{{ 'Necesitamos una contraseña para registrarte.' | translate }}</div>
+														{% endif %}
+										{% endblock input_form_alert %}
+									{% endembed %}
+
+									{# Password confirm input #}
+									<div class="loginlabel">Confirmar Contraseña*</div>
+									{% embed "snipplets/forms/form-input.tpl" with{type_password: true, input_custom_class: 'loginreg-field pass w-input', input_for: 'password_confirmation', input_name: 'password_confirmation', input_id: 'password_confirmation', input_placeholder: '', input_required: true } %}
+										{% block input_form_alert %}
+											{% if result.errors.password == 'confirmation' %}
+																<div class="alert alert-danger">{{ 'Las contraseñas no coinciden.' | translate }}</div>
+														{% endif %}
+										{% endblock input_form_alert %}
+									{% endembed %}
+
+									<p class="txtlogin">*Campos requeridos</p>
+									{# Aceptar Términos #}
+									<label class="w-checkbox accept-tyc">
+										<div class="w-checkbox-input w-checkbox-input--inputType-custom termscheckbopx"></div>
+										<input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" required="" style="opacity:0;position:absolute;z-index:-1" oninvalid="this.setCustomValidity('Marque esta casilla si desea continuar')" oninput="this.setCustomValidity('')">
+										<span class="labelcheck-tyc-2 w-form-label" for="checkbox-2">
+											<a href="#" class="tycregister-labellink">Acepto Aviso de Privacidad</a>
+										</span>
+									</label>
+									
+								{% endblock %}
+							{% endembed %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+	<style>
+   .form-group {
+        margin-bottom: 0;
+    } 
+
+		a.js-password-view.btn.password-toggle {
+				position: absolute;
+				top: 94%;
+				display: none;
+		}
+
+		.alert.alert-danger {
+			margin-bottom: 15px;
+		}
+
+		.g-recaptcha>div {
+				margin: 20px 0;
+		}
+
+		.termscheckbopx.w--redirected-checked {
+				border-color: black;
+				background-color: #0099d4;
+		}
+
+		span.js-form-spinner {
+    	position: absolute;
+		}
+
+		button:has(.js-form-spinner[style*="display: block"]) {
+			color: transparent !important;
+		}
+
+</style>

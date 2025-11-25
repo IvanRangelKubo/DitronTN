@@ -175,6 +175,20 @@
     	margin: 20px 0;
 		}
 
+		.termscheckbopx.w--redirected-checked {
+				border-color: black;
+				background-color: #0099d4;
+		}
+
+		span.js-form-spinner {
+    position: absolute;
+	}
+
+		button:has(.js-form-spinner[style*="display: block"]) {
+			color: transparent !important;
+		}
+
+
 	</style>
 
 </section>

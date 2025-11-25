@@ -5,7 +5,7 @@
         <div class="w-layout-cell centermiddlecell">
           <div class="loginform w-form">
 
-						{% embed "snipplets/forms/form.tpl" with{form_id: 'login-form', form_custom_class: 'contenidoformlog' , submit_custom_class: 'btn-vip w-button', submit_text: 'INICIAR SESION' | translate, data_store: 'account-login' } %}
+						{% embed "snipplets/forms/form.tpl" with{form_id: 'login-form', form_custom_class: 'contenidoformlog' , submit_custom_class: 'btn-vip w-button', submit_text: 'Iniciar sesión' | translate, data_store: 'account-login' } %}
 								{% block form_body %}
 										<div class="contitlecust">
 											<h1 class="secctilte">INICAR SESIÓN</h1>
@@ -48,6 +48,14 @@
 
 		.alert.alert-danger {
 			margin-bottom: 15px;
+		}
+
+		span.js-form-spinner {
+    position: absolute;
+	}
+
+		button:has(.js-form-spinner[style*="display: block"]) {
+			color: transparent !important;
 		}
 
 </style>

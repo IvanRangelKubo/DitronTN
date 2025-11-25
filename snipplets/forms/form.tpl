@@ -29,6 +29,10 @@
             <a href="/account/reset" class="txtlogin">Olvidé mi contraseña</a>
         </div>
     {% endif %}
+
+    {% if template == 'account.register' %}
+        <p class="txtlogin">¿Ya tienes cuenta? <a href="/account/login" class="destacadoblue">Incia sesión aquí</a></p>
+    {% endif %}
     {% block form_help %}
     {% endblock %}
     {% block form_alerts %}
