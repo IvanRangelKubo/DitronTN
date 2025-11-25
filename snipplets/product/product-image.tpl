@@ -4,6 +4,11 @@
 	{% set has_multiple_slides = product.media_count > 1 or product.video_url %}
 {% endif %}
 
+{# armamos la URL "real" de la imagen destacada #}
+{% set featured_url = product.featured_image | product_image_url('original') %}
+{# en TN, cuando no hay imagen, la URL incluye "no-photo" #}
+{% set has_real_image = featured_url and ('no-photo' not in featured_url) %}
+
 <div class="row vipImg" data-store="product-image-{{ product.id }}"> 
 	{% if has_multiple_slides %}
 		<div class="col-md-auto d-none d-md-block pr-0">
@@ -37,7 +42,7 @@
 	{% if product.media_count > 0 %}
 		<div class="col px-3">
 			<div class="js-swiper-product swiper-container product-detail-slider" data-product-images-amount="{{ product.media_count }}">
-                {% include 'snipplets/labels.tpl' with {product_detail: true, labels_floating: true} %}
+               
 				<div class="swiper-wrapper">
 					{% for media in product.media %}
 						{% if media.isImage %}
@@ -55,8 +60,9 @@
 									{% else %}
 										{% set product_image_src = media | product_image_url('large') %}
 									{% endif %}
-								
-									<img 
+
+									{% if product.images_count > 0 and has_real_image %}
+										<img 
 										{% if not apply_lazy_load %}fetchpriority="high"{% endif %}
 										{% if apply_lazy_load %}data-{% endif %}src="{{ product_image_src }}"
 										{% if apply_lazy_load %}data-{% endif %}srcset='{{  media | product_image_url('large') }} 480w, {{  media | product_image_url('huge') }} 640w, {{  media | product_image_url('original') }} 1024w' 
@@ -64,6 +70,9 @@
 										{% if apply_lazy_load %}data-sizes="auto"{% endif %}
 										{% if media.dimensions.width and media.dimensions.height %}width="{{ media.dimensions.width }}" height="{{ media.dimensions.height }}"{% endif %}
 										{% if media.alt %}alt="{{media.alt}}"{% endif %} />
+									{% else %}
+										<img src="{{ 'images/ditron placeholder.webp' | static_url }}" class="placeholderVip" alt="{{ product.name }}">
+									{% endif %}
 								{% if home_main_product %}
 									</div>
 								{% else %}
@@ -90,19 +99,7 @@
 					</div>
 				</div>
 			{% endif %}
-			{% if not home_main_product %}
-				
-				{# Product share #}
-				
-				<div class="text-center d-none d-md-block mt-4">
-					{% include 'snipplets/social/social-share.tpl' %}
-				</div>
-			{% endif %}
+
 		</div>
 	{% endif %}
 </div>
-
-<style>
-
-
-</style>

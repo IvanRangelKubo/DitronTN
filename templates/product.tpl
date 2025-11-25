@@ -34,4 +34,8 @@
     .row.vipImg {
         width: 100%;
     }
+
+    .product-detail-slider .product-slider-image {
+        max-height: 600px;
+    }
 </style>
