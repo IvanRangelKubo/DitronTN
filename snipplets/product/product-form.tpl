@@ -65,10 +65,12 @@
      </form>
     </div>
 
-    <div class="promovip">
-        <img loading="lazy" src="{{ "images/envios_icon.svg" | static_url }}" alt="free_shiping_icon" class="iconvip">
-        <div class="titulovip-elements"><span class="bluetxtvip">ENVÍOS GRATIS</span> a partir de $1,500 MXN </div>
-    </div>
+    {% if settings.show_free_shiping %}
+        <div class="promovip">
+            <img loading="lazy" src="{{ "images/envios_icon.svg" | static_url }}" alt="free_shiping_icon" class="iconvip">
+            <div class="titulovip-elements"><span class="bluetxtvip">ENVÍOS GRATIS</span> {{ settings.free_shiping_label }} </div>
+        </div>  
+    {% endif %}
 
     <div class="promovip">
         <img src="{{ "payment_1.jpg" | static_url }}" alt="{{ settings.payment_1_alt }}" class="mediopago vip">

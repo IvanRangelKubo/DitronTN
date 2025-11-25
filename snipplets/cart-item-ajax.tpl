@@ -32,7 +32,7 @@
 
         {# Cart item subtotal #}
         
-        <span class="js-cart-item-subtotal {% if cart_page %}col-md-2 px-0 text-md-center d-block d-md-none{% endif %}" data-line-item-id="{{ item.id }}" data-component="subtotal.value" data-component-value={{ item.subtotal | money }}'>{{ item.subtotal | money }}</span>
+        <span class="js-cart-item-subtotal {% if cart_page %}col-md-2 px-0 text-md-center d-block d-md-none{% endif %}" data-line-item-id="{{ item.id }}" data-component="subtotal.value" data-component-value='{{ item.subtotal | money }}'>{{ item.subtotal | money }}</span>
       </div>
 
       <div class="col-auto {% if cart_page %}col-md-7 p-md-0{% endif %} text-right">

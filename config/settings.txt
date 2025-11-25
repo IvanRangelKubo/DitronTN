@@ -1184,6 +1184,14 @@ Detalle de producto
 	i18n_input
 		name = payment_7_alt
 		description = Texto alternativo (Alt)
+	collapse
+		title = Envio gratis
+	checkbox
+		name = show_free_shiping
+		description = Mostrar etiqueta de envio gratis.
+	i18n_input
+		name = free_shiping_label
+		description = Etiqueta de envio gratis
 
 Carrito de compras
 	meta
