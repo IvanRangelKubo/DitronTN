@@ -6,7 +6,7 @@
 
         <div id="w-node-_4928596a-9fbc-925c-b50a-bad836de26a2-54e89ff7" class="w-layout-layout stackvip wf-layout-layout">
 
-            <div class="col-md-7 pb-3 pr-md-2">
+            <div class="w-layout-cell">
                 {% include 'snipplets/product/product-image.tpl' %}
             </div>
 
@@ -29,3 +29,9 @@
     </div>
 
 </div>
+
+<style>
+    .row.vipImg {
+        width: 100%;
+    }
+</style>

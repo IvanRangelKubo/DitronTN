@@ -4,7 +4,7 @@
 	{% set has_multiple_slides = product.media_count > 1 or product.video_url %}
 {% endif %}
 
-<div class="row" data-store="product-image-{{ product.id }}"> 
+<div class="row vipImg" data-store="product-image-{{ product.id }}"> 
 	{% if has_multiple_slides %}
 		<div class="col-md-auto d-none d-md-block pr-0">
 			<div class="product-thumbs-container position-relative">
@@ -101,3 +101,8 @@
 		</div>
 	{% endif %}
 </div>
+
+<style>
+
+
+</style>
