@@ -1234,6 +1234,17 @@ Carrito de compras
 	subtitle
 		subtitle = <a target='_blank' href='/admin/shipping/'>Agregar medios de envío o locales físicos</a>
 
+Blog
+	meta
+		icon = file
+		advanced = true
+	image
+		original = blog_page_image.jpg
+		title = Imagen para el blog
+	textarea
+		name = blog_page_description
+		description = Descripción
+
 Pie de página
 	meta
 		icon = arrow-down
@@ -1333,7 +1344,6 @@ Pie de página
 	i18n_input
 		name = pago_7_alt
 		description = Texto alternativo para método de pago 7
-
 
 Edición avanzada de CSS
 	meta

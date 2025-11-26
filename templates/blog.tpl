@@ -1,10 +1,10 @@
 <div class="seccdetailblog">
     <div class="customcontainer">
     
-        <img src="{{ "images/ditronblog_title.svg" | static_url }}" class="logoblog">
+        <img src="{{ "blog_page_image.jpg" | static_url }}" class="logoblog">
 
         <div class="contitlecust">
-            <h1 class="blogtitle">Bienvenido al <span class="destacadoblue">Blog de Ditron</span>: el lugar donde encontrarás consejos, novedades y tendencias para equipar y mantener tus espacios, desde el hogar y la oficina hasta el jardín y talleres. Descubre cómo sacar el máximo provecho de nuestros productos.</h1>
+            <h1 class="blogtitle">Bienvenido al <span class="destacadoblue">Blog de Ditron</span>: {{ settings.blog_page_description }}</h1>
         </div>
         
         <div class="listingposts">
