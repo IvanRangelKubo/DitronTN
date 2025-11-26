@@ -621,62 +621,6 @@ Página de inicio
 		subtitle = <a target='_blank' href='/admin/themes/settings/product_order/'>Elegí cuáles vas a destacar desde Destacados.</a>
 
 	collapse
-		title = Productos nuevos
-		backto = home_order_position
-	i18n_input
-		name = new_products_title
-		description = Título
-	dropdown
-		name = new_products_format
-		description = Mostrar los productos como:
-		values
-			grid = Grilla
-			slider = Carrusel
-	dropdown
-		name = new_products_mobile
-		description = Cantidad de productos por fila en celulares
-		values
-			1 = 1 producto
-			2 = 2 productos
-	dropdown
-		name = new_products_desktop
-		description = Cantidad de productos por fila en computadoras
-		values
-			2 = 2 productos
-			3 = 3 productos
-			4 = 4 productos
-	subtitle
-		subtitle = <a target='_blank' href='/admin/themes/settings/product_order/'>Elegí cuáles vas a destacar</a>
-	collapse
-		title = Productos en oferta
-		backto = home_order_position
-	i18n_input
-		name = sale_products_title
-		description = Título
-	dropdown
-		name = sale_products_format
-		description = Mostrar los productos como:
-		values
-			grid = Grilla
-			slider = Carrusel
-	dropdown
-		name = sale_products_mobile
-		description = Cantidad de productos por fila en celulares
-		values
-			1 = 1 producto
-			2 = 2 productos
-	dropdown
-		name = sale_products_desktop
-		description = Cantidad de productos por fila en computadoras
-		values
-			2 = 2 productos
-			3 = 3 productos
-			4 = 4 productos
-	subtitle
-		subtitle = <a target='_blank' href='/admin/themes/settings/product_order/'>Elegí cuáles vas a destacar</a>
-
-
-	collapse
 		title = Banner Informativo
 		backto = home_order_position
 	i18n_input
@@ -706,138 +650,6 @@ Página de inicio
 		name = banner
 		gallery_image = Agregar imagen
 		gallery_link = [Opcional] Página web a la que quieres que te lleve la imagen al hacer click
-		gallery_more_info = true
-
-	collapse
-		title = Banners promocionales
-		backto = home_order_position
-	description
-		description = Podés cargar los banners que necesites, sin límite de cantidad.
-	i18n_input
-		name = banner_promotional_title
-		description = Título para los banners promocionales
-	checkbox
-		name = banner_promotional_text_outside
-		description = Mostrar texto fuera de la imagen
-	checkbox
-		name = banner_promotional_slider
-		description = Mostrar banners dentro de un carrusel
-	checkbox
-		name = banner_promotional_same_size
-		description = Usar el mismo alto para todos los banners
-	checkbox
-		name = banner_promotional_without_margins
-		description = Quitar espacios entre los banners
-	dropdown
-		name = banner_promotional_align
-		description = Alineación del texto
-		values
-			left = Izquierda
-			center = Centrado
-	subtitle
-		subtitle = Imágenes para computadoras
-	dropdown
-		name = banner_promotional_columns_desktop
-		description = Disposición:
-		values
-			1 = 1 banner por fila
-			2 = 2 banners por fila
-			3 = 3 banners por fila
-			4 = 4 banners por fila
-	gallery
-		name = banner_promotional
-		gallery_image = Agregar imagen
-		gallery_link = [Opcional] Página web a la que quieres que te lleve la imagen al hacer click
-		gallery_width = 1920
-		gallery_height = 900
-		gallery_more_info = true
-	subtitle
-		subtitle = Imágenes para celulares
-	checkbox
-		name = toggle_banner_promotional_mobile
-		description = Cargar otras imágenes para celulares
-	gallery
-		name = banner_promotional_mobile
-		gallery_image = Agregar imagen
-		gallery_link = [Opcional] Página web a la que quieres que te lleve la imagen al hacer click
-		gallery_width = 820
-		gallery_height = 1000
-		gallery_more_info = true
-	collapse
-		title = Banners de novedades
-		backto = home_order_position
-	description
-		description = Podés cargar los banners que necesites, sin límite de cantidad.
-	i18n_input
-		name = banner_news_title
-		description = Título para los banners de novedades
-	checkbox
-		name = banner_news_text_outside
-		description = Mostrar texto fuera de la imagen
-	checkbox
-		name = banner_news_slider
-		description = Mostrar banners dentro de un carrusel
-	checkbox
-		name = banner_news_same_size
-		description = Usar el mismo alto para todos los banners
-	checkbox
-		name = banner_news_without_margins
-		description = Quitar espacios entre los banners
-	dropdown
-		name = banner_news_align
-		description = Alineación del texto
-		values
-			left = Izquierda
-			center = Centrado
-	subtitle
-		subtitle = Imágenes para computadoras
-	dropdown
-		name = banner_news_columns_desktop
-		description = Disposición:
-		values
-			1 = 1 banner por fila
-			2 = 2 banners por fila
-			3 = 3 banners por fila
-			4 = 4 banners por fila
-	gallery
-		name = banner_news
-		gallery_image = Agregar imagen
-		gallery_link = [Opcional] Página web a la que quieres que te lleve la imagen al hacer click
-		gallery_width = 1920
-		gallery_height = 900
-		gallery_more_info = true
-	subtitle
-		subtitle = Imágenes para celulares
-	checkbox
-		name = toggle_banner_news_mobile
-		description = Cargar otras imágenes para celulares
-	gallery
-		name = banner_news_mobile
-		gallery_image = Agregar imagen
-		gallery_link = [Opcional] Página web a la que quieres que te lleve la imagen al hacer click
-		gallery_width = 820
-		gallery_height = 1000
-		gallery_more_info = true
-	collapse
-		title = Módulos de imagen y texto
-		backto = home_order_position
-	description
-		description = Podés cargar los módulos que necesites, sin límite de cantidad.
-	checkbox
-		name = module_slider
-		description = Mostrar los módulos dentro de un carrusel
-	checkbox
-		name = module_same_size
-		description = Usar el mismo alto para todos los módulos
-	checkbox
-		name = module_without_margins
-		description = Quitar espacios entre los módulos
-	gallery
-		name = module
-		gallery_image = Agregar imagen
-		gallery_link = [Opcional] Página web a la que quieres que te lleve la imagen al hacer click
-		gallery_width = 1920
-		gallery_height = 900
 		gallery_more_info = true
 
 	collapse
@@ -890,34 +702,6 @@ Página de inicio
 	checkbox
 		name = video_vertical_mobile
 		description = Usar formato vertical en celulares
-	collapse
-		title = Newsletter
-		backto = home_order_position
-	checkbox
-		name = home_news_full
-		description = Extender al ancho de la pantalla
-	checkbox
-		name = home_news_colors
-		description = Usar estos colores para el newsletter
-	color
-		name = home_news_background_color
-		description = Color de fondo
-	color
-		name = home_news_foreground_color
-		description = Color de texto
-	description
-		description = Imagen
-	image
-		original = home_news_image.jpg
-		title = Cargar imagen (JPG, GIF, PNG)
-		width = 800
-		height = 480
-	i18n_input
-		name = home_news_title
-		description = Título
-	i18n_input
-		name = home_news_text
-		description = Descripción
 
 	collapse
 		title = Blog
@@ -1060,18 +844,12 @@ Página de inicio
 			slider = Carrusel de imágenes
 			main_categories = Categorías principales
 			products = Productos destacados
-			new = Productos nuevos
-			sale = Productos en oferta
 			informatives = Garantias
 			welcome = Mensaje de bienvenida
 			institutional = Banner Secundario
 			categories = Banners de categorías
-			promotional = Banners promocionales
-			news_banners = Banners de novedades
-			modules = Módulos de imagen y texto
 			brands = Carrusel de productos
 			video = Video
-			newsletter = Newsletter
 			main_product = Banner Informativo
 			instafeed = Publicaciones de Instagram
 			testimonials = Blog
