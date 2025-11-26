@@ -66,7 +66,7 @@
                     <div class="titlecol-pedido">{{ "Estatus del pedido" | translate }}</div>
                 </div>
                 <div class="w-col w-col-3 w-col-small-3">
-                    <div class="titlecol-pedido">{{ "Forma de pago" | translate }}</div>
+                    <div class="titlecol-pedido">{{ "Estatus del pago" | translate }}</div>
                 </div>
                 <div class="w-col w-col-3 w-col-small-3">
                     <div class="titlecol-pedido">{{ "Total" | translate }}</div>
@@ -103,7 +103,11 @@
 
                     <div class="w-col w-col-3">
                     <div class="infopedido-list">
-                        {{ order.payment_method }}
+                        {{ (order.payment_status == 'pending'? 'Pendiente' : 
+                            (order.payment_status == 'authorized'? 'Autorizado' : 
+                            (order.payment_status == 'paid'? 'Pagado' : 
+                            (order.payment_status == 'voided'? 'Cancelado' : 
+                            (order.payment_status == 'refunded'? 'Reintegrado' : 'Abandonado'))))) | translate }}
                     </div>
                     </div>
 

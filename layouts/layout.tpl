@@ -450,6 +450,16 @@
                 font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
             }
 
+            span.btn-link.font-small {
+                color: var(--ditron-blue);
+                font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+            }
+
+            a.d-block.d-sm-inline.mr-3.mr-sm-2 {
+                font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+                color: black;
+            }
+
         </style>
 
     </body>
