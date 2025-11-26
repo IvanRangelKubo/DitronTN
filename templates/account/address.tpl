@@ -1,133 +1,259 @@
-{% embed "snipplets/page-header.tpl" %}
-    {% block page_header_text %}{{ "Dirección" | translate }}{% endblock page_header_text %}
-{% endembed %}
+{% set templateTitle = 'NUEVA DIRECCION' %}
+{% if address.name %}
+    {% set templateTitle = 'EDITAR DIRECCION' %}
+{% endif %}
 
-{# User edit address form #}
+<div class="seccdetallecuenta">
+    <div class="customcontainer">
 
-<section class="account-page mb-4">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                {% embed "snipplets/forms/form.tpl" with{form_id: 'address-form', submit_custom_class: 'btn-block', submit_text: 'Guardar dirección' | translate } %}
-                    {% block form_body %}
+        <div class="contitlecust">
+            <h1 class="secctilte">{{ templateTitle }}</h1>
+            <div class="linetitle"></div>
+        </div>
 
-                        {# Name input #}
-                        
-                        {% embed "snipplets/forms/form-input.tpl" with{type_text: true, input_for: 'name', input_value: result.name | default(address.name), input_name: 'name', input_id: 'name', input_label_text: 'Nombre (alias)' | translate, input_placeholder: 'ej.: Trabajo' | translate } %}
-                            {% block input_form_alert %}
-                                {% if result.errors.name %}
-                                    <div class="notification-danger notification-left">{{ 'Ingresá un alias para reconocer esta dirección en el futuro.' | translate }}</div>
-                                {% endif %}
-                            {% endblock input_form_alert %}
-                        {% endembed %}
+        <div class="contbtncuenta">
+            <a href="{{ store.customer_addresses_url }}" class="btnmicuenta w-button">Cancelar</a>
+        </div>
 
-                        {# Address input #}
+        <p class="txtlogin">Completa los campos para añadir una nueva dirección de envío.</p>
 
-                        {% if current_language.country == 'BR' %}
-                            {% set address_placeholder = 'ej.: Av. Pueyrredón' | translate %}
-                        {% else %}
-                            {% set address_placeholder = 'ej.: Av. Pueyrredón 1234, CABA' | translate %}
-                        {% endif %}
-                        
-                        {% embed "snipplets/forms/form-input.tpl" with{type_text: true, input_for: 'address', input_value: result.address | default(address.address), input_name: 'address', input_id: 'address', input_label_text: 'Dirección' | translate, input_placeholder: address_placeholder } %}
-                            {% block input_form_alert %}
-                                {% if result.errors.address %}
-                                    <div class="notification-danger notification-left">{{ 'Necesitamos una dirección para enviar tus pedidos.' | translate }}</div>
-                                {% endif %}
-                            {% endblock input_form_alert %}
-                        {% endembed %}
+        <div class="loginform direcciones">
 
-                        {% if current_language.country == 'BR' %}
+            {% embed "snipplets/forms/form.tpl" 
+                with {
+                    form_id: 'address-form',
+                    form_custom_class: 'contenidoformlog' ,
+                    submit_custom_class: 'btn-vip w-button',
+                    submit_text: 'Guardar Cambios' | translate
+                }
+            %}
+                {% block form_body %}
 
-                            {# Address number #}
-                            
-                            {% embed "snipplets/forms/form-input.tpl" with{type_number: true, input_for: 'number', input_value: result.number | default(address.number), input_name: 'number', input_id: 'number', input_label_text: 'Número' | translate, input_placeholder: 'ej.: 1234' | translate } %}
+                    <div id="w-node-_9f527986-284d-96b0-d305-01327b2ed49a-e0290c7a" class="w-layout-layout stackcuenta wf-layout-layout">
+
+                        <div class="w-layout-cell centermiddlecell">
+                            {# Nombre (Alias) #}
+                            <div class="loginlabel">Nombre (Alias)*</div>
+                            {% embed "snipplets/forms/form-input.tpl" 
+                                with {
+                                    type_text: true,
+                                    input_for: 'name',
+                                    input_value: result.name | default(address.name),
+                                    input_name: 'name',
+                                    input_id: 'aliasdir',
+                                    input_placeholder: '',
+                                    input_custom_class: 'loginreg-field w-input'
+                                } 
+                            %}
                                 {% block input_form_alert %}
-                                    {% if result.errors.number %}
-                                        <div class="notification-danger notification-left">{{ 'Necesitamos saber tu número para actualizar tu información.' | translate }}</div>
+                                    {% if result.errors.name %}
+                                        <div class="notification-danger notification-left">
+                                            {{ 'Ingresá un alias para reconocer esta dirección en el futuro.' | translate }}
+                                        </div>
                                     {% endif %}
-                                {% endblock input_form_alert %}
+                                {% endblock %}
                             {% endembed %}
+                        </div>
 
-                            {# Address Floor #}
-                            
-                            {% embed "snipplets/forms/form-input.tpl" with{type_number: true, input_for: 'floor', input_value: result.floor | default(address.floor), input_name: 'floor', input_id: 'floor', input_label_text: 'Piso' | translate } %}
+                        <div class="w-layout-cell centermiddlecell">
+                            {# Dirección #}
+                            <div class="loginlabel">Dirección (calle, número y colonia)*</div>
+                            {% embed "snipplets/forms/form-input.tpl" 
+                                with {
+                                    type_text: true,
+                                    input_for: 'address',
+                                    input_value: result.address | default(address.address),
+                                    input_name: 'address',
+                                    input_id: 'direccion',
+                                    input_placeholder: '',
+                                    input_custom_class: 'loginreg-field w-input'
+                                } 
+                            %}
                                 {% block input_form_alert %}
-                                    {% if result.errors.floor %}
-                                        <div class="notification-danger notification-left">{{ 'Necesitamos saber tu piso para actualizar tu información.' | translate }}</div>
+                                    {% if result.errors.address %}
+                                        <div class="notification-danger notification-left">
+                                            {{ 'Necesitamos una dirección para enviar tus pedidos.' | translate }}
+                                        </div>
                                     {% endif %}
-                                {% endblock input_form_alert %}
+                                {% endblock %}
                             {% endembed %}
+                        </div>
 
-                            {# Address Locality #}
-                            
-                            {% embed "snipplets/forms/form-input.tpl" with{type_text: true, input_for: 'locality', input_value: result.locality | default(address.locality), input_name: 'locality', input_id: 'locality', input_label_text: 'Localidad' | translate, input_placeholder: 'ej.: CABA' | translate } %}
+                    </div>
+
+
+                    <div id="w-node-_430fab72-db33-a7e5-928b-db14cb32ba97-e0290c7a" class="w-layout-layout stackcuenta wf-layout-layout">
+
+                        <div class="w-layout-cell centermiddlecell">
+                            {# Código Postal #}
+                            <div class="loginlabel">Código Postal*</div>
+                            {% embed "snipplets/forms/form-input.tpl" 
+                                with {
+                                    type_tel: true,
+                                    input_for: 'zipcode',
+                                    input_value: result.zipcode | default(address.zipcode),
+                                    input_name: 'zipcode',
+                                    input_id: 'cp',
+                                    input_custom_class: 'loginreg-field w-input'
+                                } 
+                            %}
                                 {% block input_form_alert %}
-                                    {% if result.errors.locality %}
-                                        <div class="notification-danger notification-left">{{ 'Necesitamos saber tu localidad para actualizar tu información.' | translate }}</div>
+                                    {% if result.errors.zipcode %}
+                                        <div class="notification-danger notification-left">
+                                            {{ 'Por favor, ingresá tu código postal.' | translate }}
+                                        </div>
                                     {% endif %}
-                                {% endblock input_form_alert %}
+                                {% endblock %}
                             {% endembed %}
+                        </div>
 
-                        {% endif %}
+                        <div class="w-layout-cell centermiddlecell">
+                            {# Ciudad #}
+                            <div class="loginlabel">Ciudad*</div>
+                            {% embed "snipplets/forms/form-input.tpl" 
+                                with {
+                                    type_text: true,
+                                    input_for: 'city',
+                                    input_value: result.city | default(address.city),
+                                    input_name: 'city',
+                                    input_id: 'ciudad',
+                                    input_custom_class: 'loginreg-field w-input'
+                                } 
+                            %}
+                                {% block input_form_alert %}
+                                    {% if result.errors.city %}
+                                        <div class="notification-danger notification-left">
+                                            {{ 'Por favor, ingresá tu ciudad.' | translate }}
+                                        </div>
+                                    {% endif %}
+                                {% endblock %}
+                            {% endembed %}
+                        </div>
 
-                        {# Address Zipcode #}
-                            
-                        {% embed "snipplets/forms/form-input.tpl" with{type_tel: true, input_for: 'zipcode', input_value: result.zipcode | default(address.zipcode), input_name: 'zipcode', input_id: 'zipcode', input_label_text: 'Código Postal' | translate, input_placeholder: 'ej.: 1429' | translate } %}
-                            {% block input_form_alert %}
-                                {% if result.errors.zipcode %}
-                                    <div class="notification-danger notification-left">{{ 'Por favor, ingresá tu código postal.' | translate }}</div>
-                                {% endif %}
-                            {% endblock input_form_alert %}
-                        {% endembed %}
+                    </div>
 
+                    <div id="w-node-_21df50ce-316d-7f68-6d08-c9dad8513241-e0290c7a" class="w-layout-layout stackcuenta wf-layout-layout">
 
-                       {# Address City #}
-                            
-                        {% embed "snipplets/forms/form-input.tpl" with{type_text: true, input_for: 'city', input_value: result.city | default(address.city), input_name: 'city', input_id: 'city', input_label_text: 'Ciudad' | translate, input_placeholder: 'ej.: CABA' | translate } %}
-                            {% block input_form_alert %}
-                                {% if result.errors.city %}
-                                    <div class="notification-danger notification-left">{{ 'Por favor, ingresá tu ciudad.' | translate }}</div>
-                                {% endif %}
-                            {% endblock input_form_alert %}
-                        {% endembed %}
+                        <div class="w-layout-cell centermiddlecell">
+                            {# Estado/Provincia #}
+                            <div class="loginlabel">Estado*</div>
+                            {% embed "snipplets/forms/form-input.tpl" 
+                                with {
+                                    type_text: true,
+                                    input_for: 'province',
+                                    input_value: result.province | default(address.province),
+                                    input_name: 'province',
+                                    input_id: 'estado',
+                                    input_custom_class: 'loginreg-field w-input'
+                                } 
+                            %}
+                                {% block input_form_alert %}
+                                    {% if result.errors.province %}
+                                        <div class="notification-danger notification-left">
+                                            {{ 'Necesitamos saber tu provincia para actualizar tu información.' | translate }}
+                                        </div>
+                                    {% endif %}
+                                {% endblock %}
+                            {% endembed %}
+                        </div>
 
-                       {# Address Province #}
-                            
-                        {% embed "snipplets/forms/form-input.tpl" with{type_text: true, input_for: 'province', input_value: result.province | default(address.province), input_name: 'province', input_id: 'province', input_label_text: 'Provincia' | translate, input_placeholder: 'ej.: CABA' | translate } %}
-                            {% block input_form_alert %}
-                                {% if result.errors.province %}
-                                    <div class="notification-danger notification-left">{{ 'Necesitamos saber tu provincia para actualizar tu información.' | translate }}</div>
-                                {% endif %}
-                            {% endblock input_form_alert %}
-                        {% endembed %}
- 
+                        <div class="w-layout-cell centermiddlecell">
+                            {# País #}
+                            <div class="loginlabel">País</div>
+                            {% embed "snipplets/forms/form-select.tpl" 
+                                with {
+                                    select_for: 'country',
+                                    select_name: 'country',
+                                    select_id: 'pais',
+                                    select_custom_class: 'loginreg-field w-select',
+                                    select_label_name: ''
+                                } 
+                            %}
+                                {% block select_options %}
+                                    {{ country_options }}
+                                {% endblock %}
+                            {% endembed %}
+                        </div>
 
-                        {# Address Country #}
-                        
-                        {% embed "snipplets/forms/form-select.tpl" with{select_for: 'country', select_name: 'country', select_id: 'country', select_label_name: 'País' | translate } %}
-                            {% block select_options %}{{ country_options }}{% endblock select_options %}
-                            {% block input_form_alert %}
-                                {% if result.errors.country %}
-                                    <div class="notification-danger notification-left">{{ 'Necesitamos saber tu país para actualizar tu información.' | translate }}</div>
-                                {% endif %}
-                            {% endblock input_form_alert %}
-                        {% endembed %}
+                    </div>
 
+                    <div id="w-node-f0bf2cbb-fc0f-c94f-f944-0cfd9036af74-e0290c7a" class="w-layout-layout stackcuenta wf-layout-layout">
 
-                        {# Phone input #}
+                        <div class="w-layout-cell centermiddlecell">
+                            {# Teléfono #}
+                            <div class="loginlabel">Teléfono*</div>
+                            {% embed "snipplets/forms/form-input.tpl" 
+                                with {
+                                    type_tel: true,
+                                    input_for: 'phone',
+                                    input_value: result.phone | default(address.phone),
+                                    input_name: 'phone',
+                                    input_id: 'telefono',
+                                    input_custom_class: 'loginreg-field w-input'
+                                } 
+                            %}
+                                {% block input_form_alert %}
+                                    {% if result.errors.phone %}
+                                        <div class="notification-danger notification-left">
+                                            {{ 'Necesitamos saber tu teléfono para actualizar tu información.' | translate }}
+                                        </div>
+                                    {% endif %}
+                                {% endblock %}
+                            {% endembed %}
+                        </div>
 
-                        {% embed "snipplets/forms/form-input.tpl" with{type_tel: true, input_for: 'phone', input_value: result.phone | default(address.phone), input_name: 'phone', input_id: 'phone', input_label_text: 'Teléfono' | translate, input_placeholder: 'ej.: 1123445567' | translate } %}
-                            {% block input_form_alert %}
-                                {% if result.errors.phone %}
-                                    <div class="notification-danger notification-left">{{ 'Necesitamos saber tu teléfono para actualizar tu información.' | translate }}</div>
-                                {% endif %}
-                            {% endblock input_form_alert %}
-                        {% endembed %}
-                        
-                    {% endblock %}
-                {% endembed %}
-            </div>
+                        <div class="w-layout-cell centermiddlecell">
+                            <p class="txtlogin mt-2">*Campos requeridos</p>
+                        </div>
+
+                    </div>
+
+                {% endblock %}
+            {% endembed %}
         </div>
     </div>
-</section>
+</div>
+
+<style>
+    .form-group {
+        margin-bottom: 0px;
+    }
+
+    .contenidoformlog {
+        margin-top: 0px;
+        padding: 0px;
+	}
+
+    .form-group .form-select-icon {
+        display: none;
+    }
+
+    .w-layout-layout {
+        padding-bottom: 0px;
+        padding-top: 5px;
+    }
+
+    select.form-select.loginreg-field.w-select {
+        appearance: auto !important;
+    }
+
+    select#estado {
+        color: var(--darkgrey);
+        background-color: #fff;
+        border: 1px solid #acacac;
+        border-radius: 9px;
+        width: 100%;
+        height: 45px;
+        margin-bottom: 12px;
+        padding: 10px;
+        font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 18px;
+    }
+
+    button.btn.btn-primary.btn-big.btn-vip.w-button {
+        margin-top: 20px;
+    }
+
+</style>
