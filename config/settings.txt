@@ -847,7 +847,7 @@ Página de inicio
 		name = carrousel_products_title
 		description = Título
 	subtitle
-		subtitle = <a target='_blank' href='/admin/themes/settings/product_order/'>Elegí cuáles vas a destacar desde la seccion de Carrucel de productos</a>
+		subtitle = <a target='_blank' href='/admin/themes/settings/product_order/'>Elegí cuáles vas a destacar desde la seccion de Carrusel de productos</a>
 
 	collapse
 		title = Video
