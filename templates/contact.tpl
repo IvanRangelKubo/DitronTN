@@ -86,7 +86,7 @@
 
 						<label class="w-checkbox accept-tyc">
 							<div class="w-checkbox-input w-checkbox-input--inputType-custom termscheckbopx"></div>
-							<input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" required="" style="opacity:0;position:absolute;z-index:-1">
+							<input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" required="" style="opacity:0;position:absolute;z-index:-1" oninvalid="this.setCustomValidity('Marque esta casilla si desea continuar')" oninput="this.setCustomValidity('')">
 							<span class="labelcheck-tyc-2 w-form-label" for="checkbox-2">
 								<a href="#" class="tycregister-labellink">Acepto Aviso de Privacidad</a>
 							</span>
