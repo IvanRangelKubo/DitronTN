@@ -2,7 +2,7 @@
   <div class="customcontainer">
 
     <div class="contitlecust">
-      <h1 class="secctilte">{{ settings.carrousel_products_title }}</h1>
+      <h2 class="secctilte">{{ settings.carrousel_products_title }}</h2>
       <div class="linetitle"></div>
     </div>
 

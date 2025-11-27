@@ -1,9 +1,11 @@
 <div id="shoppingCartPage" class="seccmayoristaform" data-minimum="{{ settings.cart_minimum_value }}" data-store="cart-page">
-    {% embed "snipplets/page-header.tpl" with {'breadcrumbs': true} %}
-        {% block page_header_text %}{{ "Carrito de compras" | translate }}{% endblock page_header_text %}
-    {% endembed %}
     
     <form action="{{ store.cart_url }}" method="post" class="visible-when-content-ready customcontainer" data-store="cart-form" data-component="cart">
+
+        <div class="contitlecust">
+            <h1 class="secctilte listing">MI CARRITO</h1>
+            <div class="linetitle"></div>
+        </div>
 
         {# Cart alerts #}
 
@@ -116,6 +118,10 @@ span.js-ajax-cart-total.js-cart-subtotal.col.text-right.pr-md-0, span.col-auto.p
 span.js-cart-products-heading-singular, span.js-cart-products-heading-plural {
     font-size: large;
     color: #0099d4;
+}
+
+.contitlecust {
+    margin: 0px 0px 15px 0px;
 }
 
 </style>

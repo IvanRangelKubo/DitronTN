@@ -38,14 +38,14 @@
 
 							{% if settings.contact_phone is not empty %}
 								<div class="itemfooter">
-									<img src="{{ "images/phone_icon.svg" | static_url }}" alt="" class="iconfootercust">
+									<img src="{{ "images/phone_icon.svg" | static_url }}" alt="phone icon" class="iconfootercust">
 									<a href="tel:{{ settings.contact_phone }}" class="footerlink">{{ settings.contact_phone }}</a>
 								</div>
 							{% endif %}
 
 							{% if settings.contact_email is not empty %}
 								<div class="itemfooter">
-									<img src="{{ "images/mail_icon.svg" | static_url }}" alt="" class="iconfootercust">
+									<img src="{{ "images/mail_icon.svg" | static_url }}" alt="email icon" class="iconfootercust">
 									<a href="mailto:{{ settings.contact_email }}" class="footerlink">{{ settings.contact_email }}</a>
 								</div>
 							{% endif %}
@@ -69,19 +69,19 @@
 
 								{% if settings.facebook_link is not empty %}
 									<a href="{{ settings.facebook_link }}" class="sociallinkf w-inline-block" target="_blank" rel="noopener">
-										<img src="{{ "images/fb_icon.svg" | static_url }}" alt="" class="iconfootercust">
+										<img src="{{ "images/fb_icon.svg" | static_url }}" alt="Facebook" class="iconfootercust">
 									</a>
 								{% endif %}
 
 								{% if settings.instagram_link is not empty %}
 									<a href="{{ settings.instagram_link }}" class="sociallinkf w-inline-block" target="_blank" rel="noopener">
-										<img src="{{ "images/ig_icon.svg" | static_url }}" alt="" class="iconfootercust">
+										<img src="{{ "images/ig_icon.svg" | static_url }}" alt="Instagram" class="iconfootercust">
 									</a>
 								{% endif %}
 
 								{% if settings.yt_link is not empty %}
 									<a href="{{ settings.yt_link }}" class="sociallinkf w-inline-block" target="_blank" rel="noopener">
-										<img src="{{ "images/yt_icon.svg" | static_url }}" alt="" class="iconfootercust">
+										<img src="{{ "images/yt_icon.svg" | static_url }}" alt="Youtube" class="iconfootercust">
 									</a>
 								{% endif %}
 

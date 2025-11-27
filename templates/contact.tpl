@@ -18,7 +18,8 @@
 						<input type="hidden" name="type" value="contact" />
 						<input type="hidden" name="message"/>
 
-						<img src="{{ "images/title-form-mayoreo.svg" | static_url }}" loading="lazy" alt="" class="titlemayoreo">
+						<img src="{{ "images/title-form-mayoreo.svg" | static_url }}" loading="lazy" alt="Compras al mayoreo" class="titlemayoreo">
+						<h1 class="hidden">Contacto</h1>
 						<p class="txtlogin center">Si requieres saber más sobre nuestros productos o recibir una cotización personalizada escríbenos a través del siguiente formulario.</p>
 
 						<div id="w-node-c0f0ae24-2fbc-4bd1-3abc-bfa4107c8d03-0326c62c" class="w-layout-layout stackdirecciones wf-layout-layout">

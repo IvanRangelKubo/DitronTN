@@ -30,14 +30,14 @@
 
 				{% if settings.show_off_link %}
 					<a href="{{ settings.off_url }}" class="menuelement ofertas w-inline-block">
-						<img src="{{ "images/ofertas_icon.svg" | static_url }}"  alt="" class="iconmenu">
+						<img src="{{ "images/ofertas_icon.svg" | static_url }}"  alt="ofertas-icon" class="iconmenu">
 						<div class="menuname">Ofertas</div>
 					</a>				
 				{% endif %}
 
 				{% if settings.show_contact_link %}
 					<a href="{{ settings.contact_url }}" class="menuelement contacto w-inline-block">
-						<img src="{{ "images/contacto_icon.svg" | static_url }}"  alt="" class="iconmenu">
+						<img src="{{ "images/contacto_icon.svg" | static_url }}"  alt="phone-icon" class="iconmenu">
 						<div class="menuname">Contacto</div>
 					</a>
 				{% endif %}
