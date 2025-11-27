@@ -25,7 +25,7 @@
 {% endif %}
 
 
-{% include 'snipplets/grid/filters-modals.tpl' %}
+{% include "snipplets/grid/filters.tpl" %}
 
 
 <section class="container-listing" data-store="category-grid-{{ category.id }}">
