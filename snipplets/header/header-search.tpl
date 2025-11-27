@@ -126,4 +126,21 @@
 			font-weight: 600;
 	}
 
+	@media screen and (max-width: 991px) {
+    .contsearchpredictive {
+        width: 90% !important;
+        top: 75% !important;
+    }
+	}
+
+	@media screen and (max-width: 479px) {
+    .searchcont {
+        top: 110px !important;
+    }
+
+		.searchForm {
+			width: 90%;
+		}
+}
+
 </style>

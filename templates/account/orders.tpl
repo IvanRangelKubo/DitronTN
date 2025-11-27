@@ -140,3 +140,12 @@
     </div>
     </div>
 </div>
+
+<style>
+
+@media screen and (max-width: 479px) {
+    .infopedido-list {
+        white-space: normal;
+    }
+}
+</style>

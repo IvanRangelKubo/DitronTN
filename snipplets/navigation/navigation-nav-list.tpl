@@ -23,7 +23,7 @@
 					{% endif %}
 				{% endfor %}
 
-        <a href="#" class="menuelement hiddendesk w-inline-block">
+        <a href="{% if not customer %}{{ store.customer_register_url }}{% else %}{{ store.customer_home_url }}{% endif %}" class="menuelement hiddendesk w-inline-block">
 					<img src="{{ "images/icon_usuario.svg" | static_url }}" class="iconmenu">
           <div class="menuname">Mi cuenta</div>
         </a>

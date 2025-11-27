@@ -127,7 +127,7 @@
                 </div>
 
                 <div class="w-col w-col-3">
-                    <div class="infopedido-list text-center">
+                    <div class="infopedido-list">
                         {{ item.subtotal | money }}
                     </div>
                 </div>
@@ -192,4 +192,28 @@
     a.btn-vip.w-button {
         float: right;
     }
+</style>
+
+<style>
+
+@media screen and (max-width: 479px) {
+    .infopedido-list {
+        white-space: normal;
+    }
+
+    .pedidonumero {
+        text-align: end;
+    }
+
+    .infopedido-list {
+        white-space: normal;
+        text-align: end;
+    }
+
+    .card-img-square-container {
+      width: 50%;
+      margin: auto;
+    }
+}
+
 </style>

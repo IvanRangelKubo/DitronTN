@@ -5,7 +5,7 @@
 {% elseif use_account %}
 	<span class="utilities-container {% if header_desktop %}d-none d-md-inline-block mr-4{% endif %}">
 		{% if icon_only %}
-			<a href="{% if not customer %}{{ store.customer_login_url }}{% else %}{{ store.customer_home_url }}{% endif %}" class="linkicons-nav mobile w-inline-block">
+			<a href="{% if not customer %}{{ store.customer_register_url }}{% else %}{{ store.customer_home_url }}{% endif %}" class="linkicons-nav mobile w-inline-block">
 				<img loading="eager" src="{{ "images/icon_usuario.svg" | static_url }}" alt="Cuenta de usuario" class="icononav">
 			</a>
 		{% else %}

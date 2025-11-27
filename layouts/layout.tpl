@@ -460,6 +460,10 @@
                 color: black;
             }
 
+            section.section-featured-home,.section-banners-home, .section-modules-home {
+                padding: 0px !important;
+            }
+
         </style>
 
     </body>
