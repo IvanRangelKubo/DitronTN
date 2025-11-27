@@ -158,6 +158,37 @@ button.js-remove-filter.js-remove-filter-chip.chip {
     font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
 }
 
+.filterActivator {
+  position: relative;
+  padding-right: 24px; 
+}
+
+.filterActivator::after {
+  content: "";
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid var(--ditron-blue);
+  border-bottom: 2px solid var(--ditron-blue);
+  transform: translateY(-50%) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.filterContainer.is-visible + .filterActivator::after,
+.filterActivator[aria-expanded="true"]::after {
+  transform: translateY(-50%) rotate(-135deg);
+}
+
+button.js-price-filter-btn.btn.btn-default.d-inline-block {
+    background: var(--ditron-blue);
+}
+
+button.js-price-filter-btn.btn.btn-default.d-inline-block.disabled {
+    opacity: 0.5;
+}
+
 </style>
 
 
