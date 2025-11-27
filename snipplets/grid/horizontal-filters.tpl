@@ -148,8 +148,8 @@ div#filters {
 }
 
 .apliedFilters {
-    padding: 0px 10px;
-    font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+  padding: 0px;
+  font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
 }
 
 button.js-remove-filter.js-remove-filter-chip.chip {

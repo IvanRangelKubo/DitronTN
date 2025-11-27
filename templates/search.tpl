@@ -12,7 +12,9 @@
 
 {% if products %}
 	<div class="SortAndFilters">
-		{% include "snipplets/grid/horizontal-filters.tpl" %}
+		<div class="filtersAndAplicated">
+			{% include "snipplets/grid/horizontal-filters.tpl" %}
+		</div>
 
 		<div class="filterCont mb-3 pb-1">
 				<div class="filterActivator" role="button" aria-expanded="false" tabindex="0">
