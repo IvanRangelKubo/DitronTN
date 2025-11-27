@@ -65,7 +65,7 @@
 
 {# Applied filters chips (sin cambios) #}
 {% if has_applied_filters %}
-    <div class="mb-4">
+    <div class="apliedFilters">
         {% for product_filter in product_filters %}
             {% for value in product_filter.values %}
                 {% if value.selected %}
@@ -133,6 +133,29 @@
 
 .js-price-filter-container.price-filter-container.mb-3.pb-1 {
     min-width: max-content;
+}
+
+div#filters {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px 10px;
+    font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+}
+
+.filterCont.mb-3.pb-1 {
+    margin: 0px !important;
+}
+
+.apliedFilters {
+    padding: 0px 10px;
+    font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+}
+
+button.js-remove-filter.js-remove-filter-chip.chip {
+    border: 2px solid var(--ditron-blue);
+    border-radius: 9px;
+    font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
 }
 
 </style>
