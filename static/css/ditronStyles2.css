@@ -2763,14 +2763,6 @@ textarea.w-select {
   color: #454545;
 }
 
-.menuelement.w--current {
-  color: var(--ditron-blue);
-}
-
-.menuelement.w--current:visited {
-  color: #00a6ff;
-}
-
 .menuelement.w--open {
   color: var(--ditron-blue);
   border-bottom-color: #ff6a9f;

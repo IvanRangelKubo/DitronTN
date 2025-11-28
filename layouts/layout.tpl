@@ -151,7 +151,7 @@
 
         <link rel="stylesheet" href="{{ 'css/style-async.scss' | static_url }}" media="print" onload="this.media='all'">
 
-        <link rel="stylesheet" href="{{ 'css/ditronStyles.css' | static_url }}">
+        <link rel="stylesheet" href="{{ 'css/ditronStyles2.css' | static_url }}">
 
         {# Loads custom CSS added from Advanced Settings on the admin´s theme customization screen #}
 

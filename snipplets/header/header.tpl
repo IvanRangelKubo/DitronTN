@@ -62,6 +62,10 @@
         top: 0;
         z-index: 9999;
     }
+
+    a.msg-topslide:hover {
+        color: white;
+    }
 </style>
 
 {# Show cookie validation message #}

@@ -38,4 +38,28 @@
     .product-detail-slider .product-slider-image {
         max-height: 600px;
     }
+
+    @media screen and (max-width: 479px) {
+        a.categoria-arbol {
+            width: max-content;
+        }
+
+        .js-product-variants-group.js-color-variants-container.form-group.col-12.text-center.text-md-left.mb-2 {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .js-product-variants-group.form-group.col-12.text-center.text-md-left.mb-4 {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        input.js-addtocart.js-prod-submit-form.btn-add-to-cart.btn.btn-primary.btn-big.btn-block.btn-vip.w-button.cart {
+            width: 100%;
+        }
+
+        .cont-variacion.qty {
+            gap: 5px;
+        }
+    }
 </style>
