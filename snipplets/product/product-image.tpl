@@ -102,34 +102,34 @@
 </div>
 
 <style>
-	/* Contenedor horizontal */
+	
 	.product-thumbs-horizontal {
 			width: 100%;
 			max-width: 600px;
 			margin: auto;
 	}
 
-	/* Swiper horizontal */
+	
 	.swiper-container-horizontal {
 			width: 100%;
 			overflow: hidden;
 			height: 600px !important;
 	}
 
-	/* Cada thumbnail */
+
 	.thumb-slide {
 			width: 15% !important;
 			height: auto !important;
 			flex-shrink: 0;
 	}
 
-	/* Ajustes de imagen dentro del thumb */
+
 	.thumb-slide img {
 			object-fit: cover;
 			border-radius: 6px;
 	}
 
-	/* Flechas */
+
 	.thumbs-pagination {
 			display: flex;
 			justify-content: space-between;
@@ -195,6 +195,7 @@
 	svg.icon-inline.icon-sm {
 			width: 1.5rem;
 			height: 1.5rem;
+			stroke: gainsboro;
 	}
 
 	.product-thumbs-horizontal {
@@ -216,39 +217,112 @@
     object-fit: contain;
 }
 
+.swiper-slide.thumb-slide {
+    border: 1px solid lightgray;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+a.js-product-thumb.product-thumb.d-block.position-relative.mb-3 {
+    margin: 0px !important;
+}
+
+.product-thumbs-scroll {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 10px;
+    scrollbar-width: thin;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.thumbs-row {
+    display: flex;
+    gap: 10px; /* este gap será considerado en el JS */
+}
+
+.thumb-slide {
+    width: 80px;
+    height: 80px;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid lightgray;
+    padding: 5px;
+}
+
+.thumb-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* no cortar */
+}
+
+a.js-product-thumb.product-thumb.d-block.position-relative.mb-3 {
+    z-index: 10004;
+}
 
 </style>
 
 <script>
-	document.addEventListener('DOMContentLoaded', () => {
-		const container = document.querySelector('.product-thumbs-scroll');
-		const thumbsRow = document.querySelector('.thumbs-row');
-		const prev = document.querySelector('.js-swiper-thumbs-prev');
-		const next = document.querySelector('.js-swiper-thumbs-next');
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.product-thumbs-scroll');
+    const thumbsRow = document.querySelector('.thumbs-row');
+    const prev = document.querySelector('.js-swiper-thumbs-prev');
+    const next = document.querySelector('.js-swiper-thumbs-next');
 
-		if (container && prev && next && thumbsRow) {
+    if (!container || !prev || !next || !thumbsRow) return;
 
-			const getStep = () => {
-				const firstThumb = container.querySelector('.thumb-slide');
-				if (!firstThumb) return 100;
+    const getStep = () => {
+        const thumb = container.querySelector('.thumb-slide');
+        if (!thumb) return 100;
 
-				const thumbWidth = firstThumb.offsetWidth;
+        const thumbWidth = thumb.offsetWidth;
+        const gap = parseInt(getComputedStyle(thumbsRow).gap) || 0;
 
-				// leer el gap real del contenedor
-				const rowStyle = window.getComputedStyle(thumbsRow);
-				const gap = parseInt(rowStyle.gap) || 0;
+        return thumbWidth + gap;
+    };
 
-				return thumbWidth + gap;
-			};
+    prev.addEventListener('click', () => {
+        container.scrollBy({ left: -getStep(), behavior: 'smooth' });
+    });
 
-			prev.addEventListener('click', () => {
-				container.scrollBy({ left: -getStep(), behavior: 'smooth' });
-			});
+    next.addEventListener('click', () => {
+        container.scrollBy({ left: getStep(), behavior: 'smooth' });
+    });
+});
 
-			next.addEventListener('click', () => {
-				container.scrollBy({ left: getStep(), behavior: 'smooth' });
-			});
-		}
-	});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.product-thumbs-scroll');
+    const prev = document.querySelector('.js-swiper-thumbs-prev');
+    const next = document.querySelector('.js-swiper-thumbs-next');
+
+    if (!container || !prev || !next) return;
+
+    const checkArrows = () => {
+        const canScroll = container.scrollWidth > container.clientWidth;
+
+        if (!canScroll) {
+            prev.style.display = "none";
+            next.style.display = "none";
+        } else {
+            prev.style.display = "flex";
+            next.style.display = "flex";
+        }
+    };
+
+    // Ejecutar cuando carga
+    checkArrows();
+
+    // Y también cuando cambie tamaño de ventana
+    window.addEventListener('resize', checkArrows);
+});
+
+
 </script>
+
+
