@@ -10,35 +10,7 @@
 {% set has_real_image = featured_url and ('no-photo' not in featured_url) %}
 
 <div class="row vipImg" data-store="product-image-{{ product.id }}"> 
-	{% if has_multiple_slides %}
-		<div class="col-md-auto d-none d-md-block pr-0">
-			<div class="product-thumbs-container position-relative">
-				<div class="js-swiper-product-thumbs swiper-product-thumb"> 
-					<div class="swiper-wrapper">
-						{% for media in product.media %}
-							<div class="swiper-slide h-auto w-auto">
-								{% include 'snipplets/product/product-image-thumbs.tpl' %}
-							</div>
-						{% endfor %}
-						{% if not home_main_product %}
-							{# Video thumb #}
-							<div class="swiper-slide h-auto w-auto">
-								{% include 'snipplets/product/product-video.tpl' with {thumb: true} %}
-							</div>
-						{% endif %}
-					</div>
-				</div>
-				<div class="mt-2 text-center d-none d-md-block">
-					<div class="js-swiper-product-thumbs-prev swiper-button-small swiper-button-prev swiper-product-thumb-control">
-						<svg class="icon-inline icon-lg svg-icon-text icon-rotate-90-neg"><use xlink:href="#chevron"/></svg>
-					</div>
-					<div class="js-swiper-product-thumbs-next swiper-button-small swiper-button-next swiper-product-thumb-control">
-						<svg class="icon-inline icon-lg svg-icon-text icon-rotate-90"><use xlink:href="#chevron"/></svg>
-					</div>
-				</div>
-			</div>
-		</div>
-	{% endif %}
+
 	{% if product.media_count > 0 %}
 		<div class="col px-3">
 			<div class="js-swiper-product swiper-container product-detail-slider" data-product-images-amount="{{ product.media_count }}">
@@ -100,6 +72,82 @@
 				</div>
 			{% endif %}
 
+			{% if has_multiple_slides %}
+					<div class="product-thumbs-horizontal mt-3">
+
+							<div class="js-swiper-product-thumbs swiper-container">
+									<div class="swiper-wrapper">
+											{% for media in product.media %}
+													<div class="swiper-slide thumb-slide">
+															{% include 'snipplets/product/product-image-thumbs.tpl' %}
+													</div>
+											{% endfor %}
+											{% if not home_main_product %}
+													<div class="swiper-slide thumb-slide">
+															{% include 'snipplets/product/product-video.tpl' with {thumb: true} %}
+													</div>
+											{% endif %}
+									</div>
+							</div>
+
+							<div class="thumbs-pagination text-center mt-2">
+									<div class="js-swiper-thumbs-prev swiper-button-small swiper-button-prev">
+											<svg class="icon-inline icon-sm"><use xlink:href="#chevron"/></svg>
+									</div>
+									<div class="js-swiper-thumbs-next swiper-button-small swiper-button-next">
+											<svg class="icon-inline icon-sm"><use xlink:href="#chevron"/></svg>
+									</div>
+							</div>
+					</div>
+			{% endif %}
+
 		</div>
 	{% endif %}
+
 </div>
+
+<style>
+	/* Contenedor horizontal */
+	.product-thumbs-horizontal {
+			width: 100%;
+	}
+
+	/* Swiper horizontal */
+	.swiper-container-horizontal {
+			width: 100%;
+			overflow: hidden;
+			height: 600px !important;
+	}
+
+	/* Cada thumbnail */
+	.thumb-slide {
+    width: 80px !important;
+    height: auto !important;
+    flex-shrink: 0;
+	}
+
+	/* Ajustes de imagen dentro del thumb */
+	.thumb-slide img {
+			object-fit: cover;
+			border-radius: 6px;
+	}
+
+	/* Flechas */
+	.thumbs-pagination {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 20px;
+	}
+
+	.thumbs-pagination .swiper-button-small {
+			cursor: pointer;
+	}
+	
+	.product-thumbs-horizontal .swiper-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+		gap: 15px;
+}
+
+</style>
