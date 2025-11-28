@@ -75,8 +75,8 @@
 			{% if has_multiple_slides %}
 					<div class="product-thumbs-horizontal mt-3">
 
-							<div class="js-swiper-product-thumbs swiper-container">
-									<div class="swiper-wrapper">
+							<div class="product-thumbs-scroll">
+									<div class="thumbs-row">
 											{% for media in product.media %}
 													<div class="swiper-slide thumb-slide">
 															{% include 'snipplets/product/product-image-thumbs.tpl' %}
@@ -110,6 +110,8 @@
 	/* Contenedor horizontal */
 	.product-thumbs-horizontal {
 			width: 100%;
+			max-width: 600px;
+			margin: auto;
 	}
 
 	/* Swiper horizontal */
@@ -121,9 +123,9 @@
 
 	/* Cada thumbnail */
 	.thumb-slide {
-    width: 80px !important;
-    height: auto !important;
-    flex-shrink: 0;
+			width: 15% !important;
+			height: auto !important;
+			flex-shrink: 0;
 	}
 
 	/* Ajustes de imagen dentro del thumb */
@@ -150,4 +152,70 @@
 		gap: 15px;
 }
 
+	.product-thumbs-scroll {
+		overflow-x: auto;
+		white-space: nowrap;
+		padding-bottom: 10px;
+		scrollbar-width: thin;
+	}
+
+	.thumbs-row {
+		display: flex;
+		gap: 12px;
+	}
+
+	.thumb-slide {
+		width: 80px;
+		flex: 0 0 auto;
+	}
+
+	.js-swiper-thumbs-prev.swiper-button-small.swiper-button-prev {
+		transform: rotate(180deg) !important;
+	}
+
+	.product-thumbs-scroll {
+			overflow-x: auto;
+			white-space: nowrap;
+			padding-bottom: 10px;
+			scrollbar-width: thin;
+
+			scroll-snap-type: x mandatory;
+			scroll-behavior: smooth;
+	}
+
+	.thumb-slide {
+			width: 80px; /* o el ancho que necesites */
+			flex: 0 0 auto;
+			scroll-snap-align: start;
+	}
+
+
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.product-thumbs-scroll');
+  const prev = document.querySelector('.js-swiper-thumbs-prev');
+  const next = document.querySelector('.js-swiper-thumbs-next');
+
+  if (container && prev && next) {
+    const getStep = () => {
+      const firstThumb = container.querySelector('.thumb-slide');
+      if (!firstThumb) return 150;
+      
+      const style = window.getComputedStyle(firstThumb);
+      const marginRight = parseInt(style.marginRight) || 0;
+      return firstThumb.offsetWidth + marginRight;
+    };
+
+    prev.addEventListener('click', () => {
+      container.scrollBy({ left: -getStep(), behavior: 'smooth' });
+    });
+
+    next.addEventListener('click', () => {
+      container.scrollBy({ left: getStep(), behavior: 'smooth' });
+    });
+  }
+});
+
+</script>

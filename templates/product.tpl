@@ -61,5 +61,9 @@
         .cont-variacion.qty {
             gap: 5px;
         }
+
+        .product-thumbs-horizontal.mt-3 {
+            display: none;
+        }
     }
 </style>
