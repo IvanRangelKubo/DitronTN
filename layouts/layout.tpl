@@ -472,6 +472,10 @@
                 font-size: medium !important;
             }
 
+            .text-accent, .product-installments.installment-no-interest {
+                color: #0099d4 !important;
+            }
+
         </style>
 
     </body>
