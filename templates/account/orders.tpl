@@ -148,4 +148,12 @@
         white-space: normal;
     }
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .cont-infodirecc.w-clearfix {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 </style>

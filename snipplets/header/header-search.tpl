@@ -133,6 +133,21 @@
     }
 	}
 
+	@media (min-width: 768px) and (max-width: 1024px) {
+  .searchForm {
+    width: 90%;
+  }
+
+  form.js-search-form.search-form.busqueda-formcot {
+    margin: 0px;
+  }
+
+  .js-search-form-suggestions.search-suggestions.contsearchpredictive {
+    top: 64% !important;
+  }
+}
+
+
 	@media screen and (max-width: 479px) {
     .searchcont {
         top: 110px !important;

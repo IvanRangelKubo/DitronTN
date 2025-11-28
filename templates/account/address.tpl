@@ -256,4 +256,10 @@
         margin-top: 20px;
     }
 
+    @media (min-width: 768px) and (max-width: 1024px) {
+        p.txtlogin {
+            max-width: 65%;
+        }
+    }
+
 </style>
