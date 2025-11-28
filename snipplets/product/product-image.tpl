@@ -82,11 +82,6 @@
 															{% include 'snipplets/product/product-image-thumbs.tpl' %}
 													</div>
 											{% endfor %}
-											{% if not home_main_product %}
-													<div class="swiper-slide thumb-slide">
-															{% include 'snipplets/product/product-video.tpl' with {thumb: true} %}
-													</div>
-											{% endif %}
 									</div>
 							</div>
 
@@ -137,7 +132,7 @@
 	/* Flechas */
 	.thumbs-pagination {
 			display: flex;
-			justify-content: center;
+			justify-content: space-between;
 			align-items: center;
 			gap: 20px;
 	}
@@ -161,7 +156,7 @@
 
 	.thumbs-row {
 		display: flex;
-		gap: 12px;
+		gap: 10px;
 	}
 
 	.thumb-slide {
@@ -189,33 +184,71 @@
 			scroll-snap-align: start;
 	}
 
+	.thumbs-pagination.text-center.mt-2 {position: absolute;top: 25%;width: 100%;z-index: 102 !important;}
+
+	.product-thumbs-horizontal.mt-3 {
+			position: relative;
+	}
+
+	.product-thumbs-scroll {width: 85%;margin: auto;}
+
+	svg.icon-inline.icon-sm {
+			width: 1.5rem;
+			height: 1.5rem;
+	}
+
+	.product-thumbs-horizontal {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    overflow: visible;
+}
+
+.product-thumbs-horizontal .thumb-item {
+    width: 80px;
+    height: 80px;
+    flex: 0 0 auto;
+}
+
+.product-thumbs-horizontal img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
 
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const container = document.querySelector('.product-thumbs-scroll');
-  const prev = document.querySelector('.js-swiper-thumbs-prev');
-  const next = document.querySelector('.js-swiper-thumbs-next');
+	document.addEventListener('DOMContentLoaded', () => {
+		const container = document.querySelector('.product-thumbs-scroll');
+		const thumbsRow = document.querySelector('.thumbs-row');
+		const prev = document.querySelector('.js-swiper-thumbs-prev');
+		const next = document.querySelector('.js-swiper-thumbs-next');
 
-  if (container && prev && next) {
-    const getStep = () => {
-      const firstThumb = container.querySelector('.thumb-slide');
-      if (!firstThumb) return 150;
-      
-      const style = window.getComputedStyle(firstThumb);
-      const marginRight = parseInt(style.marginRight) || 0;
-      return firstThumb.offsetWidth + marginRight;
-    };
+		if (container && prev && next && thumbsRow) {
 
-    prev.addEventListener('click', () => {
-      container.scrollBy({ left: -getStep(), behavior: 'smooth' });
-    });
+			const getStep = () => {
+				const firstThumb = container.querySelector('.thumb-slide');
+				if (!firstThumb) return 100;
 
-    next.addEventListener('click', () => {
-      container.scrollBy({ left: getStep(), behavior: 'smooth' });
-    });
-  }
-});
+				const thumbWidth = firstThumb.offsetWidth;
 
+				// leer el gap real del contenedor
+				const rowStyle = window.getComputedStyle(thumbsRow);
+				const gap = parseInt(rowStyle.gap) || 0;
+
+				return thumbWidth + gap;
+			};
+
+			prev.addEventListener('click', () => {
+				container.scrollBy({ left: -getStep(), behavior: 'smooth' });
+			});
+
+			next.addEventListener('click', () => {
+				container.scrollBy({ left: getStep(), behavior: 'smooth' });
+			});
+		}
+	});
 </script>
