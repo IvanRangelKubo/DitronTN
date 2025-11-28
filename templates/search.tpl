@@ -47,7 +47,7 @@
 
 	</div>
 
-	<div class="MobileFilters" style="display:none">
+	<div class="MobileFilters">
 		{% include "snipplets/grid/filters-modals.tpl" %}
 	</div>
 {% endif %}
@@ -112,6 +112,83 @@ input.js-price-filter-input.form-control.filter-input-price {
 
 button.js-price-filter-btn.btn.btn-default.d-inline-block.disabled {
     border-radius: 9px;
+}
+
+@media (max-width: 767px) {
+    .SortAndFilters {
+        display: none !important;
+    }
+
+    .MobileFilters {
+        display: block !important;
+    }
+
+		.font-small.font-weight-bold.mb-4 {
+				display: block;
+		}
+
+		a.js-modal-open.btn-link {
+			border: 2px solid var(--ditron-blue);
+			border-radius: 9px;
+			padding: 5px 20px;
+			text-decoration: none;
+			"Elmssans Variablefont Wght", Verdana, font-family: sans-serif;
+			font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+			font-weight: 600;
+		}
+
+		.container.category-controls-container.text-center {
+				margin-top: 10px;
+		}
+
+		div#filters {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			padding: 0px;
+		}
+
+		.font-small.font-weight-bold.mb-4 {
+				font-size: large !important;
+				color: var(--ditron-blue);
+				font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+		}
+
+		span.radio-button-label {
+			font-size: 15px !important;
+			font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+		}
+
+
+		a.btn-link.font-small.no-underline {
+				font-size: 15px !important;
+				font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+		}
+
+		span.checkbox-text.with-color {
+				font-size: 15px !important;
+				font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+		}
+
+		.js-modal-close.modal-header {
+				background: transparent;
+				border-bottom: 1px solid gainsboro;
+		}
+
+		.col.px-3.pr-md-3.pl-md-5 {
+				font-size: larger;
+				color: var(--ditron-blue);
+				font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+				font-weight: 600;
+		}
+}
+
+
+@media (min-width: 768px) {
+
+    .MobileFilters {
+        display: none !important;
+    }
 }
 
 </style>
