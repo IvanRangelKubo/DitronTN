@@ -120,4 +120,12 @@ button.js-price-filter-btn.btn.btn-default.d-inline-block.disabled {
     border-radius: 9px;
 }
 
+span.checkbox-text.with-color {
+    font-size: medium;
+}
+
+span.radio-button-label {
+    font-size: small !important;
+}
+
 </style>

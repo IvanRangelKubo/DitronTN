@@ -464,6 +464,14 @@
                 padding: 0px !important;
             }
 
+            .js-cart-item.js-cart-item-shippable.cart-item.row.no-gutters.mb-3 {
+                font-size: medium;
+            }
+
+            .font-small.mb-1 {
+                font-size: medium !important;
+            }
+
         </style>
 
     </body>
