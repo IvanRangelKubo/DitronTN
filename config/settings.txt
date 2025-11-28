@@ -979,14 +979,6 @@ Carrito de compras
 		name = continue_buying
 		description = Mostrar el botón 'Ver más productos' en el carrito de compras
 	title
-		title = Monto mínimo de compra
-	text
-		name = cart_minimum_value
-		description = ¿Cuál es el monto mínimo que tus clientes deben gastar?
-		placeholder = Ej.: 3000
-	subtitle
-		subtitle = <span class='legend'>Ingresá solamente números</span>
-	title
 		title = Carrito de compras rápidas
 	checkbox
 		name = ajax_cart
@@ -995,22 +987,7 @@ Carrito de compras
 		name = cart_open_type
 		description = Acción al agregar un producto al carrito:
 		values
-			show_notification = Mostrar una notificación
 			show_cart = Abrir el carrito
-	title
-		title = Recomendaciones de productos
-	checkbox
-		name = add_to_cart_recommendations
-		description = Sugerir productos complementarios al agregar uno al carrito de compras rápidas
-	subtitle
-		subtitle = <a target='_blank' href='https://ayuda.tiendanube.com/es_AR/123159-detalle-del-producto/como-seleccionar-los-productos-relacionados-en-tiendanube' class='js-checkbox-help-link'>Más sobre productos relacionados</a>
-	title
-		title = Formas de entrega
-	checkbox_global
-		name = shipping_calculator_cart_page
-		description = Mostrar el calculador de costos de envío y locales físicos en el carrito
-	subtitle
-		subtitle = <a target='_blank' href='/admin/shipping/'>Agregar medios de envío o locales físicos</a>
 
 Blog
 	meta
