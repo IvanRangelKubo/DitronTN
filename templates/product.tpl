@@ -39,6 +39,16 @@
         max-height: 600px;
     }
 
+
+
+
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+        .swiper-slide.thumb-slide {
+            width: 22% !important;
+        }
+    }
+
     @media screen and (max-width: 479px) {
         a.categoria-arbol {
             width: max-content;

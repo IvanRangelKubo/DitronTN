@@ -1,11 +1,11 @@
  {% set noFilterResult = "No tenemos resultados para tu búsqueda. Por favor, intentá con otros filtros." %}
 
  {% if products %}
-
-    <div class="js-product-table contitemslisting">
-        {% include 'snipplets/product_grid.tpl' %}
+    <div class="customcontainer">
+        <div class="js-product-table contitemslisting">
+            {% include 'snipplets/product_grid.tpl' %}
+        </div>
     </div>
-
     {% include "snipplets/grid/pagination.tpl" with {infinite_scroll: false} %}
 
 {% else %}    
