@@ -262,7 +262,7 @@ a.js-product-thumb.product-thumb.d-block.position-relative.mb-3 {
 }
 
 a.js-product-thumb.product-thumb.d-block.position-relative.mb-3 {
-    z-index: 10004;
+    z-index: 10000;
 }
 
 </style>
@@ -324,5 +324,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 </script>
-
-
