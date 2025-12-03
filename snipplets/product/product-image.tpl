@@ -147,13 +147,6 @@
 		gap: 15px;
 }
 
-	.product-thumbs-scroll {
-		overflow-x: auto;
-		white-space: nowrap;
-		padding-bottom: 10px;
-		scrollbar-width: thin;
-	}
-
 	.thumbs-row {
 		display: flex;
 		gap: 10px;
@@ -166,16 +159,6 @@
 
 	.js-swiper-thumbs-prev.swiper-button-small.swiper-button-prev {
 		transform: rotate(180deg) !important;
-	}
-
-	.product-thumbs-scroll {
-			overflow-x: auto;
-			white-space: nowrap;
-			padding-bottom: 10px;
-			scrollbar-width: thin;
-
-			scroll-snap-type: x mandatory;
-			scroll-behavior: smooth;
 	}
 
 	.thumb-slide {
@@ -265,6 +248,12 @@ a.js-product-thumb.product-thumb.d-block.position-relative.mb-3 {
     z-index: 10000;
 }
 
+.product-thumbs-scroll {
+    overflow: hidden; /* oculta scroll manual */
+    white-space: nowrap;
+}
+
+
 </style>
 
 <script>
@@ -321,6 +310,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Y también cuando cambie tamaño de ventana
     window.addEventListener('resize', checkArrows);
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.product-thumbs-scroll');
+    if (!container) return;
+
+    // Bloquea scroll manual
+    const blockScroll = (e) => {
+        e.preventDefault();
+    };
+
+    container.addEventListener('wheel', blockScroll, { passive: false });
+    container.addEventListener('touchmove', blockScroll, { passive: false });
+});
+
 
 
 </script>
