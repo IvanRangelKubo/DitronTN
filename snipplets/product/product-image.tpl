@@ -118,7 +118,7 @@
 
 
 	.thumb-slide {
-			width: 15% !important;
+			width: 92px !important;
 			height: auto !important;
 			flex-shrink: 0;
 	}
