@@ -206,5 +206,8 @@
 			border: 1px solid #f3b4b4;
 	}
 
+	a.kdlink:hover {
+			color: var(--ditron-blue);
+	}
 
 </style>
