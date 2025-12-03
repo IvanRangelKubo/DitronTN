@@ -476,6 +476,10 @@
                 color: #0099d4 !important;
             }
 
+            a.btnagregar.w-button:hover {
+                color: white;
+            }
+            
         </style>
 
     </body>

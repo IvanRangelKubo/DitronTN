@@ -14,7 +14,7 @@
             <div class="not-found-div">
                 <img loading="lazy" src="{{ "images/search_icon_1.svg" | static_url }}" alt="Not found icon" class="imgsearch">
                 <h4 class="no-reults-txt">LO SENTIMOS<br>Ups… no encontramos productos que coincidan.</h4>
-                <a href="{{ store.products_url }}" class="btnagregar w-button" style="width: fit-content;">Seguir comprando</a>
+                <a href="{{ store.products_url }}" class="btnagregar w-button" style="width: fit-content; min-width: 200px;">Seguir comprando</a>
             </div>
         </div>
     </div>
