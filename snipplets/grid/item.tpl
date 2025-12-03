@@ -78,7 +78,7 @@
                 {% if not product.has_stock %}
                     <div class="etiquetas-prod">Agotado</div>
                 {% endif %}
-                {% if product.compare_at_price > product.price %}
+                {% if product.compare_at_price > product.price and product.has_stock %}
                     <div class="etiquetas-prod oferta">-{{ (((product.compare_at_price - product.price) * 100) / product.compare_at_price) | round(0, 'floor') }}%</div>
                 {% endif %}
               <a href="{{ product_url_with_selected_variant }}" title="{{ product.name }}" class="linkproducto w-inline-block">
