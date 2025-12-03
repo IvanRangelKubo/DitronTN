@@ -479,7 +479,13 @@
             a.btnagregar.w-button:hover {
                 color: white;
             }
-            
+
+            .alert, .alert-success {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+            }
         </style>
 
     </body>

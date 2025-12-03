@@ -8,7 +8,7 @@
 						{% embed "snipplets/forms/form.tpl" with{form_id: 'login-form', form_custom_class: 'contenidoformlog' , submit_custom_class: 'btn-vip w-button', submit_text: 'Iniciar sesión' | translate, data_store: 'account-login' } %}
 								{% block form_body %}
 										<div class="contitlecust">
-											<h1 class="secctilte">INICAR SESIÓN</h1>
+											<h1 class="secctilte">INICIAR SESIÓN</h1>
 											<div class="linetitle"></div>
 										</div>
 										<div class="loginlabel">Correo electrónico*</div>

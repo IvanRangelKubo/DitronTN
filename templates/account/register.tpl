@@ -20,7 +20,7 @@
 					<p class="txtlogin">{{ "Te enviamos un link a <strong>{1}</strong> para que valides tu email." | t(customer_email) }} </p>
 
 					<div class="font-small mb-4">
-						<p class="txtlogin center" >{{ "¿Todavía no lo recibiste?" | translate }} <span class="js-resend-validation-link destacadoblue">{{ "Enviar link de nuevo" | translate }}</span></p>
+						<p class="txtlogin center" >{{ "¿Todavía no lo recibiste?" | translate }} <span class="js-resend-validation-link btn-link btn-link-primary destacadoblue">{{ "Enviar link de nuevo" | translate }}</span></p>
 					</div>
 					<div class="js-resend-validation-success alert alert-success" style="display:none">
 						<p class="txtlogin center">{{ "¡El link fue enviado correctamente!" | translate }}</p>

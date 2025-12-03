@@ -96,17 +96,17 @@
 					{% endblock %}
 				{% endembed %}
 
-      </div>
+				<!-- Notificaciones de usuario -->
+					{% if contact %}
+						{% if contact.success %}
+								<div class="alert alert-success" data-component="contact-success-message">{{ "¡Gracias por contactarnos! Vamos a responderte apenas veamos tu mensaje." | translate }}</div>
+						{% else %}
+							<div class="alert alert-danger">{{ "Necesitamos tu nombre y un email para poder responderte." | translate }}</div>
+						{% endif %}
+					{% endif %}
+				<!-- Notificaciones de usuario -->
 
-			<!-- Notificaciones de usuario -->
-			{% if contact %}
-				{% if contact.success %}
-						<div class="alert alert-success" data-component="contact-success-message">{{ "¡Gracias por contactarnos! Vamos a responderte apenas veamos tu mensaje." | translate }}</div>
-				{% else %}
-					<div class="alert alert-danger">{{ "Necesitamos tu nombre y un email para poder responderte." | translate }}</div>
-				{% endif %}
-			{% endif %}
-			<!-- Notificaciones de usuario -->
+      </div>
 
     </div>
   </div>

@@ -31,7 +31,11 @@
     {% endif %}
 
     {% if template == 'account.register' %}
-        <p class="txtlogin">¿Ya tienes cuenta? <a href="/account/login" class="destacadoblue">Incia sesión aquí</a></p>
+        <p class="txtlogin">¿Ya tienes cuenta? <a href="/account/login" class="destacadoblue">Inicia sesión aquí</a></p>
+    {% endif %}
+
+    {% if template == 'account.reset' %}
+        <p class="txtlogin">¿Recordaste tu contraseña? <a href="/account/login" class="destacadoblue">Inicia sesión aquí</a></p>
     {% endif %}
     {% block form_help %}
     {% endblock %}
