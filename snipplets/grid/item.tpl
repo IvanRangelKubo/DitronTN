@@ -180,7 +180,7 @@
                     {% set quickshop_button_classes = 'btn-link btn-small-quickshop' %}
 
                     {% set state = store.is_catalog ? 'catalog' : (product.available ? product.display_price ? 'cart' : 'contact' : 'nostock') %}
-                    {% set texts = {'cart': "Comprar", 'contact': "Consultar precio", 'nostock': "Sin stock", 'catalog': "Consultar"} %}
+                    {% set texts = {'cart': "Agregar al carrito", 'contact': "Consultar precio", 'nostock': "Sin stock", 'catalog': "Consultar"} %}
                     <!--CTA-->
                     <div class="item-actions mt-2 pt-1">
 
@@ -195,7 +195,7 @@
                         {% else %}
                             {% if product.variations %}
                                 {# Open quickshop popup if has variants #}
-                                <a href="{{ product.url }}" class="btnagregar w-button">Comprar</a>
+                                <a href="{{ product.url }}" class="btnagregar w-button">Agregar al carrito</a>
                             {% else %}
                                 {# If not variants add directly to cart #}
                                 <form class="js-product-form" method="post" action="{{ store.cart_url }}">
