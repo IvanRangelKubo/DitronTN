@@ -113,7 +113,8 @@
 	.swiper-container-horizontal {
 			width: 100%;
 			overflow: hidden;
-			height: 600px !important;
+			height: auto !important;
+			max-height: 600px !important;
 	}
 
 
@@ -162,7 +163,7 @@
 	}
 
 	.thumb-slide {
-			width: 80px; /* o el ancho que necesites */
+			width: 80px; 
 			flex: 0 0 auto;
 			scroll-snap-align: start;
 	}
@@ -223,7 +224,7 @@ a.js-product-thumb.product-thumb.d-block.position-relative.mb-3 {
 
 .thumbs-row {
     display: flex;
-    gap: 10px; /* este gap será considerado en el JS */
+    gap: 10px;
 }
 
 .thumb-slide {
@@ -241,7 +242,7 @@ a.js-product-thumb.product-thumb.d-block.position-relative.mb-3 {
 .thumb-slide img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* no cortar */
+    object-fit: contain; 
 }
 
 a.js-product-thumb.product-thumb.d-block.position-relative.mb-3 {
@@ -249,10 +250,9 @@ a.js-product-thumb.product-thumb.d-block.position-relative.mb-3 {
 }
 
 .product-thumbs-scroll {
-    overflow: hidden; /* oculta scroll manual */
+    overflow: hidden;
     white-space: nowrap;
 }
-
 
 </style>
 
@@ -304,10 +304,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Ejecutar cuando carga
+    
     checkArrows();
 
-    // Y también cuando cambie tamaño de ventana
+
     window.addEventListener('resize', checkArrows);
 });
 
@@ -315,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.querySelector('.product-thumbs-scroll');
     if (!container) return;
 
-    // Bloquea scroll manual
+
     const blockScroll = (e) => {
         e.preventDefault();
     };
@@ -325,5 +325,56 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+document.addEventListener("DOMContentLoaded", () => {
+    const wrapper = document.querySelector(".swiper-wrapper");
+    if (!wrapper) return;
+
+    const slides = Array.from(wrapper.children);
+
+    const updateHeights = () => {
+        slides.forEach((slide, index) => {
+            const isActive = slide.classList.contains("swiper-slide-active");
+            const isNext = slide.classList.contains("swiper-slide-next");
+            const isLast = index === slides.length - 1;
+
+
+            const shouldBeActive = isActive || (isLast && isNext);
+
+            if (shouldBeActive) {
+                slide.style.height = "auto";
+            } else {
+                slide.style.height = "10px";
+            }
+        });
+    };
+
+
+    const observer = new MutationObserver((mutations) => {
+        let needsUpdate = false;
+        for (const m of mutations) {
+            if (m.type === "attributes" && m.attributeName === "class") {
+                needsUpdate = true;
+                break;
+            }
+        }
+        if (needsUpdate) updateHeights();
+    });
+
+
+    slides.forEach(slide => {
+        observer.observe(slide, {
+            attributes: true,
+            attributeFilter: ["class"]
+        });
+    });
+
+
+    updateHeights();
+});
+
+
 
 </script>
+
+
+
