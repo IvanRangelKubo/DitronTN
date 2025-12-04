@@ -124,4 +124,8 @@ span.js-cart-products-heading-singular, span.js-cart-products-heading-plural {
     margin: 0px 0px 15px 0px;
 }
 
+img.img-fluid.cart-item-image.cart-item-image-md {
+    object-fit: contain;
+}
+
 </style>
