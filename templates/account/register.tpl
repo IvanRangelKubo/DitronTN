@@ -19,14 +19,15 @@
 					
 					<p class="txtlogin">{{ "Te enviamos un link a <strong>{1}</strong> para que valides tu email." | t(customer_email) }} </p>
 
-					<div class="font-small mb-4">
-						<p class="txtlogin center" >{{ "¿Todavía no lo recibiste?" | translate }} <span class="js-resend-validation-link btn-link btn-link-primary destacadoblue">{{ "Enviar link de nuevo" | translate }}</span></p>
+					<div class="mb-3 font-small">
+						¿Todavía no lo recibiste? <span class="js-resend-validation-link btn-link font-small ml-1" data-customer-email="{{ customer_email }}" >Enviar link de nuevo</span>
 					</div>
+
 					<div class="js-resend-validation-success alert alert-success" style="display:none">
-						<p class="txtlogin center">{{ "¡El link fue enviado correctamente!" | translate }}</p>
+						<p class="registerSuccess">{{ "¡El link fue enviado correctamente!" | translate }}</p>
 					</div>
 					<div class="js-resend-validation-error alert alert-danger" style="display:none">
-						<p class="txtlogin center">{{ "No pudimos enviar el email, intentalo de nuevo en unos minutos." | translate }}</p>
+						<p class="registerSuccess">{{ "No pudimos enviar el email, intentalo de nuevo en unos minutos." | translate }}</p>
 					</div>
 
 				</div>
@@ -153,6 +154,10 @@
 
 		button:has(.js-form-spinner[style*="display: block"]) {
 			color: transparent !important;
+		}
+
+		p.registerSuccess {
+			margin: 0px;
 		}
 
 </style>
