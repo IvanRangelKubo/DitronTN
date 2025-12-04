@@ -63,3 +63,76 @@
 		}
 
 </style>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  (function fixButtonSpinner() {
+  
+    function ensureTextWrapper(btn) {
+      
+      const hasTextSpan = btn.querySelector(':scope > .btn-text');
+      if (hasTextSpan) return hasTextSpan;
+
+
+      const textNodes = Array.from(btn.childNodes).filter(n => n.nodeType === Node.TEXT_NODE && n.textContent.trim().length > 0);
+      if (textNodes.length === 0) return null;
+
+      
+      const span = document.createElement('span');
+      span.className = 'btn-text';
+      span.style.transition = 'opacity .12s linear';
+      textNodes.forEach(n => {
+        span.appendChild(n);
+      });
+
+      const spinner = btn.querySelector('.js-form-spinner');
+      if (spinner) btn.insertBefore(span, spinner);
+      else btn.appendChild(span);
+      return span;
+    }
+
+    
+    const buttons = Array.from(document.querySelectorAll('button, input[type="submit"]')).filter(b => b.querySelector && b.querySelector('.js-form-spinner'));
+    buttons.forEach(btn => {
+      const textSpan = ensureTextWrapper(btn);
+      const spinner = btn.querySelector('.js-form-spinner');
+
+      
+      function updateVisuals() {
+        const style = window.getComputedStyle(spinner);
+        const visible = !(style.display === 'none' || style.visibility === 'hidden' || spinner.offsetParent === null && style.display !== 'inline');
+        if (textSpan) {
+          textSpan.style.opacity = visible ? '0' : '1';
+      
+          textSpan.setAttribute('aria-hidden', visible ? 'true' : 'false');
+        }
+      }
+
+      
+      const mo = new MutationObserver(() => updateVisuals());
+      mo.observe(spinner, { attributes: true, attributeFilter: ['style', 'class', 'hidden'], childList: false, subtree: false });
+
+      
+      const form = btn.closest('form');
+      if (form) {
+        form.addEventListener('submit', () => {
+          try {
+            spinner.style.display = 'inline-block';
+            
+            spinner.style.visibility = 'visible';
+          } catch (e) {}
+          
+          if (textSpan) {
+            textSpan.style.opacity = '0';
+            textSpan.setAttribute('aria-hidden', 'true');
+          }
+        });
+      }
+
+      updateVisuals();
+    });
+  })();
+});
+</script>
