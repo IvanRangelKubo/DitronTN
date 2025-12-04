@@ -38,7 +38,7 @@
             {% endif %}
             
             {% set state = store.is_catalog ? 'catalog' : (product.available ? product.display_price ? 'cart' : 'contact' : 'nostock') %}
-            {% set texts = {'cart': "Agregar a mi bolsa", 'contact': "Consultar precio", 'nostock': "Sin stock", 'catalog': "Consultar"} %}
+            {% set texts = {'cart': "Agregar al carrito", 'contact': "Consultar precio", 'nostock': "Sin stock", 'catalog': "Consultar"} %}
             {% set jsClasses = ''%}
             {% set btnType = 'button' %}
             {% if state != 'nostock' %}
@@ -177,6 +177,12 @@
         font-size: 25px !important;
         line-height: 33px;
     }
+
+	@media screen and (max-width: 767px) {
+			.js-addtocart.js-addtocart-placeholder.btn.btn-primary.btn-block.btn-transition.btn-vip.w-button.disabled {
+				width: 100%;
+			}
+	}
 
 </style>
 
