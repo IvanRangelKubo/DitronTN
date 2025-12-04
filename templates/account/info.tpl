@@ -19,7 +19,7 @@
                         <div class="w-layout-cell centermiddlecell">
                             {# Name input #}
                             <div class="loginlabel">Nombre *</div>
-                            {% embed "snipplets/forms/form-input.tpl" with{type_text: true, input_for: 'name', input_value: result.name | default(customer.name), input_name: 'name', input_id: 'name', input_custom_class: 'loginreg-field w-input' } %}
+                            {% embed "snipplets/forms/form-input.tpl" with{type_text: true, input_for: 'name', input_value: result.name | default(customer.name), input_name: 'name', input_id: 'name', input_custom_class: 'loginreg-field w-input',input_required: true } %}
                                 {% block input_form_alert %}
                                     {% if result.errors.name %}
                                         <div class="notification-danger notification-left">{{ 'Necesitamos saber tu nombre para actualizar tu información.' | translate }}</div>
@@ -31,7 +31,7 @@
                         <div class="w-layout-cell centermiddlecell">
                             {# Email input #}
                             <div class="loginlabel">Correo electronico *</div>
-                            {% embed "snipplets/forms/form-input.tpl" with{type_email: true, input_for: 'email', input_value: result.email | default(customer.email), input_name: 'email', input_id: 'email',input_custom_class: 'loginreg-field w-input' } %}
+                            {% embed "snipplets/forms/form-input.tpl" with{type_email: true, input_for: 'email', input_value: result.email | default(customer.email), input_name: 'email', input_id: 'email',input_custom_class: 'loginreg-field w-input',input_required: true } %}
                                 {% block input_form_alert %}
                                     {% if result.errors.email == 'exists' %}
                                         <div class="notification-danger notification-left">{{ 'Encontramos otra cuenta que ya usa este email. Intentá usando otro.' | translate }}</div>
@@ -48,7 +48,7 @@
                         <div class="w-layout-cell centermiddlecell">
                             {# Phone input #}
                             <div class="loginlabel">Teléfono*</div>
-                            {% embed "snipplets/forms/form-input.tpl" with{type_tel: true, input_for: 'phone', input_value: result.phone | default(customer.phone), input_name: 'phone', input_id: 'phone',input_custom_class: 'loginreg-field w-input' } %}
+                            {% embed "snipplets/forms/form-input.tpl" with{type_tel: true, input_for: 'phone', input_value: result.phone | default(customer.phone), input_name: 'phone', input_id: 'phone',input_custom_class: 'loginreg-field w-input',input_required: true } %}
                             {% endembed %}
                         </div>
                         <div class="w-layout-cell centermiddlecell">

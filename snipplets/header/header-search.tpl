@@ -121,7 +121,7 @@
 
 	.js-search-suggestions-all-link.search-suggestions-all-link {
 			font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
-			font-size: 17px;
+			font-size: 15px !important;
 			text-decoration: none;
 			font-weight: 600;
 	}
