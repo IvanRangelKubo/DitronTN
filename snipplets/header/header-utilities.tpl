@@ -56,9 +56,7 @@
 		>
 			<img src="{{ "images/cart_icon.svg" | static_url }}" alt="Carrito" class="icononav">
 
-		{% if cart.items_count > 0 %}
 			<div class="qtynumber js-cart-widget-amount">{{ cart.items_count }}</div>
-		{% endif %}
 
 		</a>
 	</div>

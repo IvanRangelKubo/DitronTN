@@ -60,7 +60,7 @@
     header.js-head-main {
         position: sticky;
         top: 0;
-        z-index: 9999;
+        z-index: 10001;
     }
 
     a.msg-topslide:hover {

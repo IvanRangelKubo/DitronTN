@@ -42,7 +42,8 @@
                                     input_name: 'name',
                                     input_id: 'aliasdir',
                                     input_placeholder: '',
-                                    input_custom_class: 'loginreg-field w-input'
+                                    input_custom_class: 'loginreg-field w-input',
+                                    input_required: true
                                 } 
                             %}
                                 {% block input_form_alert %}
@@ -66,7 +67,8 @@
                                     input_name: 'address',
                                     input_id: 'direccion',
                                     input_placeholder: '',
-                                    input_custom_class: 'loginreg-field w-input'
+                                    input_custom_class: 'loginreg-field w-input',
+                                    input_required: true
                                 } 
                             %}
                                 {% block input_form_alert %}
@@ -94,7 +96,8 @@
                                     input_value: result.zipcode | default(address.zipcode),
                                     input_name: 'zipcode',
                                     input_id: 'cp',
-                                    input_custom_class: 'loginreg-field w-input'
+                                    input_custom_class: 'loginreg-field w-input',
+                                    input_required: true
                                 } 
                             %}
                                 {% block input_form_alert %}
@@ -117,7 +120,8 @@
                                     input_value: result.city | default(address.city),
                                     input_name: 'city',
                                     input_id: 'ciudad',
-                                    input_custom_class: 'loginreg-field w-input'
+                                    input_custom_class: 'loginreg-field w-input',
+                                    input_required: true
                                 } 
                             %}
                                 {% block input_form_alert %}
@@ -144,7 +148,8 @@
                                     input_value: result.province | default(address.province),
                                     input_name: 'province',
                                     input_id: 'estado',
-                                    input_custom_class: 'loginreg-field w-input'
+                                    input_custom_class: 'loginreg-field w-input',
+                                    input_required: true
                                 } 
                             %}
                                 {% block input_form_alert %}
@@ -189,7 +194,8 @@
                                     input_value: result.phone | default(address.phone),
                                     input_name: 'phone',
                                     input_id: 'telefono',
-                                    input_custom_class: 'loginreg-field w-input'
+                                    input_custom_class: 'loginreg-field w-input',
+                                    input_required: true
                                 } 
                             %}
                                 {% block input_form_alert %}
