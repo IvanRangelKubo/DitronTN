@@ -160,4 +160,8 @@
 			margin: 0px;
 		}
 
+		svg.icon-inline.icon-spin.icon-w-2em.ml-3 {
+			margin: 0px !important;
+		}
+
 </style>
