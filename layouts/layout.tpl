@@ -134,9 +134,6 @@
                 z-index: 15;
             }
 
-            .d-inline-block.btnagregar.w-button {
-                height: 40px;
-            }
         </style>
 
         {# Critical CSS #}
@@ -486,6 +483,16 @@
                 align-items: center;
                 justify-content: center;
             }
+
+            .js-addtocart.js-addtocart-placeholder.btn-transition.disabled {
+                width: 100%;
+                margin: 0px auto;
+            }
+
+            .btnagregar {
+                height: 45px;
+            }
+
         </style>
 
     </body>

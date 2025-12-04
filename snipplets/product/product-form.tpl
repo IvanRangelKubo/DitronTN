@@ -178,12 +178,6 @@
         line-height: 33px;
     }
 
-	@media screen and (max-width: 767px) {
-			.js-addtocart.js-addtocart-placeholder.btn.btn-primary.btn-block.btn-transition.btn-vip.w-button.disabled {
-				width: 100%;
-			}
-	}
-
 </style>
 
 <script>

@@ -39,6 +39,19 @@
         max-height: 600px;
     }
 
+    .cont-variacion > .js-addtocart.js-addtocart-placeholder.btn.btn-primary.btn-block.btn-transition.btn-vip.w-button.disabled {
+        width: 50% !important;
+        margin: 0px !important;
+    }
+
+    .js-addtocart.js-addtocart-placeholder.btn-transition.disabled {
+        margin: 10px auto !important;
+    }
+
+    .js-addtocart.js-addtocart-placeholder.btn-transition.disabled {
+        width: 95% !important;
+    }
+
 
 
 
@@ -48,6 +61,16 @@
             width: 22% !important;
         }
     }
+
+    @media screen and (max-width: 767px) {
+        .cont-variacion > .js-addtocart.js-addtocart-placeholder.btn.btn-primary.btn-block.btn-transition.btn-vip.w-button.disabled {
+            width: 100% !important;
+        }
+
+        .js-addtocart.js-addtocart-placeholder.btn-transition.disabled {
+            width: 100% !important;
+        }
+	}
 
     @media screen and (max-width: 479px) {
         a.categoria-arbol {
