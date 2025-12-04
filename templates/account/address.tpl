@@ -262,6 +262,7 @@
         margin-top: 20px;
     }
 
+
     @media (min-width: 768px) and (max-width: 1024px) {
         p.txtlogin {
             max-width: 65%;
@@ -269,3 +270,21 @@
     }
 
 </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const countrySelect = document.querySelector('select[name="country"]');
+        if (!countrySelect) return;
+
+        // Forzamos la opción "México" si existe
+        const mxOption = Array.from(countrySelect.options).find(
+            opt => opt.value.toLowerCase().trim() === "méxico" || opt.text.toLowerCase().trim() === "méxico"
+        );
+
+        if (mxOption) {
+            mxOption.selected = true;
+            countrySelect.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+    });
+</script>
+
