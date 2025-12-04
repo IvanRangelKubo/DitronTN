@@ -61,4 +61,22 @@
 		</a>
 	</div>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const qty = document.querySelector(".js-cart-widget-amount");
+  if (!qty) return;
+  const toggle = () => {
+    const count = parseInt(qty.textContent.trim(), 10);
+    qty.style.display = count > 0 ? "block" : "none";
+  };
+  toggle();
+  document.addEventListener("cart:updated", toggle);
+  const observer = new MutationObserver(toggle);
+  observer.observe(qty, { childList: true, characterData: true, subtree: true });
+});
+</script>
+
+
+
 {% endif %}
+
