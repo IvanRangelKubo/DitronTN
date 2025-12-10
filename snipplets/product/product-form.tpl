@@ -146,6 +146,7 @@
         width: 100%;
         height: 100%;
         min-height: 45px;
+        font-weight: 500;
     }
 
     .btn-vip {

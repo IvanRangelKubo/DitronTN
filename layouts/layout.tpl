@@ -497,6 +497,10 @@
                 color: white;
             }
 
+            .modal-overlay {
+                z-index: 10001;
+            }
+
         </style>
 
     </body>
