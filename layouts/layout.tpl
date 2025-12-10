@@ -493,6 +493,10 @@
                 height: 45px;
             }
 
+            a.btnagregar:hover, a.btnagregar:focus {
+                color: white;
+            }
+
         </style>
 
     </body>
