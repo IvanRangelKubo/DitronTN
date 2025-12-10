@@ -274,11 +274,10 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const countrySelect = document.querySelector('select[name="country"]');
-    const savedProvince = "{{ address.province | e('js') }}"; // Estado actual en edición
+    const savedProvince = "{{ address.province | e('js') }}"; 
 
     if (!countrySelect) return;
 
-    // 1. Forzar México como país
     const mxOption = Array.from(countrySelect.options).find(
         opt => opt.value.toLowerCase().includes("méxico") || opt.text.toLowerCase().includes("méxico")
     );
@@ -287,7 +286,6 @@ document.addEventListener("DOMContentLoaded", () => {
         countrySelect.dispatchEvent(new Event("change", { bubbles: true }));
     }
 
-    // 2. Esperar a que TN genere el select de estados  
     const trySetProvince = () => {
         const stateSelect = document.querySelector('select[name="province"]');
         if (!stateSelect) return false;
@@ -304,11 +302,10 @@ document.addEventListener("DOMContentLoaded", () => {
         return !!option;
     };
 
-    // Intentar varias veces porque TN reconstruye el select con un delay
     let attempts = 0;
     const interval = setInterval(() => {
         attempts++;
-        if (trySetProvince() || attempts > 20) { // 20 intentos (~2s)
+        if (trySetProvince() || attempts > 20) {
             clearInterval(interval);
         }
     }, 100);
