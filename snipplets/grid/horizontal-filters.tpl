@@ -189,6 +189,10 @@ button.js-price-filter-btn.btn.btn-default.d-inline-block.disabled {
     opacity: 0.5;
 }
 
+button.js-price-filter-btn.btn.btn-default.d-inline-block {
+    border-radius: 6px;
+}
+
 </style>
 
 
