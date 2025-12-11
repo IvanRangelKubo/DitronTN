@@ -32,7 +32,7 @@
         <div class="cont-cartcontact">
 
             
-            <div class="js-utility-col js-search-utility transition-soft">
+            <div class="transition-soft">
                 {% include "snipplets/header/header-utilities.tpl" with {use_search: true} %}              
                 <span class="searchcont w-form">
                     {% include "snipplets/header/header-search.tpl" with{ not_padding: true } %}

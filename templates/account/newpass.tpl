@@ -14,7 +14,7 @@
 
                     {% if link_expired %}
 
-                        {% set contact_links = store.whatsapp or store.phone or store.email %}
+                        {% set contact_links = settings.whatsapp_link %}
                         
                         <div class="text-center mb-4">
                             {% if is_account_activation %}
@@ -40,6 +40,11 @@
 
                         {% embed "snipplets/forms/form.tpl" with{form_id: 'newpass-form', form_custom_class: 'contenidoformlog' , submit_custom_class: 'btn-vip w-button', submit_text: (customer.password ? 'Cambiar contraseña' : 'Activar cuenta')  | translate } %}
                             {% block form_body %}
+
+                                <div class="contitlecust">
+                                  <h1 class="secctilte">CREA UNA CONTRASEÑA</h1>
+                                  <div class="linetitle"></div>
+                                </div>
 
                                 {# Password input #}
                                 <div class="loginlabel">Contraseña*</div>

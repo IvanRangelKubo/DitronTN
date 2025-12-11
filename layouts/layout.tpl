@@ -518,8 +518,9 @@
             }
 
             .alert:before {
-            position: relative;
-            top: 2px; 
+                position: relative;
+                top: 2px;
+                width: 20px;
             }
 
             .item-actions .alert {

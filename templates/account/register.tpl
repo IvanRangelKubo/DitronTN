@@ -239,85 +239,85 @@
 </script>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.querySelector('form[data-store="account-register"]');
-  if (!form) return;
+	document.addEventListener('DOMContentLoaded', () => {
+		const form = document.querySelector('form[data-store="account-register"]');
+		if (!form) return;
 
-  const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
-  const spinner  = form.querySelector('.js-form-spinner');
+		const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
+		const spinner  = form.querySelector('.js-form-spinner');
 
-  const offSpinner = () => {
-    if (spinner) spinner.style.display = 'none';
-    if (submitBtn) submitBtn.disabled = false;
-  };
+		const offSpinner = () => {
+			if (spinner) spinner.style.display = 'none';
+			if (submitBtn) submitBtn.disabled = false;
+		};
 
-  const hasToken = () => {
-    try {
-      if (window.grecaptcha && typeof window.grecaptcha.getResponse === "function") {
-        const r = window.grecaptcha.getResponse();
-        if (r && r.length > 0) return true;
-      }
-    } catch(e){}
-    const t = form.querySelector('#g-recaptcha-response');
-    return t && t.value.trim().length > 0;
-  };
+		const hasToken = () => {
+			try {
+				if (window.grecaptcha && typeof window.grecaptcha.getResponse === "function") {
+					const r = window.grecaptcha.getResponse();
+					if (r && r.length > 0) return true;
+				}
+			} catch(e){}
+			const t = form.querySelector('#g-recaptcha-response');
+			return t && t.value.trim().length > 0;
+		};
 
-  const showError = () => {
-    offSpinner();
+		const showError = () => {
+			offSpinner();
 
-    if (!form.querySelector('.recaptcha-error-msg')) {
-      const alert = document.createElement('div');
-      alert.className = 'alert alert-danger recaptcha-error-msg';
-      alert.textContent = 'Debes completar el reCAPTCHA para continuar.';
-      form.insertBefore(alert, form.firstChild);
-    }
-    const g = form.querySelector('.g-recaptcha');
-    if (g) {
-			g.style.margin = '0px'
-    }
-  };
+			if (!form.querySelector('.recaptcha-error-msg')) {
+				const alert = document.createElement('div');
+				alert.className = 'alert alert-danger recaptcha-error-msg';
+				alert.textContent = 'Debes completar el reCAPTCHA para continuar.';
+				form.insertBefore(alert, form.firstChild);
+			}
+			const g = form.querySelector('.g-recaptcha');
+			if (g) {
+				g.style.margin = '0px'
+			}
+		};
 
-  const clearError = () => {
-    const e = form.querySelector('.recaptcha-error-msg');
-    if (e) e.remove();
-    const g = form.querySelector('.g-recaptcha');
-    if (g) {
-      g.style.boxShadow = '';
-      g.style.border = '';
-    }
-  };
+		const clearError = () => {
+			const e = form.querySelector('.recaptcha-error-msg');
+			if (e) e.remove();
+			const g = form.querySelector('.g-recaptcha');
+			if (g) {
+				g.style.boxShadow = '';
+				g.style.border = '';
+			}
+		};
 
-  form.addEventListener('submit', ev => {
-    if (hasToken()) return;
-    ev.preventDefault();
-    ev.stopImmediatePropagation();
-    showError();
-    offSpinner();
-    return false;
-  });
+		form.addEventListener('submit', ev => {
+			if (hasToken()) return;
+			ev.preventDefault();
+			ev.stopImmediatePropagation();
+			showError();
+			offSpinner();
+			return false;
+		});
 
-  const nativeSubmit = HTMLFormElement.prototype.submit;
-  HTMLFormElement.prototype.submit = function () {
-    if (this === form && !hasToken()) {
-      showError();
-      offSpinner();
-      return;
-    }
-    return nativeSubmit.call(this);
-  };
+		const nativeSubmit = HTMLFormElement.prototype.submit;
+		HTMLFormElement.prototype.submit = function () {
+			if (this === form && !hasToken()) {
+				showError();
+				offSpinner();
+				return;
+			}
+			return nativeSubmit.call(this);
+		};
 
-  const tokenEl = form.querySelector('#g-recaptcha-response');
-  if (tokenEl) {
-    const obs = new MutationObserver(() => {
-      if (hasToken()) clearError();
-    });
-    obs.observe(tokenEl, { attributes: true, attributeFilter: ['value'] });
+		const tokenEl = form.querySelector('#g-recaptcha-response');
+		if (tokenEl) {
+			const obs = new MutationObserver(() => {
+				if (hasToken()) clearError();
+			});
+			obs.observe(tokenEl, { attributes: true, attributeFilter: ['value'] });
 
-    tokenEl.addEventListener('input', () => {
-      if (hasToken()) clearError();
-    });
-  }
-});
+			tokenEl.addEventListener('input', () => {
+				if (hasToken()) clearError();
+			});
+		}
+	});
 </script>
 
 

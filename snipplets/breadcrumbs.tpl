@@ -43,7 +43,9 @@
 
         {% elseif template == 'product' %}
             {% for crumb in breadcrumbs %}
-                {% if not forloop.last %}
+                {% if crumb.last %}
+                    <li></li>
+                {% else %}
                     <li class="list-item-arbol">
                         <a href="{{ crumb.url }}" class="categoria-arbol">{{ crumb.name }} &gt;</a>
                     </li>
