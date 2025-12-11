@@ -1,4 +1,5 @@
-
-<a href="{{ store.whatsapp }}" target="_blank" class="whatsapplink w-inline-block">
+{% if settings.show_whatsApp %}
+<a href="{{ settings.whatsapp_link }}" target="_blank" class="whatsapplink w-inline-block">
     <img  src="{{ "images/whatsapp_icon.svg" | static_url }}" alt="Whatsapp icon" class="iconwhats">
-</a>
+</a>   
+{% endif %}

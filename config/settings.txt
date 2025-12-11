@@ -1035,18 +1035,24 @@ Pie de página
 	i18n_input
 		name = contact_email
 		description = Correo de contacto
+	i18n_input
+		name = whatsapp_link
+		description = Liga de WhatsApp
+	checkbox
+		name = show_whatsApp
+		description = Mostrar icono flotante
 
 	title
 		title = Redes sociales
 	i18n_input
 		name = facebook_link
-		description = Telefono de contacto
+		description = Facebook
 	i18n_input
 		name = instagram_link
-		description = Telefono de contacto
+		description = Instagram
 	i18n_input
 		name = yt_link
-		description = Telefono de contacto
+		description = Youtube
 
 	title
 		title = Newsletter
