@@ -61,6 +61,12 @@
 		</a>
 	</div>
 
+<style>
+	.js-cart-widget-amount {
+		display: none;
+	}
+</style>
+
 <script>
 	document.addEventListener("DOMContentLoaded", function () {
 		const qty = document.querySelector(".js-cart-widget-amount");
