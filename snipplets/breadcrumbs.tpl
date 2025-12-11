@@ -69,5 +69,6 @@
     ul.arbol-navegacion {
         display: flex;
         gap: 5px;
+        flex-wrap: wrap;
     }
 </style>

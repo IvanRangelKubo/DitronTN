@@ -43,7 +43,17 @@
 										{% if media.dimensions.width and media.dimensions.height %}width="{{ media.dimensions.width }}" height="{{ media.dimensions.height }}"{% endif %}
 										{% if media.alt %}alt="{{media.alt}}"{% endif %} />
 									{% else %}
-										<img src="{{ 'images/ditron placeholder.webp' | static_url }}" class="placeholderVip" alt="{{ product.name }}">
+										<img 
+										src="{{ 'images/ditron placeholder.webp' | static_url }}"
+										srcset="{{ 'images/ditron placeholder.webp' | static_url }} 480w,
+												{{ 'images/ditron placeholder.webp' | static_url }} 640w,
+												{{ 'images/ditron placeholder.webp' | static_url }} 1024w"
+										class="product-slider-image img-absolute img-absolute-centered {% if apply_lazy_load %}lazyautosizes lazyload{% endif %}"
+										{% if apply_lazy_load %}data-sizes="auto"{% endif %}
+										alt="Producto sin imagen"
+										/>
+
+	
 									{% endif %}
 								{% if home_main_product %}
 									</div>

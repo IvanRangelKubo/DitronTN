@@ -98,5 +98,13 @@
         .product-thumbs-horizontal.mt-3 {
             display: none;
         }
+
+        .col.px-3 {
+            padding: 0 !important;
+        }
+
+        .row.vipImg {
+            margin: auto !important;
+        }
     }
 </style>
