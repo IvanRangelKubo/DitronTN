@@ -41,6 +41,15 @@
             <span class="categoria-arbol active">{{ 'Blog' | translate }}</span>
             </li>
 
+        {% elseif template == 'product' %}
+            {% for crumb in breadcrumbs %}
+                {% if not forloop.last %}
+                    <li class="list-item-arbol">
+                        <a href="{{ crumb.url }}" class="categoria-arbol">{{ crumb.name }} &gt;</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
         {% elseif template == 'blog-post' %}
             <li class="list-item-arbol">
             <a href="{{ store.blog_url }}" class="categoria-arbol">Blog &gt;</a>

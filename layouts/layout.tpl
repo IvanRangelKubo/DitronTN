@@ -522,6 +522,26 @@
             top: 2px; 
             }
 
+            .item-actions .alert {
+                z-index: 10;
+            }
+
+            a.js-notification-close.js-acknowledge-cookies.btn-link {
+                height: 25px !important;
+                background-color: var(--ditron-blue);
+                color: var(--white);
+                text-align: center;
+                border-radius: 9px;
+                width: 95%;
+                padding: 5px 15px;
+                font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+                font-weight: 700;
+                line-height: 15px;
+                transition: all .35s;
+                display: block;
+                text-decoration: none;
+            }
+
         </style>
 
     </body>

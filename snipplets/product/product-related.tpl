@@ -112,3 +112,9 @@
     </div>
 {% endif %}
 
+<style>
+    .item-actions.mt-2.pt-1 > form.js-product-form > .js-addtocart.js-addtocart-placeholder.btn-transition > .d-inline-block.btnagregar.w-button {
+        font-weight: 700 !important;
+    }
+</style>
+

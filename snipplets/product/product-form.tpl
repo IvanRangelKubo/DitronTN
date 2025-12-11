@@ -172,6 +172,38 @@
     span.js-quantity-up.form-quantity-icon.btn.icon-35px.font-small {
         font-size: 25px !important;
         line-height: 33px;
+        height: 45px !important;
+        border-radius: 0px 6px 6px 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    span.js-quantity-up.form-quantity-icon.btn.icon-35px.font-small:hover {
+        background: var(--ditron-blue);
+        color: white;
+    }
+
+    span.js-quantity-down.form-quantity-icon.btn.icon-35px.font-small {
+        font-size: 25px !important;
+        line-height: 33px;
+        height: 45px !important;
+        border-radius: 6px 0px 0px 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    span.js-quantity-down.form-quantity-icon.btn.icon-35px.font-small:hover {
+        background: var(--ditron-blue);
+        color: white;
+    }
+
+    .form-quantity.form-quantity-product.d-flex.form-row.m-0.align-items-center {
+        display: flex !important;
+        justify-content: center;
+        flex-direction: row;
+        align-items: stretch !important;
     }
 
     span.js-quantity-down.form-quantity-icon.btn.icon-35px.font-small {

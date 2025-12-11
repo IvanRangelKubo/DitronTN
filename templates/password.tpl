@@ -99,71 +99,69 @@
 
 
         <div class="mttocont">
-        <div class="w-layout-layout stackmtto wf-layout-layout">
-            
-            <div class="w-layout-cell celllogo"></div>
+            <div id="w-node-bdec0f8a-dc8d-2eaa-145c-200a9486020d-9104a674" class="w-layout-layout stackmtto wf-layout-layout">
+                
+                <div class="w-layout-cell celllogo"></div>
 
-            <div class="w-layout-cell">
+                <div class="w-layout-cell">
 
-            {# LOGO #}
-            <img 
-                src="{{ 'images/logo_micuenta.png' | static_url }}"
-                alt="Ditron Mexico"
-                loading="lazy"
-                class="logomtto"
-            >
+                    <img 
+                        src="{{ 'images/logo_micuenta.png' | static_url }}"
+                        alt="Ditron Mexico"
+                        loading="lazy"
+                        class="logomtto"
+                    >
 
-            <h1 class="titlemtto">Estamos preparando algo increíble para ti</h1>
-            <p class="txtmtto">Por favor, inténtalo nuevamente en unos minutos para descubrir todas las novedades.</p>
+                    <h1 class="titlemtto">Estamos preparando algo increíble para ti</h1>
+                    <p class="txtmtto">Por favor, inténtalo nuevamente en unos minutos para descubrir todas las novedades.</p>
 
-            {# ICONO PARA MOSTRAR FORM (si manejas animación en Webflow) #}
-            <div id="Lock">
-                <img 
-                loading="lazy" 
-                src="{{ 'images/password_icon.svg' | static_url }}"
-                alt="Icono de mantenimiento"
-                class="iconformmtto"
-                >
-            </div>
+                <div id="Lock">
+                    <img 
+                    loading="lazy" 
+                    src="{{ 'images/password_icon.svg' | static_url }}"
+                    alt="Icono de mantenimiento"
+                    class="iconformmtto"
+                    >
+                </div>
 
-            <div class="div-block" id="Pass">
-                <div class="formloginstore w-form">
+                <div class="div-block" id="Pass">
+                    <div class="formloginstore w-form">
 
-                {# FORMULARIO NATIVO DE TIENDANUBE #}
-                {% embed "snipplets/forms/form.tpl" 
-                    with{
-                    form_id: 'password-form',
-                    submit_text: 'Login' | translate,
-                    form_custom_class: 'contlogform',
-                    submit_custom_class: 'logiintienda w-button'
-                    } 
-                %}
-                    {% block form_body %}
-
-                    {# INPUT DE CONTRASEÑA #}
-                    {% embed "snipplets/forms/form-input.tpl"
+                    {# FORMULARIO NATIVO DE TIENDANUBE #}
+                    {% embed "snipplets/forms/form.tpl" 
                         with{
-                        input_for: 'password',
-                        type_password: true,
-                        input_name: 'password',
-                        input_custom_class: 'passtienda w-input'
-                        }
+                        form_id: 'password-form',
+                        submit_text: 'Login' | translate,
+                        form_custom_class: 'contlogform',
+                        submit_custom_class: 'logiintienda w-button'
+                        } 
                     %}
-                        {% block input_form_alert %}
-                        {% if invalid_password == true %}
-                            <div class="msgform">Password incorrecto</div>
-                        {% endif %}
-                        {% endblock input_form_alert %}
+                        {% block form_body %}
+
+                        {# INPUT DE CONTRASEÑA #}
+                        {% embed "snipplets/forms/form-input.tpl"
+                            with{
+                            input_for: 'password',
+                            type_password: true,
+                            input_name: 'password',
+                            input_custom_class: 'passtienda w-input'
+                            }
+                        %}
+                            {% block input_form_alert %}
+                            {% if invalid_password == true %}
+                                <div class="msgform">Password incorrecto</div>
+                            {% endif %}
+                            {% endblock input_form_alert %}
+                        {% endembed %}
+
+                        {% endblock %}
                     {% endembed %}
 
-                    {% endblock %}
-                {% endembed %}
+                    </div>
+                </div>
 
                 </div>
             </div>
-
-            </div>
-        </div>
         </div>
 
         <script>
@@ -202,6 +200,7 @@
 
             .mttocont {
                 background-position: inherit;
+                background-size: cover;
             }
         </style>
 

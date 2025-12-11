@@ -12,7 +12,7 @@
                 <div class="entrycont">
                     <div id="w-node-_9d6e34cb-82ae-b7fd-8747-d7b756bf7967-1c31681e" class="w-layout-layout stackentry wf-layout-layout">
                         <div class="w-layout-cell">
-                            <div class="imgentrydiv" style="background-image: url('{{ post.thumbnail | default('/images/electrodomesticos.png' | static_url ) }}');" ></div>
+                            <div class="imgentrydiv" style="background-image: url('{{ post.thumbnail | default('images/ditron placeholder.webp' | static_url ) }}');" ></div>
                         </div>
                         <div class="w-layout-cell">
                             <div class="infominblog">
