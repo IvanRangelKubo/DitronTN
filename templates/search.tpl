@@ -112,8 +112,9 @@ input.js-price-filter-input.form-control.filter-input-price {
     border-radius: 9px;
 }
 
-button.js-price-filter-btn.btn.btn-default.d-inline-block.disabled {
+button.js-price-filter-btn.btn.btn-default.d-inline-block.disabled, button.js-price-filter-btn.btn.btn-default.d-inline-block {
     border-radius: 9px;
+    background-color: var(--ditron-blue);
 }
 
 @media (max-width: 767px) {

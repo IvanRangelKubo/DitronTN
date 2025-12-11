@@ -480,7 +480,6 @@
             .alert, .alert-success {
                 display: flex;
                 flex-direction: row;
-                align-items: center;
                 justify-content: center;
             }
 
@@ -503,6 +502,25 @@
 
             .modal-overlay {
                 z-index: 10001;
+            }
+
+            .alert {
+            display: inline-block; 
+            line-height: 1.2;     
+            }
+
+            .alert:before {
+            content: "";
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin: 0 6px 0 0;
+            vertical-align: top; 
+            }
+
+            .alert:before {
+            position: relative;
+            top: 2px; 
             }
 
         </style>
