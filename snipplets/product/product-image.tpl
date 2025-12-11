@@ -92,6 +92,12 @@
 															{% include 'snipplets/product/product-image-thumbs.tpl' %}
 													</div>
 											{% endfor %}
+											{% if not home_main_product %}
+												{# Video thumb #}
+												<div class="swiper-slide thumb-slide">
+													{% include 'snipplets/product/product-video.tpl' with {thumb: true} %}
+												</div>
+										{% endif %}
 									</div>
 							</div>
 
@@ -262,6 +268,22 @@ a.js-product-thumb.product-thumb.d-block.position-relative.mb-3 {
 .product-thumbs-scroll {
     overflow: hidden;
     white-space: nowrap;
+}
+
+a.js-product-thumb.js-video-thumb.product-thumb.d-block.mb-3 {
+    margin: 0 !important;
+}
+
+.product-thumb {
+    width: 100%;
+    height: 100%;
+}
+
+a.js-product-thumb.js-video-thumb.product-thumb.d-block.mb-3 {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
 }
 
 </style>
