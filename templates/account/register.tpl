@@ -124,7 +124,7 @@
   </div>
 {% endif %}
 
-	<style>
+<style>
    .form-group {
         margin-bottom: 0;
     } 
@@ -167,73 +167,160 @@
 </style>
 
 <script>
+	document.addEventListener('DOMContentLoaded', () => {
+
+		(function fixButtonSpinner() {
+		
+			function ensureTextWrapper(btn) {
+				
+				const hasTextSpan = btn.querySelector(':scope > .btn-text');
+				if (hasTextSpan) return hasTextSpan;
+
+
+				const textNodes = Array.from(btn.childNodes).filter(n => n.nodeType === Node.TEXT_NODE && n.textContent.trim().length > 0);
+				if (textNodes.length === 0) return null;
+
+				
+				const span = document.createElement('span');
+				span.className = 'btn-text';
+				span.style.transition = 'opacity .12s linear';
+				textNodes.forEach(n => {
+					span.appendChild(n);
+				});
+
+				const spinner = btn.querySelector('.js-form-spinner');
+				if (spinner) btn.insertBefore(span, spinner);
+				else btn.appendChild(span);
+				return span;
+			}
+
+			
+			const buttons = Array.from(document.querySelectorAll('button, input[type="submit"]')).filter(b => b.querySelector && b.querySelector('.js-form-spinner'));
+			buttons.forEach(btn => {
+				const textSpan = ensureTextWrapper(btn);
+				const spinner = btn.querySelector('.js-form-spinner');
+
+				
+				function updateVisuals() {
+					const style = window.getComputedStyle(spinner);
+					const visible = !(style.display === 'none' || style.visibility === 'hidden' || spinner.offsetParent === null && style.display !== 'inline');
+					if (textSpan) {
+						textSpan.style.opacity = visible ? '0' : '1';
+				
+						textSpan.setAttribute('aria-hidden', visible ? 'true' : 'false');
+					}
+				}
+
+				
+				const mo = new MutationObserver(() => updateVisuals());
+				mo.observe(spinner, { attributes: true, attributeFilter: ['style', 'class', 'hidden'], childList: false, subtree: false });
+
+				
+				const form = btn.closest('form');
+				if (form) {
+					form.addEventListener('submit', () => {
+						try {
+							spinner.style.display = 'inline-block';
+							
+							spinner.style.visibility = 'visible';
+						} catch (e) {}
+						
+						if (textSpan) {
+							textSpan.style.opacity = '0';
+							textSpan.setAttribute('aria-hidden', 'true');
+						}
+					});
+				}
+
+				updateVisuals();
+			});
+		})();
+	});
+</script>
+
+<script>
 document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('form[data-store="account-register"]');
+  if (!form) return;
 
-  (function fixButtonSpinner() {
-  
-    function ensureTextWrapper(btn) {
-      
-      const hasTextSpan = btn.querySelector(':scope > .btn-text');
-      if (hasTextSpan) return hasTextSpan;
+  const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
+  const spinner  = form.querySelector('.js-form-spinner');
 
+  const offSpinner = () => {
+    if (spinner) spinner.style.display = 'none';
+    if (submitBtn) submitBtn.disabled = false;
+  };
 
-      const textNodes = Array.from(btn.childNodes).filter(n => n.nodeType === Node.TEXT_NODE && n.textContent.trim().length > 0);
-      if (textNodes.length === 0) return null;
+  const hasToken = () => {
+    try {
+      if (window.grecaptcha && typeof window.grecaptcha.getResponse === "function") {
+        const r = window.grecaptcha.getResponse();
+        if (r && r.length > 0) return true;
+      }
+    } catch(e){}
+    const t = form.querySelector('#g-recaptcha-response');
+    return t && t.value.trim().length > 0;
+  };
 
-      
-      const span = document.createElement('span');
-      span.className = 'btn-text';
-      span.style.transition = 'opacity .12s linear';
-      textNodes.forEach(n => {
-        span.appendChild(n);
-      });
+  const showError = () => {
+    offSpinner();
 
-      const spinner = btn.querySelector('.js-form-spinner');
-      if (spinner) btn.insertBefore(span, spinner);
-      else btn.appendChild(span);
-      return span;
+    if (!form.querySelector('.recaptcha-error-msg')) {
+      const alert = document.createElement('div');
+      alert.className = 'alert alert-danger recaptcha-error-msg';
+      alert.textContent = 'Debes completar el reCAPTCHA para continuar.';
+      form.insertBefore(alert, form.firstChild);
     }
+    const g = form.querySelector('.g-recaptcha');
+    if (g) {
+      g.style.boxShadow = '0 0 0 3px rgba(220,53,69,0.3)';
+      g.style.border = '1px solid #dc3545';
+			g.style.margin = '10px 0px'
+    }
+  };
 
-    
-    const buttons = Array.from(document.querySelectorAll('button, input[type="submit"]')).filter(b => b.querySelector && b.querySelector('.js-form-spinner'));
-    buttons.forEach(btn => {
-      const textSpan = ensureTextWrapper(btn);
-      const spinner = btn.querySelector('.js-form-spinner');
+  const clearError = () => {
+    const e = form.querySelector('.recaptcha-error-msg');
+    if (e) e.remove();
+    const g = form.querySelector('.g-recaptcha');
+    if (g) {
+      g.style.boxShadow = '';
+      g.style.border = '';
+    }
+  };
 
-      
-      function updateVisuals() {
-        const style = window.getComputedStyle(spinner);
-        const visible = !(style.display === 'none' || style.visibility === 'hidden' || spinner.offsetParent === null && style.display !== 'inline');
-        if (textSpan) {
-          textSpan.style.opacity = visible ? '0' : '1';
-      
-          textSpan.setAttribute('aria-hidden', visible ? 'true' : 'false');
-        }
-      }
+  form.addEventListener('submit', ev => {
+    if (hasToken()) return;
+    ev.preventDefault();
+    ev.stopImmediatePropagation();
+    showError();
+    offSpinner();
+    return false;
+  });
 
-      
-      const mo = new MutationObserver(() => updateVisuals());
-      mo.observe(spinner, { attributes: true, attributeFilter: ['style', 'class', 'hidden'], childList: false, subtree: false });
+  const nativeSubmit = HTMLFormElement.prototype.submit;
+  HTMLFormElement.prototype.submit = function () {
+    if (this === form && !hasToken()) {
+      showError();
+      offSpinner();
+      return;
+    }
+    return nativeSubmit.call(this);
+  };
 
-      
-      const form = btn.closest('form');
-      if (form) {
-        form.addEventListener('submit', () => {
-          try {
-            spinner.style.display = 'inline-block';
-            
-            spinner.style.visibility = 'visible';
-          } catch (e) {}
-          
-          if (textSpan) {
-            textSpan.style.opacity = '0';
-            textSpan.setAttribute('aria-hidden', 'true');
-          }
-        });
-      }
-
-      updateVisuals();
+  const tokenEl = form.querySelector('#g-recaptcha-response');
+  if (tokenEl) {
+    const obs = new MutationObserver(() => {
+      if (hasToken()) clearError();
     });
-  })();
+    obs.observe(tokenEl, { attributes: true, attributeFilter: ['value'] });
+
+    tokenEl.addEventListener('input', () => {
+      if (hasToken()) clearError();
+    });
+  }
 });
 </script>
+
+
+
