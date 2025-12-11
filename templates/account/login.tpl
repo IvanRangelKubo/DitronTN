@@ -1,37 +1,53 @@
-  <div class="seccmicuenta">
-    <div class="customcontainer">
-      <div id="w-node-_1972abc9-70be-a0e1-cacb-5136464458f1-558b58e0" class="w-layout-layout stackcuenta wf-layout-layout">
-        <div class="w-layout-cell centermiddlecell"><img src="{{ "images/logo_micuenta.png" | static_url }}" class="logologin"></div>
-        <div class="w-layout-cell centermiddlecell">
-          <div class="loginform w-form">
+<div class="seccmicuenta">
+  <div class="customcontainer">
+    <div id="w-node-_1972abc9-70be-a0e1-cacb-5136464458f1-558b58e0" class="w-layout-layout stackcuenta wf-layout-layout">
 
-						{% embed "snipplets/forms/form.tpl" with{form_id: 'login-form', form_custom_class: 'contenidoformlog' , submit_custom_class: 'btn-vip w-button', submit_text: 'Iniciar sesión' | translate, data_store: 'account-login' } %}
-								{% block form_body %}
-										<div class="contitlecust">
-											<h1 class="secctilte">INICIAR SESIÓN</h1>
-											<div class="linetitle"></div>
-										</div>
-										<div class="loginlabel">Correo electrónico*</div>
-										{% embed "snipplets/forms/form-input.tpl" with{input_for: 'email',input_placeholder: '', input_custom_class: 'loginreg-field w-input' , type_email: true, input_name: 'email', input_required: true } %}
-										{% endembed %}
-										<div class="loginlabel">Contraseña*</div>
-										{% embed "snipplets/forms/form-input.tpl" with{input_for: 'password',input_placeholder: '', input_custom_class: 'loginreg-field w-input', type_password: true, input_name: 'password', input_required: true } %}
-										{% endembed %}
+      <div class="w-layout-cell centermiddlecell">
+        <img src="{{ "images/logo_micuenta.png" | static_url }}" class="logologin">
+      </div>
 
-										<p class="txtlogin">*Campos requeridos</p>
+      <div class="w-layout-cell centermiddlecell">
+        <div class="loginform w-form">
 
-										{% if result.invalid %}
-												<div class="alert alert-danger">{{ 'Estos datos no son correctos. ¿Checaste que estén bien escritos?' | translate }}</div>
-										{% endif %}
-										
-								{% endblock %}
-								
-						{% endembed %}
+          <div class="contitlecust">
+            <h1 class="secctilte">INICIAR SESIÓN</h1>
+            <div class="linetitle"></div>
           </div>
+
+          {{ component('forms/account/login' , {
+            validation_classes: {
+              link: 'btn-link font-small ml-1',
+              text_align: 'text-center',
+              text_size: 'font-small',
+            },
+            spacing_classes: {
+              top_2x: 'mt-2',
+              bottom_2x: 'mb-2',
+              bottom_3x: 'mb-3',
+              bottom_4x: 'mb-4',
+            },
+            form_classes: {
+              facebook_login: 'btn btn-secondary d-block mb-4',
+              password_toggle: 'btn',
+              input_help_align: 'text-right',
+              input_help_link: 'txtlogin',
+              help_align: 'text-center',
+              help_text_size: 'font-small',
+              help_link: 'destacadoblue',
+              submit: 'btn-vip w-button',
+              submit_spinner: 'icon-inline icon-spin ml-2'
+            }
+          }) }}
+
+          <p class="txtlogin" id="req">*Campos requeridos</p>
+
         </div>
       </div>
+
     </div>
   </div>
+</div>
+
 
 
 
@@ -50,9 +66,53 @@
 			margin-bottom: 15px;
 		}
 
-		span.js-form-spinner {
-    position: absolute;
-	}
+    .mt-2.mb-2.text-center.font-small {
+      color: #454545 !important;
+      text-align: left !important;
+      width: 100% !important;
+      margin: 20px auto 10px !important;
+      font-family: Elmssans Variablefont Wght, Verdana, sans-serif !important;
+      font-size: 14px !important;
+      font-weight: 600 !important;
+      line-height: 18px !important;
+    }
+
+    .text-right.mt-2.mb-2 {
+      text-align: left !important;
+    }
+
+    label.form-label {
+      width: 100% !important;
+      margin-bottom: 3px !important;
+      font-family: Elmssans Variablefont Wght, Verdana, sans-serif !important;
+      font-weight: 600 !important;
+      display: block !important;
+      font-size: 14px !important;
+    }
+
+    input.js-account-input.form-control {
+      position: relative;
+      color: var(--darkgrey);
+      background-color: #fff;
+      border: 1px solid #acacac;
+      border-radius: 9px;
+      width: 100%;
+      height: 45px;
+      margin-bottom: 12px;
+      padding: 10px;
+      font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 18px;
+    }
+
+    a.js-password-toggle.password-toggle.btn {
+        display: none;
+    }
+
+    span.js-form-spinner {
+      position: absolute;
+    }
 
 		button:has(.js-form-spinner[style*="display: block"]) {
 			color: transparent !important;
@@ -60,8 +120,8 @@
 
 		svg.icon-inline.icon-spin.icon-w-2em.ml-3 {
 			margin: 0px !important;
-		}
-
+    }
+    
 </style>
 
 
@@ -136,3 +196,36 @@
     })();
   });
 </script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+
+    const requiredLabels = ["email", "password"];
+
+    requiredLabels.forEach(id => {
+      const label = document.querySelector(`label.form-label[for="${id}"]`);
+      if (label && !label.textContent.trim().endsWith("*")) {
+        label.textContent = label.textContent.trim() + "*";
+      }
+    });
+
+    const reqText = document.querySelector("#req");
+    const submitBtn = document.querySelector('.btn-vip');
+
+    if (reqText && submitBtn) {
+      submitBtn.parentNode.insertBefore(reqText, submitBtn);
+      reqText.style.display = "block";
+    }
+
+    const forgotDiv = document.querySelector('.text-right.mt-2.mb-2');
+    const noAccountText = document.querySelector('.mt-2.mb-2.text-center.font-small'); 
+
+    if (forgotDiv && noAccountText) {
+      noAccountText.parentNode.insertBefore(forgotDiv, noAccountText.nextSibling);
+    }
+  });
+</script>
+
+
+
