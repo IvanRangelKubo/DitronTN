@@ -505,8 +505,7 @@
             }
 
             .alert {
-            display: inline-block; 
-            line-height: 1.2;     
+                line-height: 1.2;     
             }
 
             .alert:before {

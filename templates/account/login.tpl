@@ -114,15 +114,39 @@
       position: absolute;
     }
 
-		button:has(.js-form-spinner[style*="display: block"]) {
-			color: transparent !important;
-		}
-
 		svg.icon-inline.icon-spin.icon-w-2em.ml-3 {
 			margin: 0px !important;
     }
+
+    svg.icon-inline.icon-spin use {
+      fill: #fff !important;
+    }
+
     
 </style>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const loginForm = document.querySelector("#login-form");
+  if (!loginForm) return;
+
+  const spinner = loginForm.querySelector(".js-form-spinner");
+
+  // Si falta el SVG o está vacío, lo reemplazamos
+  if (!spinner || !spinner.querySelector("svg")) {
+    const newSpinner = document.createElement("span");
+    newSpinner.className = "js-form-spinner fixed-spinner";
+    newSpinner.style.display = "none";
+    newSpinner.innerHTML = `
+      <svg class="icon-inline icon-spin icon-w-2em ml-3 spinner-white">
+        <use xlink:href="#spinner-third"></use>
+      </svg>
+    `;
+    if (spinner) spinner.replaceWith(newSpinner);
+  }
+});
+</script>
 
 
 <script>
@@ -226,6 +250,3 @@
     }
   });
 </script>
-
-
-
