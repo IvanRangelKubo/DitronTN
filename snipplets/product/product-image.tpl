@@ -92,9 +92,9 @@
 															{% include 'snipplets/product/product-image-thumbs.tpl' %}
 													</div>
 											{% endfor %}
-											{% if not home_main_product %}
+											{% if not home_main_product and product.video_url %}
 												{# Video thumb #}
-												<div class="swiper-slide thumb-slide">
+												<div class="swiper-slide thumb-slide vdo">
 													{% include 'snipplets/product/product-video.tpl' with {thumb: true} %}
 												</div>
 										{% endif %}
@@ -286,6 +286,17 @@ a.js-product-thumb.js-video-thumb.product-thumb.d-block.mb-3 {
     align-content: center;
 }
 
+.swiper-wrapper {
+    max-height: 600px !important;
+		min-height: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.slider-slide {
+    max-height: 600px;
+}
+
 </style>
 
 <script>
@@ -354,54 +365,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     container.addEventListener('wheel', blockScroll, { passive: false });
     container.addEventListener('touchmove', blockScroll, { passive: false });
-});
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    const wrapper = document.querySelector(".swiper-wrapper");
-    if (!wrapper) return;
-
-    const slides = Array.from(wrapper.children);
-
-    const updateHeights = () => {
-        slides.forEach((slide, index) => {
-            const isActive = slide.classList.contains("swiper-slide-active");
-            const isNext = slide.classList.contains("swiper-slide-next");
-            const isLast = index === slides.length - 1;
-
-
-            const shouldBeActive = isActive || (isLast && isNext);
-
-            if (shouldBeActive) {
-                slide.style.height = "auto";
-            } else {
-                slide.style.height = "10px";
-            }
-        });
-    };
-
-
-    const observer = new MutationObserver((mutations) => {
-        let needsUpdate = false;
-        for (const m of mutations) {
-            if (m.type === "attributes" && m.attributeName === "class") {
-                needsUpdate = true;
-                break;
-            }
-        }
-        if (needsUpdate) updateHeights();
-    });
-
-
-    slides.forEach(slide => {
-        observer.observe(slide, {
-            attributes: true,
-            attributeFilter: ["class"]
-        });
-    });
-
-
-    updateHeights();
 });
 
 

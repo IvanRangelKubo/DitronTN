@@ -106,5 +106,17 @@
         .row.vipImg {
             margin: auto !important;
         }
+
+        img.video-image {
+            object-fit: contain;
+            background: white;
+            padding: 0 20px;
+            border: none;
+            box-shadow: none;
+        }
+
+        .embed-responsive {
+            background: white !important;
+        }
     }
 </style>
