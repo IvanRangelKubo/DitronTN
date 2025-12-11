@@ -497,6 +497,10 @@
                 color: white;
             }
 
+            a.kdlink:focus{
+                color: var(--ditron-blue);
+            }
+
             .modal-overlay {
                 z-index: 10001;
             }
