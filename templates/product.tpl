@@ -57,6 +57,18 @@
         top: 35% !important;
     }
 
+    form.js-product-form > .js-addtocart.js-addtocart-placeholder.btn-transition.disabled {
+        height: 45px !important;
+    }
+
+    .item-actions.mt-2.pt-1 > form.js-product-form > .js-addtocart.js-addtocart-placeholder.btn-transition > .d-inline-block.btnagregar.w-button > span.js-addtocart-text {
+        top: 35% !important;
+    }
+
+    .js-addtocart-adding.transition-container.transition-icon {
+        top: 35% !important;
+    }
+
     @media (min-width: 768px) and (max-width: 1024px) {
         .swiper-slide.thumb-slide {
             width: 22% !important;
