@@ -543,6 +543,11 @@
                 text-decoration: none;
             }
 
+            .btn-transition .transition-container {
+                top: 40% !important;
+                transform: translateY(-40%) !important;
+            }
+
             	@media screen and (max-width: 767px) {
                     div#ajax-cart-submit-div > input.btnagregar.w-button {
                         font-size: 20px;
