@@ -53,7 +53,9 @@
         width: 95% !important;
     }
 
-    
+    .d-inline-block.btnagregar.w-button.plhvip > .js-addtocart-adding.transition-container.transition-icon {
+        top: 35% !important;
+    }
 
     @media (min-width: 768px) and (max-width: 1024px) {
         .swiper-slide.thumb-slide {

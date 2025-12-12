@@ -1,5 +1,5 @@
-<div class="js-addtocart js-addtocart-placeholder {% if template == 'product' %}vipbtn{% endif %} {% if not direct_add %}btn btn-primary btn-block{% endif %} btn-transition {{ custom_class }} disabled" style="display: none;">
-    <div class="d-inline-block btnagregar w-button">
+<div class="js-addtocart js-addtocart-placeholder {% if not direct_add %}btn btn-primary btn-block{% endif %} btn-transition {{ custom_class }} disabled" style="display: none;">
+    <div class="d-inline-block btnagregar w-button {{ custom_container_class }}">
         <span class="js-addtocart-text">
             {% if direct_add %}
                 <div class="d-flex justify-content-center align-items-center">

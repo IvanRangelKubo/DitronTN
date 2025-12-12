@@ -56,7 +56,7 @@
 
                 {# Fake add to cart CTA visible during add to cart event #}
 
-                {% include 'snipplets/placeholders/button-placeholder.tpl' with {custom_class: "btn-vip w-button"} %}
+                {% include 'snipplets/placeholders/button-placeholder.tpl' with {custom_class: "btn-vip w-button", custom_container_class: "plhvip"} %}
 
             </div>
 
