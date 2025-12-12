@@ -157,9 +157,6 @@
 
 
 	@media screen and (max-width: 479px) {
-    .searchcont {
-        top: 110px !important;
-    }
 
 		.searchForm {
 			width: 90%;
