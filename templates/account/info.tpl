@@ -22,7 +22,7 @@
                             {% embed "snipplets/forms/form-input.tpl" with{type_text: true, input_for: 'name', input_value: result.name | default(customer.name), input_name: 'name', input_id: 'name', input_custom_class: 'loginreg-field w-input',input_required: true } %}
                                 {% block input_form_alert %}
                                     {% if result.errors.name %}
-                                        <div class="notification-danger notification-left">{{ 'Necesitamos saber tu nombre para actualizar tu información.' | translate }}</div>
+                                        <div class="alert alert-danger">{{ 'Necesitamos saber tu nombre para actualizar tu información.' | translate }}</div>
                                     {% endif %}
                                 {% endblock input_form_alert %}
                             {% endembed %}
@@ -34,9 +34,9 @@
                             {% embed "snipplets/forms/form-input.tpl" with{type_email: true, input_for: 'email', input_value: result.email | default(customer.email), input_name: 'email', input_id: 'email',input_custom_class: 'loginreg-field w-input',input_required: true } %}
                                 {% block input_form_alert %}
                                     {% if result.errors.email == 'exists' %}
-                                        <div class="notification-danger notification-left">{{ 'Encontramos otra cuenta que ya usa este email. Intentá usando otro.' | translate }}</div>
+                                        <div class="alert alert-danger">{{ 'Encontramos otra cuenta que ya usa este email. Intentá usando otro.' | translate }}</div>
                                     {% elseif result.errors.email %}
-                                        <div class="notification-danger notification-left">{{ 'Necesitamos saber tu email para actualizar tu información.' | translate }}</div>
+                                        <div class="alert alert-danger">{{ 'Necesitamos saber tu email para actualizar tu información.' | translate }}</div>
                                     {% endif %}
                                 {% endblock input_form_alert %}
                             {% endembed %}
@@ -58,6 +58,9 @@
 
                 {% endblock %}
             {% endembed %}
+
+            <div id="errorContainer"></div>
+
         </div>
 
     </div>
@@ -161,5 +164,32 @@
         updateVisuals();
       });
     })();
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("errorContainer");
+    if (!container) return;
+    
+    moveAlerts();
+
+    const observer = new MutationObserver(() => {
+      moveAlerts();
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    function moveAlerts() {
+      const alerts = document.querySelectorAll(".alert.alert-danger");
+      alerts.forEach(alert => {
+        if (!container.contains(alert)) {
+          container.appendChild(alert);
+        }
+      });
+    }
   });
 </script>

@@ -116,6 +116,8 @@
 								{% endblock %}
 							{% endembed %}
 
+							<div id="errorContainer"></div>
+
           </div>
         </div>
       </div>
@@ -324,5 +326,29 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("errorContainer");
+    if (!container) return;
+    
+    moveAlerts();
 
+    const observer = new MutationObserver(() => {
+      moveAlerts();
+    });
 
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    function moveAlerts() {
+      const alerts = document.querySelectorAll(".alert.alert-danger");
+      alerts.forEach(alert => {
+        if (!container.contains(alert)) {
+          container.appendChild(alert);
+        }
+      });
+    }
+  });
+</script>

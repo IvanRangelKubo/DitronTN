@@ -39,6 +39,8 @@
             }
           }) }}
 
+          <div id="errorContainer"></div>
+
           <p class="txtlogin" id="req">*Campos requeridos</p>
 
         </div>
@@ -250,3 +252,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("errorContainer");
+    if (!container) return;
+    
+    moveAlerts();
+
+    const observer = new MutationObserver(() => {
+      moveAlerts();
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    function moveAlerts() {
+      const alerts = document.querySelectorAll(".alert.alert-danger.js-login-general-error");
+      alerts.forEach(alert => {
+        if (!container.contains(alert)) {
+          container.appendChild(alert);
+        }
+      });
+    }
+  });
+</script>
+
+
+
