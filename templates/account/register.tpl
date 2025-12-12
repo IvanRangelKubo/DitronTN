@@ -164,6 +164,10 @@
 			margin: 0px !important;
 		}
 
+		.mb-3.font-small {
+			font-family: Elmssans Variablefont Wght, Verdana, sans-serif !important;
+		}
+
 </style>
 
 <script>
