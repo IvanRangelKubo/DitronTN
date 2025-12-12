@@ -42,6 +42,7 @@
     .cont-variacion > .js-addtocart.js-addtocart-placeholder.btn.btn-primary.btn-block.btn-transition.btn-vip.w-button.disabled {
         width: 50% !important;
         margin: 0px !important;
+        height: 45px;
     }
 
     .js-addtocart.js-addtocart-placeholder.btn-transition.disabled {

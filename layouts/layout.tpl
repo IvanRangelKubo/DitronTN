@@ -486,6 +486,7 @@
             .js-addtocart.js-addtocart-placeholder.btn-transition.disabled {
                 width: 100%;
                 margin: 0px auto;
+                height: 55px;
             }
 
             .btnagregar {
@@ -544,9 +545,26 @@
             }
 
             .btn-transition .transition-container {
-                top: 40% !important;
-                transform: translateY(-40%) !important;
+                top: 45% !important;
+                transform: translateY(0%) !important;
             }
+
+            span.js-addtocart-text {
+                top: 45% !important;
+                position: absolute;
+                left: 0 !important;
+            }
+
+            .btnagregar .js-addtocart-text,
+            .btnagregar .js-addtocart-success,
+            .btnagregar .js-addtocart-adding {
+                display: flex !important;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                text-align: center;
+            }
+
 
             	@media screen and (max-width: 767px) {
                     div#ajax-cart-submit-div > input.btnagregar.w-button {
