@@ -182,8 +182,8 @@
 		}
 
 		span.js-form-spinner {
-		position: absolute;
-		}
+    position: absolute;
+	}
 
 		button:has(.js-form-spinner[style*="display: block"]) {
 			color: transparent !important;

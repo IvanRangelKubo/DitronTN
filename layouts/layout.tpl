@@ -543,6 +543,12 @@
                 text-decoration: none;
             }
 
+            	@media screen and (max-width: 767px) {
+                    input.btnagregar.w-button {
+                        font-size: 20px;
+                    }
+                }
+
         </style>
 
     </body>

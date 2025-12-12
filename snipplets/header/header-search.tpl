@@ -126,6 +126,14 @@
 			font-weight: 600;
 	}
 
+	form.js-search-form.search-form.busqueda-formcot {
+    margin-left: 0;
+	}
+
+	.close-buscador {
+			margin-left: auto;
+	}
+
 	@media screen and (max-width: 991px) {
     .contsearchpredictive {
         width: 90% !important;
