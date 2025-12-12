@@ -1,11 +1,11 @@
 <ul class="list {% if footer %}font-small py-2{% else %}mb-4{% endif %}">
-	{% if store.whatsapp %}
+	{% if settings.show_whatsApp %}
 		<li class="{% if footer %}d-block {% endif %}mb-3">
-			<a href="{{ store.whatsapp }}" class="{% if btn_link %}btn{% else %}contact{% endif %}-link">
+			<a href="{{ settings.whatsapp_link }}" target="_blank" class="{% if btn_link %}btn{% else %}contact{% endif %}-link">
 				{% if with_icons %}
-					<svg class="icon-inline mr-2 font-body"><use xlink:href="#whatsapp"/></svg>
+					<svg class="icon-inline mr-2 font-body whats"><use xlink:href="#whatsapp"/></svg>
 				{% endif %}
-				{{ store.whatsapp |trim('https://wa.me/') }}
+				{{ settings.whatsapp_link |trim('https://wa.me/') }}
 			</a>
 		</li>
 	{% endif %}
@@ -50,3 +50,36 @@
 		{% endif %}
 	{% endif %}
 </ul>
+
+<style>
+	ul.list.mb-4 {
+		font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+	}
+
+	ul.list.mb-4 {
+		font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		flex-direction: column;
+		margin-top: 20px;
+	}
+
+	svg.icon-inline.mr-2.font-body {
+		fill: var(--ditron-blue);
+		height: 25px;
+		width: 25px;
+		transform: rotateY(180deg);
+	}
+
+	svg.icon-inline.mr-2.font-body.whats {
+		transform: rotateY(0deg);
+	}
+
+	a.contact-link {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+		
+	}
+</style>

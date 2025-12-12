@@ -10,22 +10,26 @@
             </div>
 
             <div class="w-layout-cell centermiddlecell">
-                <div class="loginform">
+                
 
                     {% if link_expired %}
 
                         {% set contact_links = settings.whatsapp_link %}
-                        
-                        <div class="text-center mb-4">
-                            {% if is_account_activation %}
-                                <div class="mb-1 font-weight-bold">{{ 'El link para activar tu cuenta expiró' | translate }}</div>
-                                <div>{{ 'Contactanos para que te enviemos uno nuevo.' | translate }}</div>
-                            {% else %}
-                                <div class="mb-1 font-weight-bold">{{ 'El link para cambiar tu contraseña expiró' | translate }}</div>
-                                <div class="mb-3">{{ 'Ingresá tu email para recibir uno nuevo.' | translate }}</div>
-                                <a href="{{ store.customer_reset_password_url }}" class="btn-link">{{ 'Ingresar email' | translate }}</a>
-                            {% endif %}
+
+                        <div class="contitlecust">
+                          <h1 class="secctilte">ACTIVAR CUENTA</h1>
+                          <div class="linetitle"></div>
                         </div>
+                        
+                        
+                        {% if is_account_activation %}
+                            <div class="txtlogin">{{ 'El link para activar tu cuenta expiró, contactanos para que te enviemos uno nuevo.' | translate }}</div>
+                        {% else %}
+                            <div class="txtlogin">{{ 'El link para cambiar tu contraseña expiró' | translate }}</div>
+                            <div class="txtlogin">{{ 'Ingresá tu email para recibir uno nuevo.' | translate }}</div>
+                            <a href="{{ store.customer_reset_password_url }}" class="destacadoblue">{{ 'Ingresar email' | translate }}</a>
+                        {% endif %}
+                       
 
                         {% if contact_links and is_account_activation %}
                             <div class="text-center">
@@ -37,7 +41,7 @@
                         {% if failure %}
                             <div class="alert alert-danger">{{ 'Las contraseñas no coinciden.' | translate }}</div>
                         {% endif %}
-
+                        <div class="loginform">
                         {% embed "snipplets/forms/form.tpl" with{form_id: 'newpass-form', form_custom_class: 'contenidoformlog' , submit_custom_class: 'btn-vip w-button', submit_text: (customer.password ? 'Cambiar contraseña' : 'Activar cuenta')  | translate } %}
                             {% block form_body %}
 
@@ -60,9 +64,10 @@
                         {% endembed %}
 
                         <div id="errorContainer"></div>
+                        </div>
                     {% endif %}
 
-                </div>
+                
             </div>
         
         </div>

@@ -6,7 +6,7 @@
 
 			<div id="w-node-_1972abc9-70be-a0e1-cacb-5136464458f1-990be0eb" class="w-layout-layout stackcuenta wf-layout-layout">
 
-        <div class="w-layout-cell centermiddlecell">
+        		<div class="w-layout-cell centermiddlecell">
 					<img src="{{ "images/logo_micuenta.png" | static_url}}" class="logologin">
 				</div>
 
