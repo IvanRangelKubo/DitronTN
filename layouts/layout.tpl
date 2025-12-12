@@ -565,12 +565,22 @@
                 text-align: center;
             }
 
+            .alert.alert-warning {
+                border-radius: 6px;
+                color: #dc8f38;
+                background-color: #fffbe5;
+            }
 
-            	@media screen and (max-width: 767px) {
-                    div#ajax-cart-submit-div > input.btnagregar.w-button {
-                        font-size: 20px;
-                    }
+            .item-actions .alert {
+                bottom: -20px;
+            }
+
+
+            @media screen and (max-width: 767px) {
+                div#ajax-cart-submit-div > input.btnagregar.w-button {
+                    font-size: 20px;
                 }
+            }
 
         </style>
 

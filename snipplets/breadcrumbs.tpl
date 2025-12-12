@@ -42,14 +42,21 @@
             </li>
 
         {% elseif template == 'product' %}
+            {% set total = breadcrumbs|length %}
+
             {% for crumb in breadcrumbs %}
-                {% if crumb.last %}
-                    <li></li>
-                {% else %}
-                    <li class="list-item-arbol">
-                        <a href="{{ crumb.url }}" class="categoria-arbol">{{ crumb.name }} &gt;</a>
-                    </li>
-                {% endif %}
+            {% if crumb.last %}
+                <li></li>
+            {% else %}
+                <li class="list-item-arbol">
+                <a href="{{ crumb.url }}" class="categoria-arbol">
+                    {{ crumb.name }}
+                    {% if loop.index != total - 1 %}
+                    &gt;
+                    {% endif %}
+                </a>
+                </li>
+            {% endif %}
             {% endfor %}
 
         {% elseif template == 'blog-post' %}
