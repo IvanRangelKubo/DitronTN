@@ -29,6 +29,14 @@
         </div>
     {% endif %}
 
+    {% set installments_info = product.installments_info_from_any_variant %}
+    {% set hasDiscount = product.maxPaymentDiscount.value > 0 %}
+    {% set show_payments_info = settings.product_detail_installments and product.show_installments and product.display_price and installments_info %}
+
+    {% if not home_main_product and (show_payments_info or hasDiscount) %}
+        <div {% if installments_info %}data-toggle="#installments-modal" data-modal-url="modal-fullscreen-payments"{% endif %} class="{% if installments_info %}js-modal-open js-fullscreen-modal-open{% endif %} js-product-payments-container mb-3" {% if not (product.get_max_installments and product.get_max_installments(false)) %}style="display: none;"{% endif %}>
+    {% endif %}
+
     {# Product form, includes: Variants, CTA and Shipping calculator #}
     <div class="formvip w-form">
      <form id="product_form" class="js-product-form vip-variacinqty-selection" method="post" action="{{ store.cart_url }}" data-store="product-form-{{ product.id }}">
