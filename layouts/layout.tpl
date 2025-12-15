@@ -575,11 +575,20 @@
                 bottom: -20px;
             }
 
+            .not-found-div > a.btnagregar.w-button {
+                line-height: 18px;
+            }
 
             @media screen and (max-width: 767px) {
+
                 div#ajax-cart-submit-div > input.btnagregar.w-button {
                     font-size: 20px;
                 }
+
+                .js-visible-on-cart-filled.h5.font-big.row.mb-2 > span.col-7 {
+                    font-size: 19px !important;
+                }
+
             }
 
         </style>
