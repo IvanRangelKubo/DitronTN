@@ -148,6 +148,12 @@
 
             {% set show_labels = not product.has_stock or product.compare_at_price or product.hasVisiblePromotionLabel %}
 
+            <div class="contagenvio">
+                {% if product.free_shipping %}
+                        <div class="etiquetas-prod enviog">Envío Gratis</div>
+                {% endif %}
+            </div>
+
             <div class="container-titleandprices" data-store="product-item-info-{{ product.id }}">
                 <div class="contstarsreviews"></div>
                 <a href="{{ product_url_with_selected_variant }}" class="js-item-name nombre-producto" data-store="product-item-name-{{ product.id }}">{{ product.name }}</a>

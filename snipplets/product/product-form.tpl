@@ -20,6 +20,15 @@
         {% endif %}
     </div>
 
+    {# Free shipping minimum message #}
+    {% set has_free_shipping = product.free_shipping %}
+
+    {% if has_free_shipping %}
+        <div class="promovip">
+            <div class="titulovip-elements enviogratis">Envío Gratis</div>
+        </div>
+    {% endif %}
+
     {# Product form, includes: Variants, CTA and Shipping calculator #}
     <div class="formvip w-form">
      <form id="product_form" class="js-product-form vip-variacinqty-selection" method="post" action="{{ store.cart_url }}" data-store="product-form-{{ product.id }}">

@@ -591,6 +591,36 @@
 
             }
 
+            .contagenvio {
+                width: auto;
+                height: 20px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .etiquetas-prod.enviog {
+                border: 1px solid var(--tagblue);
+                color: var(--tagblue);
+                max-width: 100px;
+                padding-top: 2px;
+                padding-bottom: 2px;
+                font-size: 13px;
+                position: relative;
+                inset: 0;
+            }
+
+            .titulovip-elements.enviogratis {
+                color: var(--tagblue);
+                width: 100%;
+                max-width: 100%;
+                margin-bottom: 3px;
+                margin-left: 0;
+                font-size: 15px;
+                font-weight: 500;
+                line-height: 15px;
+                display: block;
+            }
+
         </style>
 
     </body>
