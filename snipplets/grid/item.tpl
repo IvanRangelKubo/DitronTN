@@ -207,13 +207,13 @@
                                 <form class="js-product-form" method="post" action="{{ store.cart_url }}">
                                     <input type="hidden" name="add_to_cart" value="{{product.id}}" />
 
-                                    <div class="js-item-submit-container item-submit-container position-relative">
-                                        <input type="submit" class="js-addtocart js-prod-submit-form btnagregar w-button {{ state }}" value="{{ texts[state] | translate }}" alt="{{ texts[state] | translate }}" {% if state == 'nostock' %}disabled{% endif %} data-component="product-list-item.add-to-cart" data-component-value="{{ product.id }}"/>
+                                    <div class=" item-submit-container position-relative">
+                                        <input type="submit" class="js-addtocart itemBtn js-prod-submit-form btnagregar w-button {{ state }}" value="{{ texts[state] | translate }}" alt="{{ texts[state] | translate }}" {% if state == 'nostock' %}disabled{% endif %} data-component="product-list-item.add-to-cart" data-component-value="{{ product.id }}"/>
                                     </div>
 
                                     {# Fake add to cart CTA visible during add to cart event #}
 
-                                    {% include 'snipplets/placeholders/button-placeholder.tpl' with {direct_add: true} %}
+                                    
                                 </form>
                             {% endif %}
                         {% endif %}
