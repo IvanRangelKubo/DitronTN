@@ -585,6 +585,10 @@
                     font-size: 20px;
                 }
 
+                .btn-transition .transition-container {
+                    opacity: 0 !important;
+                }
+
                 .js-visible-on-cart-filled.h5.font-big.row.mb-2 > span.col-7 {
                     font-size: 19px !important;
                 }
