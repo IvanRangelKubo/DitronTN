@@ -158,4 +158,17 @@
 	a.js-insta-variant.btn.btn-variant.btn-variant-color.varImage.p-0:hover {
 			background: transparent;
 	}
+
+	@media screen and (max-width: 767px) {
+		img.absolute-centered-vertically.lazyautosizes.ls-is-cached.lazyloaded {
+				width: auto;
+				max-height: 42px;
+				margin-left: auto;
+				margin-right: auto;
+				display: block;
+				position: relative;
+				top: auto;
+				left: auto;
+		}
+	}
 </style>

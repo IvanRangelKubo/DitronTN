@@ -7,7 +7,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta content="width=device-width, initial-scale=1" name="viewport">
         <title>{{ page_title }}</title>
         <meta name="description" content="{{ page_description }}" />
         <link href="{{ "images/webclip.png" | static_url }}" rel="apple-touch-icon">
@@ -593,6 +593,23 @@
                     font-size: 19px !important;
                 }
 
+                form * {
+                    transform: none !important;
+                }
+
+                .form-control-ios.search-input, .form-group-quantity-ios .form-control-ios.search-input {
+                    height: 45px !important;
+                    margin-bottom: 0px !important;
+                }
+
+                .form-control-ios.form-control-area {
+                    margin-bottom: 0px;
+                }
+
+                nav.nav-menu.w-nav-menu {
+                    z-index: 9999;
+                }
+
             }
 
             .contagenvio {
@@ -600,6 +617,7 @@
                 height: 20px;
                 margin-left: auto;
                 margin-right: auto;
+                margin-top: 15px;
             }
 
             .etiquetas-prod.enviog {
