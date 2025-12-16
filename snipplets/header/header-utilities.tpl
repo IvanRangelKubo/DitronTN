@@ -38,7 +38,7 @@
 		</div>
 	</span>
 {% elseif use_search %}
-		<div class="js-search-button js-modal-open js-fullscreen-modal-open linkicons-nav buscadormobile" data-modal-url="modal-fullscreen-search" data-toggle="#nav-search" aria-label="{{ 'Buscador' | translate }}">
+		<div class="linkicons-nav buscadormobile" data-modal-url="modal-fullscreen-search" data-toggle="#nav-search" aria-label="{{ 'Buscador' | translate }}">
 			<img data-w-id="19bfc965-78d2-2790-076e-c7279723f40d" loading="eager" alt="Search" src="{{ "images/search_icon_1.svg" | static_url }}" class="icononav">
 		</div>
 {% else %}
