@@ -131,5 +131,10 @@
         .embed-responsive {
             background: white !important;
         }
+
+        input.js-addtocart.js-prod-submit-form.btn-add-to-cart.btn.btn-primary.btn-big.btn-block.btn-vip.w-button.nostock, input.btn-add-to-cart.btn.btn-primary.btn-big.btn-block.btn-vip.w-button.nostock {
+            width: 100%;
+        }
+
     }
 </style>
