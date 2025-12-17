@@ -12,7 +12,7 @@
 
 <div class="customcontainer">
 {% if products %}
-	<div class="SortAndFilters">
+	<div class="SortAndFilters" id="filters-desktop">
 		<div class="filtersAndAplicated">
 			{% include "snipplets/grid/horizontal-filters.tpl" %}
 		</div>
@@ -48,8 +48,9 @@
 
 	</div>
 
-	<div class="MobileFilters">
+	<div class="MobileFilters" id="filters-mobile">
 		{% include "snipplets/grid/filters-modals.tpl" %}
+		<section class="js-category-controls-prev category-controls-sticky-detector"></section>
 	</div>
 {% endif %}
 </div>
@@ -117,6 +118,14 @@ button.js-price-filter-btn.btn.btn-default.d-inline-block.disabled, button.js-pr
     background-color: var(--ditron-blue);
 }
 
+span.checkbox-text.with-color {
+    font-size: medium;
+}
+
+span.radio-button-label {
+    font-size: small !important;
+}
+
 @media (max-width: 767px) {
     .SortAndFilters {
         display: none !important;
@@ -138,6 +147,11 @@ button.js-price-filter-btn.btn.btn-default.d-inline-block.disabled, button.js-pr
 			"Elmssans Variablefont Wght", Verdana, font-family: sans-serif;
 			font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
 			font-weight: 600;
+		}
+
+		span.filters-badge.ml-1 {
+			position: relative;
+			margin: 0px !important;
 		}
 
 		.container.category-controls-container.text-center {
@@ -184,6 +198,11 @@ button.js-price-filter-btn.btn.btn-default.d-inline-block.disabled, button.js-pr
 				font-family: Elmssans Variablefont Wght, Verdana, sans-serif;
 				font-weight: 600;
 		}
+
+		.chip {
+				border: 2px solid var(--ditron-blue);
+				border-radius: 6px;
+		}
 }
 
 
@@ -195,3 +214,20 @@ button.js-price-filter-btn.btn.btn-default.d-inline-block.disabled, button.js-pr
 }
 
 </style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+    const desktop = document.getElementById("filters-desktop");
+    const mobile = document.getElementById("filters-mobile");
+
+    if (isMobile) {
+        // Mobile → eliminamos desktop totalmente
+        if (desktop) desktop.remove();
+    } else {
+        // Desktop → eliminamos mobile totalmente
+        if (mobile) mobile.remove();
+    }
+});
+</script>

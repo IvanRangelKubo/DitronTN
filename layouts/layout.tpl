@@ -615,6 +615,17 @@
                     z-index: 9999;
                 }
 
+
+                .js-price-filter-input.form-control.filter-input-price.form-control-ios {
+                    width: 100% !important;
+                    height: 36px;
+                }
+
+                .cart-quantity-container-ios .form-control-ios {
+                    padding: 0px !important;
+                }
+
+
             }
 
             .contagenvio {
