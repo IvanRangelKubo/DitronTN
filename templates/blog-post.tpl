@@ -26,4 +26,9 @@
     </div>
   </div>
 
+<style>
+.subtitleblue {
+    width: 100% !important;
+}
+</style>
 
