@@ -550,7 +550,7 @@
             }
 
             span.js-addtocart-text {
-                top: 45% !important;
+                top: 36% !important;
                 position: absolute;
                 left: 0 !important;
             }
@@ -585,8 +585,12 @@
                     font-size: 20px;
                 }
 
-                .btn-transition .transition-container {
-                    opacity: 0 !important;
+                .js-addtocart-adding.transition-container.transition-icon {
+                    font-size: 15px;
+                }
+
+                span.js-addtocart-text {
+                    font-size: 15px;
                 }
 
                 .js-visible-on-cart-filled.h5.font-big.row.mb-2 > span.col-7 {

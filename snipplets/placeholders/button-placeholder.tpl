@@ -13,7 +13,7 @@
                     
                 </div>
             {% else %}
-                
+                Agregar al carrito
             {% endif %}
         </span>
         <div class="js-addtocart-adding transition-container transition-icon">
@@ -22,3 +22,10 @@
     </div>
 </div>
 
+<style>
+.js-addtocart-placeholder:has(.transition-container.active) 
+  .js-addtocart-text {
+  display: none !important;
+}
+
+</style>
