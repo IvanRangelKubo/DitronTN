@@ -470,7 +470,8 @@
             }
 
             .text-accent, .product-installments.installment-no-interest {
-                color: #0099d4 !important;
+                color: var(--tagblue) !important;
+                font-size: 16px !important;
             }
 
             a.btnagregar.w-button:hover {
