@@ -649,6 +649,17 @@
             (function () {
             let activeBtn = null;
             let originalText = null;
+            const observed = new WeakSet();
+
+            function protectButton(btn) {
+                if (observed.has(btn)) return;
+                observed.add(btn);
+
+                observer.observe(btn, {
+                attributes: true,
+                attributeFilter: ['style']
+                });
+            }
 
             document.addEventListener('click', function (e) {
                 const btn = e.target.closest('.js-addtocart.itemBtn');
@@ -657,13 +668,13 @@
                 activeBtn = btn;
                 originalText = btn.value;
 
-                btn.value = 'Agregando...';
+                btn.value = 'Agregando';
                 btn.disabled = true;
             }, true);
 
             const observer = new MutationObserver(mutations => {
                 for (const m of mutations) {
-                if (m.type !== 'attributes' || m.attributeName !== 'style') continue;
+                if (m.type !== 'attributes') continue;
 
                 const el = m.target;
                 if (!el.classList.contains('js-addtocart') || !el.classList.contains('itemBtn')) continue;
@@ -674,26 +685,39 @@
                 }
 
                 if (el === activeBtn) {
-                    requestAnimationFrame(() => {
                     setTimeout(() => {
-                        el.value = originalText || 'Agregar al carrito';
-                        el.disabled = false;
-                        activeBtn = null;
-                        originalText = null;
+                    el.value = originalText || 'Agregar al carrito';
+                    el.disabled = false;
+                    activeBtn = null;
+                    originalText = null;
                     }, 1200);
-                    });
                 }
                 }
             });
 
-            document.querySelectorAll('.js-addtocart.itemBtn').forEach(btn => {
-                observer.observe(btn, {
-                attributes: true,
-                attributeFilter: ['style']
+            const domObserver = new MutationObserver(mutations => {
+                mutations.forEach(m => {
+                m.addedNodes.forEach(node => {
+                    if (!(node instanceof HTMLElement)) return;
+
+                    if (node.matches?.('.js-addtocart.itemBtn')) {
+                    protectButton(node);
+                    }
+
+                    node.querySelectorAll?.('.js-addtocart.itemBtn').forEach(protectButton);
                 });
+                });
+            });
+
+            document.querySelectorAll('.js-addtocart.itemBtn').forEach(protectButton);
+
+            domObserver.observe(document.body, {
+                childList: true,
+                subtree: true
             });
             })();
         </script>
+
 
 
 
