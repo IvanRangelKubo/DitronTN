@@ -268,30 +268,35 @@ document.addEventListener('DOMContentLoaded', () => {
     return t && t.value.trim().length > 0;
   };
 
-  const showError = () => {
-    offSpinner();
+	const showError = () => {
+		offSpinner();
 
-    if (!form.querySelector('.recaptcha-error-msg')) {
-      const alert = document.createElement('div');
-      alert.className = 'alert alert-danger recaptcha-error-msg';
-      alert.textContent = 'Debes completar el reCAPTCHA para continuar.';
-      form.insertBefore(alert, form.firstChild);
-    }
-    const g = form.querySelector('.g-recaptcha');
-    if (g) {
-			g.style.margin = '0px'
-    }
-  };
+		if (form.dataset.recaptchaError === 'true') return;
 
-  const clearError = () => {
-    const e = form.querySelector('.recaptcha-error-msg');
-    if (e) e.remove();
-    const g = form.querySelector('.g-recaptcha');
-    if (g) {
-      g.style.boxShadow = '';
-      g.style.border = '';
-    }
-  };
+		const alert = document.createElement('div');
+		alert.className = 'alert alert-danger recaptcha-error-msg';
+		alert.textContent = 'Debes completar el reCAPTCHA para continuar.';
+
+		form.insertBefore(alert, form.firstChild);
+		form.dataset.recaptchaError = 'true';
+
+		const g = form.querySelector('.g-recaptcha');
+		if (g) g.style.margin = '0px';
+	};
+
+	const clearError = () => {
+		const e = form.querySelector('.recaptcha-error-msg');
+		if (e) e.remove();
+
+		delete form.dataset.recaptchaError;
+
+		const g = form.querySelector('.g-recaptcha');
+		if (g) {
+			g.style.boxShadow = '';
+			g.style.border = '';
+		}
+	};
+
 
   form.addEventListener('submit', ev => {
     if (hasToken()) return;
